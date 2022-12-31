@@ -1,0 +1,262 @@
+.postCardTiles{
+    display: grid;
+    grid-template-columns: 32% 16% 16% 32%;
+    grid-template-rows: 35vw 30vw 30vw 25vw 20vw;
+    gap: 1rem;
+
+}
+
+.postCard{
+    color: var(--fontBlack);
+    padding: 2rem;
+}
+
+.postCard>h1{
+    margin-left: 1rem;
+    color: var(--fontGold);
+    font-size: 2rem;
+}
+
+
+
+.tile{
+   height: 100%;
+   overflow: hidden;
+   border: .1px solid var(--fontGold);
+   background-color: var(--backgroundWhite);
+   border-radius: 10px;
+}
+
+.one{
+    grid-column: span 4;
+    display: grid;
+    grid-template-columns: 66% 33%;
+}
+
+.two{
+    grid-column: span 3;
+    display: grid;
+    grid-template-columns: 66% 33%;
+}
+
+.three{
+    display: grid;
+    grid-template-rows: 60% 40%;
+    gap: 1rem;
+
+}
+
+.four{
+    display: grid;
+    grid-template-rows: 60% 40%;
+    gap: 1rem;
+}
+
+.five{
+    grid-column: span 3;
+    display: grid;
+    grid-template-columns: 66% 33%;
+}
+
+.six{
+    display: grid;
+    grid-template-rows: 60% 40%;
+    gap: 1rem;
+}
+
+.seven{
+    display: grid;
+    grid-template-rows: 60% 40%;
+    gap: 1rem;
+    grid-column: span 2;
+}
+
+.eight{
+    display: grid;
+    grid-template-rows: 60% 40%;
+    gap: 1rem;
+}
+
+.nine{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 1rem;
+    grid-column: span 2;
+}
+
+.ten{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 1rem;
+    grid-column: span 2;
+}
+
+
+.tileImage{
+    position: relative;
+    height: 100%;
+}
+
+.description{
+    -webkit-box-orient: vertical;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}
+
+.tileDetails{
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    justify-content: center;
+    padding: 4px;
+    overflow: hidden;
+    height: 100%;
+    width: 90%;
+}
+
+.tileDetails h3{
+    margin: 0;
+    color: var(--fontGold);
+    font-size: .8rem;
+}
+
+.itemDate{
+    font-size: small;
+    text-align: right;
+}
+
+@media screen and (max-width: 900px){
+    .one{
+        grid-column: span 4;
+        display: grid;
+        grid-template-columns: 50% 50%;
+    }
+
+    .two{
+        display: grid;
+        grid-template-rows: 60% 40%;
+        gap: 1rem;
+        grid-column: span 2;
+        grid-template-columns: auto;
+    }
+
+    .two .description{
+        display: none;
+    }
+
+    .nine .description{
+        display: none;
+    }
+
+    .five .description{
+        display: none;
+    }
+    
+    .three{
+        display: grid;
+        grid-template-rows: 60% 40%;
+        gap: 1rem;
+        grid-column: span 2;
+    
+    }
+    
+    .four{
+        display: grid;
+        grid-template-rows: 60% 40%;
+        gap: 1rem;
+        grid-column: span 2;
+    }
+    
+    .five{
+        grid-column: span 2;
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: auto;
+        grid-template-rows: 60% 40%;
+    }
+    
+    .six{
+        display: grid;
+        grid-template-rows: 60% 40%;
+        gap: 1rem;
+        grid-column: span 2;
+    }
+    
+    .seven{
+        display: grid;
+        grid-template-rows: 60% 40%;
+        gap: 1rem;
+        grid-column: span 2;
+    }
+    
+    .eight{
+        display: grid;
+        grid-template-rows: 60% 40%;
+        gap: 1rem;
+    }
+    
+    .nine{
+        display: grid;
+        grid-template-rows: 60% 40%;
+        gap: 1rem;
+        grid-column: span 2;
+        grid-template-columns: auto;
+    }
+    
+    .ten{
+        display: grid;
+        grid-template-rows: 60% 40%;
+        grid-template-columns: auto;
+        gap: 1rem;
+        grid-column: span 1;
+    }
+
+    .postCardTiles{
+        grid-template-rows: 35vw 35vw 35vw 35vw 35vw;
+    
+    }
+}
+
+@media screen and (max-width: 750px) {
+    .tileImage{
+        position: relative;
+        height: 4rem;
+        width: 6rem;
+    }
+
+    .postCardTiles{
+        display: grid;
+        grid-template-columns: auto;
+        grid-template-rows: repeat(10, auto);
+        gap: 1rem;
+    
+    }
+
+    .tile{
+        grid-column: span 1 !important;
+        display: flex !important;
+        align-items: center;
+        padding: 0 1rem;
+    }
+
+    .description{
+        display: none;
+    }
+
+    .one .tileImage{
+       width: 100%;
+       height: 50vmin;
+    }
+
+    .one{
+        gap: 1rem;
+       display: grid !important;
+       grid-template-columns: auto;
+       grid-template-rows: 70% 30%;
+       padding-top: 1rem;
+    }
+
+}

@@ -1,0 +1,72 @@
+.dashCard1{
+    position:relative;
+}
+
+.dashCard1Title{
+    position: absolute;
+    bottom: 2rem;
+    color: var(--fontGold);
+    font-weight: 700;
+    font-size: 2rem;
+    left: 1rem;
+}
+
+.dashCard1Date{
+    position: absolute;
+    bottom: 1rem;
+    color: var(--fontBlack);
+   left: 1rem;
+}
+
+.imageContainer{
+    position: relative;
+    width: 100%;
+    height: 70vmin;
+}
+
+.dashCard{
+    border: 0.1px solid var(--fontGold);
+    display: inline-block;
+    background-color: var(--backgroundWhite);
+    border-radius: 10px;
+    cursor: pointer;
+    color: var(--fontBlack);
+}
+
+.dashCard h1{
+    color: var(--fontGold);
+    border: 0.1px solid var(--fontGold);
+    width: 90%;
+    margin: 5px auto;
+    background-color: var(--borderGrey);
+    padding-left: 1rem;
+}
+
+.item{
+    display: flex;
+    gap: 3px;
+    border-top: 5px solid var(--borderGrey);
+    margin: 0 1rem;
+
+}
+
+.itemInfo{
+    display: flex;
+    flex-direction: column;
+    color: var(--fontBlack);
+   gap: 1rem;
+}
+
+.itemDate{
+    font-size: small;
+}
+
+.itemTitle{
+    align-self: flex-end;
+}
+
+.seeMore{
+    text-align: right;
+    color: var(--fontGold);
+    margin-right: 1rem;
+}

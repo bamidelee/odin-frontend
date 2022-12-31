@@ -1,0 +1,18 @@
+.sidebar{
+    position: fixed;
+    transition: all .3s;
+    overflow: hidden;
+    top: 3rem;
+    background-color:  var(--backgroundWhite);
+    height: 100vh;
+    box-sizing: border-box;
+    z-index: 2;
+}
+
+.open{
+    width: 300px;
+}
+
+.closed{
+    width: 0px;
+}

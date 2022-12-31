@@ -1,0 +1,30 @@
+.imageContainer{
+    position: relative;
+    height: 70vmin;
+}
+
+.newsDetails{
+    display: grid;
+    grid-template-columns: 70% 30%;
+    padding: 1rem;
+    color: var(--fontBlack);
+}
+
+.title{
+    color: var(--fontGold);
+    margin-left: 1rem;
+}
+
+.news{
+    border: .1px solid var(--fontGold);
+    border-radius: 10px ;
+}
+
+.date{
+    margin-left: 1rem;
+}
+
+.secondaryMedia{
+    margin: 1rem auto;
+    width: 60%;
+}

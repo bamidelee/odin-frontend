@@ -1,0 +1,59 @@
+.fixtures .matches{
+    display: grid;
+    grid-template-columns: 20% 10% 20%;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    width: 300px;
+}
+
+.fixtures{
+    color: var(--fontBlack);
+    border: .1px solid var(--fontGold);
+    background-color: var(--backgroundWhite);
+    margin-top: 2rem;
+    border-radius: 10px;
+  
+}
+
+.fixtures .matchesContainer{
+    margin: 1rem;
+    border: 1px solid var(--fontBlack);
+    padding-bottom: 1rem;
+    text-align: center;
+}
+
+
+ .leagueSelect{
+    background-color: rgba(255, 255, 255, 0.849);
+    width: 90vw;
+    margin: 0 auto 1rem ;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.material-symbols-outlined{
+    font-size: 2rem;
+    margin-left: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+.fixtureData{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+
+.title{
+    color: var(--fontGold);
+    border: .1px solid var(--fontGold);
+    background-color: var(--borderGrey);
+    padding-left: 1rem;
+    margin: .5rem 1rem;
+}
