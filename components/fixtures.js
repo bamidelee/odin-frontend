@@ -1,4 +1,5 @@
 import styles from '../styles/fixture.module.css'
+import Image from 'next/image'
 
 export default function Fixture({fixtureData, title, mini}){
     return(
@@ -19,7 +20,7 @@ export default function Fixture({fixtureData, title, mini}){
                                 </div>
                                 <h2>VS</h2>
                                 <div>
-                                    <img src={fixture.awayLogo} alt={fixture.awayTeam} />
+                                    <Image src={fixture.awayLogo} alt={fixture.awayTeam} width={50} height={50}/>
                                     <div>{fixture.awayTeam}</div>
                                 </div>
                             </div>
