@@ -2,7 +2,6 @@ import Image from 'next/image'
 import styles from '../styles/newsDetails.module.css'
 import formatDistanceToNowStrict from 'date-fns/formatDistanceToNow'
 import {  TwitterVideoEmbed, TwitterTweetEmbed } from 'react-twitter-embed';
-import InstagramEmbed from 'react-instagram-embed';
 import YouTube from 'react-youtube';
 export default function NewsDetails({news}){
     console.log(news.secondaryMedia)
@@ -29,18 +28,7 @@ export default function NewsDetails({news}){
                     news.secondaryMediaType === 'youtube' &&
                     <YouTube videoId={news.secondaryMedia}/>
                 }
-                {
-                    NewsDetails.secondaryMediaType === 'instagram' &&
-                    <InstagramEmbed
-                    url = {news.secondaryMedia}
-                    clientAccessToken='513200567457865|ebfc38c746fbb676a80f7b7976499823'
-                    maxWidth={375}
-                    hideCaption={false}
-                    containerTagName='div'
-                    injectScript
-                    protocol=''
-                    />
-                }
+               
            </div>
            }
            <p className={styles.description}>{news.description}</p>
