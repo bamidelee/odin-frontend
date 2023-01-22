@@ -7,15 +7,13 @@ export default function SideBar(props) {
 
     return(
         <div className= {props.sideBar? `${styles.sidebar} ${styles.open}`: `${styles.sidebar} ${styles.closed}`}>
-          <ul>
-            <li>
-              <Link href="/">Home</Link>
-              
-            </li>
-            <li>
-              <Link href="football">Football</Link>
-            </li>
-        </ul>
+          <Link href="/" replace onClick={() =>props.setSideBar(false)}>Home</Link>
+          <Link href="/page/football/1" replace onClick={() =>props.setSideBar(false)}>Football</Link>
+          <Link href="/page/entertainment/1" replace onClick={() =>props.setSideBar(false)}> Entertainment</Link>
+          <Link  href="/page/politics/1" replace onClick={() =>props.setSideBar(false)}>Politics</Link>
+          <Link  href="/page/international/1" replace onClick={() =>props.setSideBar(false)}>International</Link>
+          <Link href="/fixtures" replace onClick={() =>props.setSideBar(false)}>Fixtures</Link>
+          <Link href="/tables" replace onClick={() =>props.setSideBar(false)}>Tables</Link>
         </div>
     )
 }

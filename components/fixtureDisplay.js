@@ -3,6 +3,7 @@ import Fixture from "./fixtures"
 import { useQuery } from "@apollo/client"
 import { FIXTURE } from "./quarries";
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 export default function FixturesDisplay(){
     const { data, loading, error } = useQuery(FIXTURE);
@@ -26,7 +27,7 @@ export default function FixturesDisplay(){
     }, [data])
 
     return(
-      <div>
+      <Link href="fixtures">
           {premierLeagueFixture && <Carousel>
                  <Fixture fixtureData={JSON.parse(premierLeagueFixture.fixture)} title='Premier league' mini = {true}/>
                   <Fixture fixtureData={JSON.parse(championsLeagueFixture.fixture)} title='Champions league' mini= {true}/>
@@ -35,6 +36,6 @@ export default function FixturesDisplay(){
                   <Fixture fixtureData={JSON.parse(serieaFixture.fixture)} title='Seriea' mini={true}/>
                   <Fixture fixtureData={JSON.parse(leagueoneFixture.fixture)} title='League one' mini={true}/>
            </Carousel> }
-      </div>
+      </Link>
     )
 }

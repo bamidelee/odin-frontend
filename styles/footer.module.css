@@ -1,0 +1,43 @@
+.footer{
+    text-align: center;
+    background-color: var(--backgroundWhite);
+    color: var(--fontBlack);
+    padding: 2rem;
+}
+
+.socials{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    text-align: center;
+}
+
+.socials p{
+    color: var(--fontBlack);
+    font-size: 1.2rem;
+   
+}
+
+.socials h3{
+    color: var(--fontGold);
+}
+
+.socials a{
+    border: 1px solid var(--fontGold);
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 3px;
+}
+
+.mail h3{
+    color: var(--fontGold);
+}
+
+.mail{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+}

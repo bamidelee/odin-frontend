@@ -3,6 +3,7 @@ import Table from "./tables";
 import { useQuery } from "@apollo/client"
 import { TABLE } from "./quarries";
 import { useEffect, useState } from "react";
+import Link from 'next/link'
 
 
 
@@ -28,7 +29,7 @@ export default function TableDisplay(){
         }
     })
     return (
-        <div>
+        <Link href="tables">
             {premierLeagueTable && <Carousel>
               <Table standings={JSON.parse(premierLeagueTable.table).slice(0,6)} title='Premier league'/>
               <Table standings={JSON.parse(championsLeagueTable.table).slice(0,6)} title='Champions league'/>
@@ -37,6 +38,6 @@ export default function TableDisplay(){
               <Table standings={JSON.parse(serieaTable.table).slice(0,6)} title='Seriea'/>
               <Table standings={JSON.parse(leagueoneTable.table).slice(0,6)} title='league one'/>
             </Carousel>}
-        </div>
+        </Link>
     )
 }

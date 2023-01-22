@@ -4,16 +4,23 @@
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    width: 300px;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .fixtures{
     color: var(--fontBlack);
     border: .1px solid var(--fontGold);
     background-color: var(--backgroundWhite);
-    margin-top: 2rem;
     border-radius: 10px;
+   width: 95%;
+   margin-left: auto;
+   margin-right: auto;
   
+}
+
+.fixtureData{
+    display: flex;
 }
 
 .fixtures .matchesContainer{
@@ -21,18 +28,27 @@
     border: 1px solid var(--fontBlack);
     padding-bottom: 1rem;
     text-align: center;
+    width: 300px;
 }
 
 
  .leagueSelect{
-    background-color: rgba(255, 255, 255, 0.849);
     width: 90vw;
-    margin: 0 auto 1rem ;
+    margin: 0 auto ;
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
     align-items: center;
     justify-content: center;
+    margin: 2rem;
+}
+
+.leagueSelect button{
+    color: var(--fontBlack);
+    background-color: transparent;
+    border: none;
+    outline: none;
+    font-size: medium;
 }
 
 
@@ -43,11 +59,6 @@
     cursor: pointer;
 }
 
-.fixtureData{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-}
 
 
 .title{
@@ -56,4 +67,24 @@
     background-color: var(--borderGrey);
     padding-left: 1rem;
     margin: .5rem 1rem;
+}
+
+
+
+.fixtureData{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.matchesContainer h3{
+    color: var(--fontGold);
+}
+
+.matchesContainer h2{
+    color: var(--fontGold);
+}
+
+.active{
+    color: var(--fontGold) !important;
 }

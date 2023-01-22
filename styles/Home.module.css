@@ -5,8 +5,20 @@ padding: 2rem;
 gap: 10px;
 }
 
-@media (max-width: 900px) {
+@media (max-width: 1000px) {
     .main{
         grid-template-columns: 100% ;
     }
+}
+
+.pageRight{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.news{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }

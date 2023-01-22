@@ -14,7 +14,10 @@ export default function DashCard ({dashPosts, title, page}){
             <Link href={`post/${dashPosts[0]._id}`}>
                 <div className={styles.dashCard1}>
                     <div className={styles.imageContainer}>
-                        <Image src = {dashPosts[0].primaryMedia} alt={dashPosts[0].title} fill priority/>
+                        <Image src = {dashPosts[0].primaryMedia} alt={dashPosts[0].title} fill priority
+                         sizes="(max-width: 768px) 100vw,
+                         (max-width: 1200px) 50vw,
+                         33vw"/>
                     </div>
                     <div className={styles.dashCard1Date}>
                         { formatDistanceToNowStrict(dashPosts[0].date, { representation: 'date' })}
@@ -35,9 +38,9 @@ export default function DashCard ({dashPosts, title, page}){
                 </div>
             </Link>
             )}
-            <Link href={page}>
+            {page && <Link href={`page/${page}`}>
                 <p className={styles.seeMore}>See more...</p>
-            </Link>
+            </Link>}
         </div>
     )
 }

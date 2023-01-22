@@ -25,9 +25,9 @@ export default function Fixture({fixtureData, title, mini}){
                             </div>
                         </div>)}
                     </div>
-                </div>): 
+                </div>):
                 Object.keys(fixtureData[0]).map(key => <div key={key}>
-                    <div>
+                    <div className={styles.fixtureData}>
                         {fixtureData[0][key].map((fixture, index) => <div className={styles.matchesContainer} key={index}>
                             <h3>
                                 {fixture.MatchDay}

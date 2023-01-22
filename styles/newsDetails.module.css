@@ -3,12 +3,6 @@
     height: 70vmin;
 }
 
-.newsDetails{
-    display: grid;
-    grid-template-columns: 70% 30%;
-    padding: 1rem;
-    color: var(--fontBlack);
-}
 
 .title{
     color: var(--fontGold);
@@ -18,6 +12,9 @@
 .news{
     border: .1px solid var(--fontGold);
     border-radius: 10px ;
+    background-color: var(--backgroundWhite);
+    color: var(--fontBlack);
+    overflow: hidden;
 }
 
 .date{
@@ -27,4 +24,23 @@
 .secondaryMedia{
     margin: 1rem auto;
     width: 60%;
+}
+
+.description{
+    font-size: 1.5rem;
+    line-height: 3rem;
+    padding: 1rem;
+}
+
+.details{
+    display: grid;
+    grid-template-columns: 70% 30%;
+    gap: 1rem;
+    padding: 2rem;
+}
+
+@media screen and (max-width: 900px) {
+    .details{
+        grid-template-columns: auto;
+    }
 }

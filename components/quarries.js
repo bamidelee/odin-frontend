@@ -27,13 +27,10 @@ export const CURRENT_USER = gql`
 export const SEARCH_DASHPOST =gql`
     query searchDashPostByTitle($title: String){
         searchDashpost(title: $title){
-            text
+          description
             title
             primaryMedia
             date
-            type
-            trending
-            postID
             _id
             genre
         }
@@ -55,9 +52,9 @@ export const DASHPOST = gql`
     }
 `
 
-export const FOOTBALL_NEWS = gql`
-    query FOOTBALL{
-        footballNews{
+export const DASH_NEWS = gql`
+    query dashNews($genre: String){
+        dashNews(genre: $genre){
             title
             primaryMedia
             date
@@ -66,9 +63,9 @@ export const FOOTBALL_NEWS = gql`
     }
 `
 
-export const ALL_FOOTBALL = gql`
-    query FOOTBALL{
-        allFootball{
+export const NEWS_PAGE = gql`
+    query newsPage($genre: String, $pageNumber: String){
+        newsPage(genre: $genre, pageNumber: $pageNumber){
             title
             primaryMedia
             description
@@ -650,37 +647,7 @@ export const SIGNIN =gql`
     }
 `
 
-export const CREATE_POST =gql`
-    mutation createNewPost($description: String!, $title: String!, $primaryMedia: String!, $secondaryMedia: String, $secondaryMediaType: String, $genre: [String!]){
-        createPost(description: $description, title: $title, primaryMedia: $primaryMedia, secondaryMedia: $secondaryMedia, secondaryMediaType: $secondaryMediaType, genre: $genre){
-            title
-        }
-    }
-`
 
-export const CREATE_MUSIC = gql`
-    mutation createMusic($description: String!, $title: String!, $primaryMedia: String!, $secondaryMedia: String!, $genre: [String!], $stars: [String!], $label: String, $album: String, $trackNumber: String){
-        createMusic(description: $description, title: $title, primaryMedia: $primaryMedia, secondaryMedia: $secondaryMedia,  genre: $genre, stars: $stars, label: $label, album: $album, trackNumber: $trackNumber){
-            title
-        }
-    }
-`
-
-export const CREATE_MOVIE=gql`
-    mutation createMovie($description: String!, $title: String!, $primaryMedia: String!, $secondaryMedia: String!, $language: String!, $stars: [String!], $releaseDate: Date!, $genre: [String!], $source: String, $country: String!, $director: String){
-        createMovie(description: $description, title: $title, primaryMedia: $primaryMedia, secondaryMedia: $secondaryMedia,language: $language, stars: $stars, releaseDate: $releaseDate, genre: $genre, source: $source, country: $country, director: $director){
-            title
-        }
-    }
-`
-
-export const CREATE_SERIES = gql`
-    mutation createSeries($description: String!, $title: String!, $primaryMedia: String!, $secondaryMedia: String!, $language: String!, $stars: [String!], $releaseDate: Date!, $genre: [String!], $source: String, $season: String!, $episode: String!, $episodeTitle: String!, $country: String!, $director: String){
-        createSeries(description: $description, title: $title, primaryMedia: $primaryMedia, secondaryMedia: $secondaryMedia,language: $language, stars: $stars, releaseDate: $releaseDate, genre: $genre, source: $source, season: $season, episode: $episode, episodeTitle: $episodeTitle country: $country, director: $director){
-            title
-        }
-    }
-`
 
 export const CREATE_COMMENT = gql`
     mutation createComment($text: String, $sender: ID, $postID: String, $postType: String ){

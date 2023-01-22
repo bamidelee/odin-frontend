@@ -1,6 +1,9 @@
 import style from '../styles/header.module.css'
 import { useEffect, useState } from 'react'
 import MenuBar from './menubar'
+import Icon from '@mdi/react';
+import { mdiMagnify} from '@mdi/js';
+import Link from 'next/link';
 
 export default function Header ({mouseX, sideBar, setSideBar}) {
     const [mousePos, setMousePos] = useState('')
@@ -29,6 +32,9 @@ export default function Header ({mouseX, sideBar, setSideBar}) {
                 <span>NAIJA</span>ODIN
                 </h1>
             </div>
+            <Link href='/search' replace className={style.search}>
+                <Icon path={mdiMagnify} size={1.3}  color= 'var(--fontGold)'/>
+            </Link>
         </div>
     )
 }

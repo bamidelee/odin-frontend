@@ -3,6 +3,7 @@ import { useRef, useState, useEffect } from "react";
 import useMouse from '@react-hook/mouse-position'
 import SideBar from "./sidebar";
 import { AppWrapper } from '../context/appContext';
+import Footer from "./footer";
 
 
 
@@ -20,8 +21,9 @@ export default function Layout ({children}) {
         <>
             <AppWrapper>
                 <Header mouseX={mouse.x} sideBar={sideBar} setSideBar={setSideBar}/>
-                <SideBar sideBar={sideBar}/>
-                <main ref={ref} style={{paddingTop: '4rem'}}>{children}</main>
+                <SideBar sideBar={sideBar} setSideBar = {setSideBar}/>
+                <main ref={ref} style={{paddingTop: '4rem'}} onClick = {(() => setSideBar(false))}>{children}</main>
+                <Footer/>
             </AppWrapper>
         </>
     )

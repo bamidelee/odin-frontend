@@ -20,7 +20,7 @@
 .Standings{
     color: var(--fontBlack);
     background-color: var(--backgroundWhite);
-    width: 100%;
+    width: 95%;
     margin: 0 auto;
     border: .1px solid var(--fontGold);
     border-radius: 10px;

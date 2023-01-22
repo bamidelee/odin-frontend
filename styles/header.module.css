@@ -8,12 +8,12 @@
 }
 
 .header{
-    height: 3rem;
+    height:3rem;
     box-sizing: border-box;
     display: grid;
     align-items:center;
     justify-content: center;
-    grid-template-columns: 40% 60%;
+    grid-template-columns: 20% 60% 20%;
     gap: 4px;
     background-color: var(--backgroundWhite);
     position: fixed;
@@ -27,6 +27,7 @@
     display: flex;
     width: 100%;
     align-items: center;
+    justify-content: center;
 }
 
 .header .eyeFrame{
@@ -59,4 +60,8 @@
 
 .header h1 span{
     color: var(--fontBlack);
+}
+
+.search{
+    justify-self: center;
 }

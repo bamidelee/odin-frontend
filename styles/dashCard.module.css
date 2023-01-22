@@ -31,6 +31,7 @@
     border-radius: 10px;
     cursor: pointer;
     color: var(--fontBlack);
+    width: 100%;
 }
 
 .dashCard h1{

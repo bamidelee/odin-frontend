@@ -1,0 +1,31 @@
+.search{
+    min-height: 80vh;
+    color: var(--fontBlack);
+    padding: 0 2rem;
+   
+    
+}
+
+.search input{
+    border: 1px solid var(--fontGold);
+    font-size: 1.3rem;
+    color: var(--fontBlack);
+    padding: 1rem;
+    outline: none;
+    border-radius: 20px;
+    width: 80vmin;
+}
+
+.search h1{
+    color: var(--fontGold);
+}
+
+.searchResult{
+ 
+    margin: 2rem auto;
+}
+
+.searchDashpost{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
