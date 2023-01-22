@@ -1,5 +1,4 @@
 import styles from '../styles/table.module.css'
-import Image from 'next/image'
 
 
 export default function Table ({standings, title}){
@@ -22,7 +21,7 @@ export default function Table ({standings, title}){
             {standings && standings.map((club, index) => <div key={index} className={styles.standings}>
                 <div className={styles.standingsLeft}>
                     <div>{club.Position}</div>
-                    <Image src={club.SquadLogo} alt={club.Name} width={50} height={50}/>
+                    <img src={club.SquadLogo} alt={club.Name} />
                     <div>{club.Name}</div>
                 </div>
                 <div className={styles.standingsRight}>
