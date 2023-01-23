@@ -38,7 +38,7 @@ export default function DashCard ({dashPosts, title, page}){
                 </div>
             </Link>
             )}
-            {page && <Link href={`page/${page}`}>
+            {page && <Link href={`page/${page}/1`}>
                 <p className={styles.seeMore}>See more...</p>
             </Link>}
         </div>
