@@ -9,7 +9,7 @@ export default function News({news}){
   const { param } = router.query
     return(
         <div>
-           <PostCard news={news.slice().reverse()} title={param[0]} page = {param[1]}/>
+           <PostCard news={news} title={param[0]} page = {param[1]}/>
         </div>
     )
     
