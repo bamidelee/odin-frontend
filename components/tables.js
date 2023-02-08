@@ -22,7 +22,7 @@ export default function Table ({standings, title}){
                 <div className={styles.standingsLeft}>
                     <div>{club.Position}</div>
                     <img src={club.SquadLogo} alt={club.Name} />
-                    <div>{club.Name}</div>
+                    <div className={styles.clubName}>{club.Name}</div>
                 </div>
                 <div className={styles.standingsRight}>
                     <div>{club.Played}</div>
