@@ -21,6 +21,9 @@ export default function Home({footballNews, entertainmentNews, politicsNews, int
         <meta name="description" content="blog" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/titleIcon.png/" />
+        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9120505021602496"
+          crossorigin="anonymous">
+        </script>
       </Head>
       <main className={styles.main}>
        <div className={styles.news}>
