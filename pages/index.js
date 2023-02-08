@@ -10,6 +10,7 @@ import TableDisplay from '../components/tableDisplay';
 import Carousel from '../components/carousel';
 import FixturesDisplay from '../components/fixtureDisplay';
 import ClientOnly from '../components/Clientonly';
+import AdSense from 'react-adsense-ads';
 
 export default function Home({footballNews, entertainmentNews, politicsNews, internationalNews}) {
  
@@ -33,9 +34,24 @@ export default function Home({footballNews, entertainmentNews, politicsNews, int
          <DashCard dashPosts={internationalNews} title= "International" page='international'/>
        </div>
         <div className={styles.pageRight}>
+        <AdSense.Google
+          client='ca-pub-9120505021602496'
+          slot='9297350024'
+          style={{ display: 'block' }}
+          format='auto'
+          responsive='true'
+        />
           <ClientOnly>
             <TableDisplay/>
           </ClientOnly>
+
+          <AdSense.Google
+          client='ca-pub-9120505021602496'
+          slot='9297350024'
+          style={{ display: 'block' }}
+          format='auto'
+          responsive='true'
+        />
            
             <ClientOnly>
               <FixturesDisplay/>
