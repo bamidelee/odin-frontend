@@ -42,5 +42,6 @@
 @media screen and (max-width: 900px) {
     .details{
         grid-template-columns: auto;
+        padding: .5rem;
     }
 }
