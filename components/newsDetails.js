@@ -4,7 +4,7 @@ import formatDistanceToNowStrict from 'date-fns/formatDistanceToNow'
 import {  TwitterVideoEmbed, TwitterTweetEmbed } from 'react-twitter-embed';
 import YouTube from 'react-youtube';
 export default function NewsDetails({news}){
-    console.log(news.secondaryMedia)
+   
     return(
         <div className={styles.news}>
             <div className={styles.imageContainer}>

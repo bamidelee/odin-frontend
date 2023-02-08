@@ -158,6 +158,9 @@
 }
 
 @media screen and (max-width: 900px){
+    .postCard{
+        padding: .5rem;
+    }
     .one{
         grid-column: span 4;
         display: grid;
@@ -250,6 +253,9 @@
 }
 
 @media screen and (max-width: 750px) {
+    .postCard{
+        padding: .5rem;
+    }
     .tileImage{
         position: relative;
         height: 4rem;
