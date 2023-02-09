@@ -22,10 +22,10 @@ export default function Layout ({children}) {
         <>
             <AppWrapper>
                 <Header mouseX={mouse.x} sideBar={sideBar} setSideBar={setSideBar}/>
-                <GoogleAds currentPath ='layout1' slot='7603380005'/>
+                <GoogleAds currentPath ='layout1' slot='4345008888'/>
                 <SideBar sideBar={sideBar} setSideBar = {setSideBar}/>
                 <main ref={ref} style={{paddingTop: '4rem'}} onClick = {(() => setSideBar(false))}>{children}</main>
-                <GoogleAds currentPath ='layout2' slot = '7603380005'/>
+                <GoogleAds currentPath ='layout2' slot = '4345008888'/>
                 <Footer/>
             </AppWrapper>
         </>
