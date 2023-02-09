@@ -4,6 +4,7 @@ import useMouse from '@react-hook/mouse-position'
 import SideBar from "./sidebar";
 import { AppWrapper } from '../context/appContext';
 import Footer from "./footer";
+import GoogleAds from "./googleAds";
 
 
 
@@ -21,8 +22,10 @@ export default function Layout ({children}) {
         <>
             <AppWrapper>
                 <Header mouseX={mouse.x} sideBar={sideBar} setSideBar={setSideBar}/>
+                <GoogleAds currentPath ='layout1'/>
                 <SideBar sideBar={sideBar} setSideBar = {setSideBar}/>
                 <main ref={ref} style={{paddingTop: '4rem'}} onClick = {(() => setSideBar(false))}>{children}</main>
+                <GoogleAds currentPath ='layout2'/>
                 <Footer/>
             </AppWrapper>
         </>
