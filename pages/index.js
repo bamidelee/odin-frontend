@@ -35,12 +35,12 @@ export default function Home({footballNews, entertainmentNews, politicsNews, int
          <DashCard dashPosts={internationalNews} title= "International" page='international'/>
        </div>
         <div className={styles.pageRight}>
-        <GoogleAds currentPath = 'home1'/>
+        <GoogleAds currentPath = 'home1' slot = '4345008888'/>
           <ClientOnly>
             <TableDisplay/>
           </ClientOnly>
 
-          <GoogleAds currentPath = 'home2'/>
+          <GoogleAds currentPath = 'home2' slot = '4345008888'/>
             <ClientOnly>
               <FixturesDisplay/>
             </ClientOnly>
