@@ -19,11 +19,13 @@ export default function DashCard ({dashPosts, title, page}){
                          (max-width: 1200px) 50vw,
                          33vw"/>
                     </div>
-                    <div className={styles.dashCard1Date}>
-                        { formatDistanceToNowStrict(dashPosts[0].date, { representation: 'date' })}
-                    </div>
-                    <div className={styles.dashCard1Title}>
-                        {dashPosts[0].title}
+                    <div className={styles.dashCard1Info}>
+                        <div className={styles.dashCard1Date}>
+                            { formatDistanceToNowStrict(dashPosts[0].date, { representation: 'date' })}
+                        </div>
+                        <div className={styles.dashCard1Title}>
+                            {dashPosts[0].title}
+                        </div>
                     </div>
                 </div>
             </Link>

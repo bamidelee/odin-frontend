@@ -9,13 +9,17 @@
     font-weight: 700;
     font-size: 2rem;
     left: 1rem;
-    background-color: rgba(0, 0, 0, 0.178);
+  
+}
+
+.dashCard1Info{
+    background-color: rgba(0, 0, 0, 0.322);
 }
 
 .dashCard1Date{
     position: absolute;
     bottom: 1rem;
-    color: var(--fontBlack);
+    color: var(--fontGold);
    left: 1rem;
 }
 
