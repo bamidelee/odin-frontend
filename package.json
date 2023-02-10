@@ -21,6 +21,7 @@
     "next": "13.0.7",
     "react": "^18.2.0",
     "react-adsense-ads": "^3.5.1",
+    "react-dom": "^18.2.0",
     "react-slick": "^0.29.0",
     "react-twitter-embed": "^4.0.4",
     "react-youtube": "^10.1.0",
