@@ -12,8 +12,9 @@
 .dashCard1Info{
     background-color: rgba(0, 0, 0, 0.322);
     position: absolute;
-    bottom: 2rem;
+    bottom: 0;
    padding-left: 1rem;
+   width: 100%;
     color: var(--fontGold);
 }
 
