@@ -24,7 +24,6 @@ export default function Home({footballNews, entertainmentNews, politicsNews, int
         <meta name="description" content="blog" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/titleIcon.png/" />
-       
       </Head>
       <main className={styles.main}>
        <div className={styles.news}>
@@ -34,12 +33,12 @@ export default function Home({footballNews, entertainmentNews, politicsNews, int
          <DashCard dashPosts={internationalNews} title= "International" page='international'/>
        </div>
         <div className={styles.pageRight}>
-        <GoogleAds currentPath='index2' slot = '7603380005'/>
+        <GoogleAds  slot = '7603380005'/>
           <ClientOnly>
             <TableDisplay/>
           </ClientOnly>
 
-          <GoogleAds currentPath='index1' slot = '7603380005'/>
+          <GoogleAds  slot = '7603380005'/>
             <ClientOnly>
               <FixturesDisplay/>
             </ClientOnly>

@@ -1,11 +1,19 @@
-import { useEffect } from "react"
-export default function GoogleAds({currentPath, slot}) {
+import { useEffect, useState } from "react"
+export default function GoogleAds({ slot}) {
+    const [hasMounted, setHasMounted] = useState(false);
     useEffect(() => {
-        ;(window.adsbygoogle = window.adsbygoogle || []).push({})
-      }, [currentPath])
+        setHasMounted(true);
+        
+      }, [])
+
+      useEffect(() => {
+       hasMounted &&  (window.adsbygoogle = window.adsbygoogle || []).push({})
+        
+      }, [hasMounted])
+    
 
     return(
-        <div key={currentPath} style={{ textAlign: 'left', overflow: 'hidden' }}>
+        <div style={{ textAlign: 'left', overflow: 'hidden' }}>
         <span style={{ fontSize: '12px' }}>Advertisment</span>
         { /*START horizonalAds Google Adsense */ }
             <ins className="adsbygoogle"
