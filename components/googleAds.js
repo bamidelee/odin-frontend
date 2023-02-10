@@ -6,7 +6,8 @@ export default function GoogleAds({currentPath, slot}) {
       }, [currentPath])
 
     return(
-        <div key={currentPath}>
+        <div key={currentPath} style={{ textAlign: 'left', overflow: 'hidden' }}>
+        <span style={{ fontSize: '12px' }}>Advertisment</span>
         { /*START horizonalAds Google Adsense */ }
             <ins className="adsbygoogle"
                 style={{display: 'block'}}
