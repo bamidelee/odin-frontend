@@ -27,6 +27,7 @@ export default function Home({footballNews, entertainmentNews, politicsNews, int
       </Head>
       <main className={styles.main}>
        <div className={styles.news}>
+        
          <DashCard dashPosts={footballNews} title='Football' page='football'/>
          <DashCard dashPosts={entertainmentNews} title='Entertainment' page='entertainment'/>
          <DashCard dashPosts={politicsNews} title="Politics" page='politics'/>
