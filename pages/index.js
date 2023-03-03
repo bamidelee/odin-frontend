@@ -28,13 +28,14 @@ export default function Home({footballNews, entertainmentNews, politicsNews, int
       <main className={styles.main}>
        <div className={styles.news}>
         
+        
          <DashCard dashPosts={footballNews} title='Football' page='football'/>
          <DashCard dashPosts={entertainmentNews} title='Entertainment' page='entertainment'/>
          <DashCard dashPosts={politicsNews} title="Politics" page='politics'/>
          <DashCard dashPosts={internationalNews} title= "International" page='international'/>
        </div>
         <div className={styles.pageRight}>
-        <GoogleAds  slot = '7603380005'/>
+        <div id="container-1e845c512aba6f843b89be278fa82a95"></div>
           <ClientOnly>
             <TableDisplay/>
           </ClientOnly>
