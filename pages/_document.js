@@ -5,12 +5,7 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-      <Script
-          async
-          src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9120505021602496`}
-          strategy="lazyOnload"
-          crossOrigin="anonymous"
-        />
+      <meta name="admverifysite" content="2d45f3d66b05a54863a9bcadfeadf867" />
       </Head>
       <body>
         <Main />
