@@ -55,7 +55,7 @@ const mediaQuery450 = window.matchMedia('(max-width: 450px)')
           <h2 className={styles.carouselTitle}> {title} </h2>
          {movies && <Slider {...settings}>
            {movies.map((movie, index) => 
-            <Link href={`/movie/${movie._id}`} replace key={i}>
+            <Link href={`/movie/${movie._id}`} replace key={index}>
               <div key={movie.id} className={styles.carouselContainer} >
                   <Image src={movie.primaryMedia} alt={movie.title}
                   width={100} height={70} className={styles.caroselImage}/>

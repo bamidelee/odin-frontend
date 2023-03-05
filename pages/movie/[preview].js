@@ -2,7 +2,7 @@ import MoviePreview from "../../components/movie/moviePreview";
 import { FIND_MOVIE } from '../../components/quarries';
 import client from "../../apollo-client";
 
-export default function ({movie}) {
+export default function Preview({movie}) {
 
     return(
         <div>
