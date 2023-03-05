@@ -1,4 +1,4 @@
-import { NEWS_PAGE } from "../../components/quarries"
+import { NEWS_PAGE, LATEST_MOVIES } from "../../components/quarries"
 import client from "../../apollo-client";
 import { useRouter } from 'next/router'
 import PostCard from '../../components/postCard'
@@ -9,7 +9,7 @@ export default function News({news}){
   const { param } = router.query
     return(
         <div>
-           <PostCard news={news} title={param[0]} page = {param[1]}/>
+           <PostCard news={news} title='Latest movies' page = {param[1]}/>
         </div>
     )
     
@@ -18,19 +18,12 @@ export default function News({news}){
 export async function getStaticProps({params}) {
   const {param} = params
  
-    const { data } = await client.query({query: NEWS_PAGE, variables: {genre: param[0], pageNumber:param[1], type: param[2]}});
+    const { data } =await client.query({query: LATEST_MOVIES, variables: {pageNumber: param[0]}});
 
-    if (data.newsPage.length < 1) {
-      return {
-        redirect: {
-          destination: `/page/${param[0]}/0`,
-          permanent: false,
-        },
-      }
-    }
+   
     return {
       props: {
-        news: data.newsPage,
+        news: data.latestMovies,
       
       },
       revalidate: 60 * 60 * 60 * 6

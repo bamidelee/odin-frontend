@@ -1,0 +1,47 @@
+.carousel{
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.carouselContainer img{
+    height: 12rem;
+    width: 18rem
+  }
+
+  .carouselContainer{
+    position: relative;
+   transition: all .5s;
+}
+
+.carouselTitle{
+    font-family: strange;
+    color: var(--fontGold);
+    font-size: 2rem;
+    letter-spacing: 2px;
+}
+
+.carouselContainer h2{
+    margin: 0;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+    color: white;
+    position: absolute;
+    bottom: 1rem;
+    left: 1rem;
+    word-break: break-all;
+  }
+
+  .carouselContainer .rating{
+    position: absolute;
+    font-weight: 600;
+    font-family: 'Monoton', cursive;
+    padding: 0;
+    left: -1.5rem;
+    font-size: 10rem;
+    color: red;
+    top: 1px;
+    z-index: 1;
+  }
+
+ 

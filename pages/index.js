@@ -35,12 +35,11 @@ export default function Home({footballNews, entertainmentNews, politicsNews, int
          <DashCard dashPosts={internationalNews} title= "International" page='international'/>
        </div>
         <div className={styles.pageRight}>
-        <div id="container-1e845c512aba6f843b89be278fa82a95"></div>
           <ClientOnly>
             <TableDisplay/>
           </ClientOnly>
 
-          <GoogleAds  slot = '7603380005'/>
+
             <ClientOnly>
               <FixturesDisplay/>
             </ClientOnly>

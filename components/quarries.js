@@ -64,8 +64,8 @@ export const DASH_NEWS = gql`
 `
 
 export const NEWS_PAGE = gql`
-    query newsPage($genre: String, $pageNumber: String){
-        newsPage(genre: $genre, pageNumber: $pageNumber){
+    query newsPage($genre: String, $pageNumber: String, $type: String){
+        newsPage(genre: $genre, pageNumber: $pageNumber, type: $type){
             title
             primaryMedia
             description
@@ -116,6 +116,17 @@ export const FIND_POST = gql`
             secondaryMedia
             secondaryMediaType
             genre
+        }
+    }
+`
+
+export const LATEST_MOVIES = gql`
+    query latestMovies($pageNumber: String){
+        latestMovies(pageNumber: $pageNumber){
+            title
+            description
+            primaryMedia
+            date
         }
     }
 `
