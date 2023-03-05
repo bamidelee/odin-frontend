@@ -16,8 +16,6 @@ export default function Movies ({latestMovies}){
 }
 
 
-
-
 export async function getStaticProps() {
     const { data: latestMovieData } = await client.query({query: LATEST_MOVIES, variables: {pageNumber: '1'}});
         return {

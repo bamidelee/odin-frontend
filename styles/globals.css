@@ -1,8 +1,8 @@
 :root{
     --backgroundBlack: 	rgb(0,0,0);
     --backgroundWhite: white;
-    --fontGold: gold;
-    --borderGrey: #70809023;
+    --fontGold: rgb(255, 217, 0);
+    --borderGrey: #2126301f;
     --fontBlack: 	#696969;
 
 }
