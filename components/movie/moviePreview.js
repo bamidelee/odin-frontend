@@ -31,13 +31,13 @@ export default function MoviePreview ({movie}){
                        <h2>{movie.title}</h2>
                        <h3>Genre</h3>
                        <p>
-                        {movie.genre.map(genre => <span>{genre} / </span> )}
+                        {movie.genre.map(genre => <span key={genre}>{genre} / </span> )}
                        </p>
                        <h3>Director</h3>
                        <p>{movie.director}</p>
                        <h3>Stars</h3>
                        <p>
-                        {movie.stars.map(genre => <span>{genre} / </span> )}
+                        {movie.stars.map(genre => <span key={genre}>{genre} / </span> )}
                        </p>
                        <h3>Realese date</h3>
                        <p>{format(new Date(movie.releaseDate), 'MM/dd/yyyy')}</p>
@@ -59,7 +59,7 @@ export default function MoviePreview ({movie}){
                     <div className={styles.download}>
                         <h3>Download links:</h3>
                         <p>
-                            {movie.secondaryMedia.split(',').map((link, i) => <Link href={link}>Server{i + 1}</Link>)}
+                            {movie.secondaryMedia.split(',').map((link, i) => <Link href={link} key={i}>Server{i + 1}</Link>)}
                         </p>
                     </div>
         </div>
