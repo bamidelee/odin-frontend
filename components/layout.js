@@ -24,7 +24,6 @@ export default function Layout ({children}) {
                 <Header mouseX={mouse.x} sideBar={sideBar} setSideBar={setSideBar}/>
                 <SideBar sideBar={sideBar} setSideBar = {setSideBar}/>
                 <main ref={ref} style={{paddingTop: '4rem'}} onClick = {(() => setSideBar(false))}>
-                <div id="container-1e845c512aba6f843b89be278fa82a95"></div>
                     {children}
                 </main>
                 <Footer/>
