@@ -1,9 +1,10 @@
 .moviesHeader{
-    height: 90vh;
+    height: 80vh;
  background-size: cover;
  background-repeat: no-repeat;
  background-position: center;
  overflow: hidden;
+
 }
 
 .headerDetails h1{
@@ -17,6 +18,7 @@
     top: 20vh;
     left: 5vw;
     width: 40vw;
+    height: 40vh;
     color: white;
         text-align: center;
         width: 90vw;
@@ -26,5 +28,7 @@
         right: 0;
         top: 40vh;
         font-size: larger;
+        overflow: hidden;
+        text-overflow: ellipsis;
        
 }

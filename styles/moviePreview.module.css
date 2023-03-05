@@ -1,0 +1,123 @@
+.movieImageContainer{
+    position: relative;
+    width: 30vmax;
+    height: 40vmax;
+    border: 2px solid var(--fontGold);
+    justify-self: center;
+
+}
+
+.previewHeader{
+   display: grid;
+   grid-template-columns: 50% 50%;
+   width: 70%;
+   margin: 0 auto;
+   padding-top: 2rem;
+}
+
+.previewRight h2{
+    font-size: 2.5rem;
+    color: var(--fontGold);
+    word-break: break-all;
+
+}
+
+.previewRight h3{
+    color: var(--fontGold);
+    margin: .5rem;
+}
+
+.previewRight p {
+    color: var(--fontBlack);
+    margin: 0;
+}
+
+.previewRight{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.moviePreview{
+    background-color: var(--backgroundWhite);
+    overflow-x: hidden;
+}
+
+.description{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+    padding: 2rem;
+}
+
+.description h3{
+    color: var(--fontGold);
+}
+
+.description p {
+    color: var(--fontBlack);
+}
+
+.trailer{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid var(--fontGold);
+    position: relative;
+    width: 60%;
+    margin: 2rem auto;
+    padding-top: 2rem;
+
+}
+
+.trailer h3{
+    color: var(--fontBlack);
+    position: absolute;
+    background-color: var(--backgroundWhite);
+    top: -2rem;
+}
+
+.download{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+}
+
+.download h3{
+    color: var(--fontBlack);
+}
+
+.download p{
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    color: var(--fontGold);
+}
+
+.download a{
+    color: var(--fontGold);
+}
+
+@media screen and (max-width : 900px) {
+    .previewHeader{
+        grid-template-columns: auto;
+        width: 100%;
+        margin: 0 auto;
+        padding-top: 1rem;
+     }
+     .previewRight h2{
+        font-size: 1.5rem;
+        color: var(--fontGold);
+        word-break: break-all;
+    
+    }
+
+    .trailer{
+        width: 100%;
+        margin: 2rem auto;
+        padding-top: 2rem;
+    
+    }
+}
