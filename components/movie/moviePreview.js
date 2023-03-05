@@ -36,7 +36,7 @@ export default function MoviePreview ({movie}){
                        <h3>Director</h3>
                        <p>{movie.director}</p>
                        <h3>Stars</h3>
-                       <p>
+                       <p className={styles.stars}> 
                         {movie.stars.map(genre => <span key={genre}>{genre} / </span> )}
                        </p>
                        <h3>Realese date</h3>
