@@ -27,7 +27,7 @@ export default function TableDisplay(){
             setSerieaTablle(data.tables.find(table => table.league === 'seriea'))
             setLeaguoneTable(data.tables.find(table => table.league === 'leagueone'))
         }
-    })
+    }, [data])
     return (
         <Link href="tables">
             {premierLeagueTable && <Carousel>

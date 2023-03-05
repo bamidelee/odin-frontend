@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styles from '../../styles/movieDisplay.module.css'
 import ClientOnly from '../Clientonly'
-import Carousel from './carosel'
+import Carosel from './carosel'
 import Image from 'next/image'
 import Link from "next/link";
 
@@ -28,7 +28,7 @@ export default function MovieDisplay ({latestMovies}){
               </Link>
             </ClientOnly>
             <ClientOnly>
-              <Carousel movies = {latestMovies} title= 'Latest'/>
+              <Carosel movies = {latestMovies} title= 'Latest'/>
             </ClientOnly>
         </div>
     )

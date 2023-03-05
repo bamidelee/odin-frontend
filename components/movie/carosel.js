@@ -7,7 +7,7 @@ import ClientOnly from "../Clientonly";
 import Link from "next/link";
 import Image from 'next/image'
 
-export default function Carousel ({movies, title}) {
+export default function Carosel ({movies, title}) {
   const [slideAmount, setSlideAmount] = useState(4)
 useEffect(() => {
   if(window.innerWidth < 659){
