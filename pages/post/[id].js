@@ -13,7 +13,7 @@ export default  function Post({news, relatedNews}){
     return(
        <div className={styles.details}>
         <NewsDetails news={news}/>
-        <RelatedNews news={relatedNews.filter(news => news._id !== id)}/>
+        {relatedNews && <RelatedNews news={relatedNews.filter(news => news._id !== id)}/>}
        </div>
     )
 }
@@ -22,8 +22,8 @@ export async function getStaticProps({params}) {
     
     const { id } = params
     const { data } = await client.query({query: FIND_POST, variables: {id: id}});
-    const {data: relatedNews} = await client.query({query: RELATED_POST, variables:{genre: data.findPost.genre[1]} })
-
+    const {data: relatedNews} = await client.query({query: RELATED_POST, variables:{genre: data.findPost? data.findPost.genre[1]: null} })
+    console.log(data)
     if (!data.findPost) {
       return {
         notFound: true,

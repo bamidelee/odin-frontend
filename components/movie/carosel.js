@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import styles from '../../styles/carousel.module.css'
 import ClientOnly from "../Clientonly";
 import Link from "next/link";
+import Image from 'next/image'
 
 export default function Carousel ({movies, title}) {
   const [slideAmount, setSlideAmount] = useState(4)
@@ -46,25 +47,29 @@ const mediaQuery450 = window.matchMedia('(max-width: 450px)')
         infinite: true,
         speed: 500,
         slidesToShow: slideAmount,
-        slidesToScroll: slideAmount
+        slidesToScroll: slideAmount,
+        className: 'react__slick__slider__parent'
       }
       return (
         <div className={styles.carousel}>
           <h2 className={styles.carouselTitle}> {title} </h2>
          {movies && <Slider {...settings}>
            {movies.map((movie, index) => 
-            <div key={movie.id} className={styles.carouselContainer} >
-                <img src={`${movie.primaryMedia}`} alt={movie.title} className={styles.caroselImage} />
-                <h2>
-                    {movie.title}
-                </h2>
-                {title === 'Trending' && <div className="rating">
-                  {index + 1}
-                </div>}
-            </div>
+            <Link href={`/movie/${movie._id}`} replace>
+              <div key={movie.id} className={styles.carouselContainer} >
+                  <Image src={movie.primaryMedia} alt={movie.title}
+                  width={100} height={70} className={styles.caroselImage}/>
+                  <h2>
+                      {movie.title}
+                  </h2>
+                  {title === 'Trending' && <div className="rating">
+                    {index + 1}
+                  </div>}
+              </div>
+            </Link>
            )}
           </Slider>}
-          <Link href="/latest-movies/1" replace>See more</Link>
+          <Link href="/page/Latest movies/1" replace>See more</Link>
         </div>
       );
     }

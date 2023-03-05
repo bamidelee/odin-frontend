@@ -4,7 +4,7 @@ import useMouse from '@react-hook/mouse-position'
 import SideBar from "./sidebar";
 import { AppWrapper } from '../context/appContext';
 import Footer from "./footer";
-import GoogleAds from "./googleAds";
+
 
 
 

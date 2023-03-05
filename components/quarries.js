@@ -71,6 +71,7 @@ export const NEWS_PAGE = gql`
             description
             date
             _id
+            postID
         }
     }
 `
@@ -127,6 +128,7 @@ export const LATEST_MOVIES = gql`
             description
             primaryMedia
             date
+            _id
         }
     }
 `
@@ -141,6 +143,7 @@ export const FIND_MOVIE = gql`
             date
             language
             stars
+            trailer
             comments{
                 text
                 sender{
@@ -720,7 +723,7 @@ export const SAD = gql`
 
 export const CREATE_TREND = gql`
     mutation createTrend($postID: ID){
-        createPost(postID: $postID){
+        createTrend(postID: $postID){
             _id
         }
     }

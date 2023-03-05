@@ -2,22 +2,18 @@ import { LATEST_MOVIES } from "../components/quarries";
 import { useState } from "react";
 import client from "../apollo-client";
 import MovieDisplay from "../components/movie/movieDisplay";
+import styles from '../styles/movie.module.css'
 
 
 export default function Movies ({latestMovies}){
     
     return(
-        <div>
+        <div className={styles.movieView}>
           <MovieDisplay latestMovies = {latestMovies}/>
         </div>
     )
 
 }
-
-
-
-
-
 
 
 
