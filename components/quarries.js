@@ -616,8 +616,8 @@ export const FIND_SERIES = gql`
 `
 
 export const TRENDING = gql`
-    query trending{
-        text
+    query trending ($type: String){
+      trending (type : $type){ text
         title
         primaryMedia
         date
@@ -625,7 +625,7 @@ export const TRENDING = gql`
         trending
         postID
         _id
-        genre
+        genre}
     }
 `
 
