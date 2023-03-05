@@ -71,6 +71,10 @@
 
 }
 
+.trailer iframe{
+    width: 100vmin !important;
+}
+
 .trailer h3{
     color: var(--fontBlack);
     position: absolute;

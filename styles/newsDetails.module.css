@@ -26,6 +26,10 @@
     width: 60%;
 }
 
+.secondaryMedia iframe{
+    width: 100vmin !important;
+}
+
 .description{
     font-size: 1rem;
     line-height: 2rem;
