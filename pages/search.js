@@ -11,7 +11,10 @@ export default function Search(){
     return(
         <div className={styles.search}>
             <h1>Search</h1>
-            <input type="text" placeholder='Start searching...' value={search} onChange={({target}) =>{setSearch(target.value); search && searchDashpost({variables:{title: search}})}}/>
+            <div className={styles.inputContainer}>
+                <input type="text" placeholder='Start searching...' value={search} onChange={({target}) =>{setSearch(target.value); search && searchDashpost({variables:{title: search}})}}/>
+              { loading && <div className={styles.loading}></div>}
+            </div>
            {!search && <p>Start typing to search for news</p>}
          {data && <div className={styles.searchDashpost}>{data.searchDashpost.length > 0 && <PostList dashPosts={data.searchDashpost} title='Search result'/>}</div>}
         </div>

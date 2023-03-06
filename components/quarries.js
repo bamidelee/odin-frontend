@@ -85,6 +85,14 @@ export const PAGE_COUNT = gql`
     }
 `
 
+export const MOVIE_COUNT = gql`
+    query LatestMovieCount{
+        latestMoviesCount{
+           count
+        }
+    }
+`
+
 export const RELATED_POST = gql`
     query relatedPost($genre: String){
         relatedPost(genre: $genre){

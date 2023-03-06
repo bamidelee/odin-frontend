@@ -13,7 +13,7 @@
     padding: 1rem;
     outline: none;
     border-radius: 20px;
-    width: 80vmin;
+    width: 70vmin;
 }
 
 .search h1{
@@ -28,4 +28,41 @@
 .searchDashpost{
     margin-top: 1rem;
     margin-bottom: 1rem;
+}
+
+ .loading{
+    width: 2px;
+    height: 2px;
+    border-image: linear-gradient(var(--fontGold), var(--fontGold)) 30;
+    border-width: 1px;
+    border-style: solid;
+    border-radius: 50%;
+    animation-name: loading;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+    display: inline-block;
+    margin-left: 1rem;
+}
+
+@keyframes loading {
+    0%{
+        transform: rotate(0) scale(1);
+    }
+
+    50%{
+        transform: rotate(90deg) scale(2);
+    }
+
+    75%{
+        transform: rotate(180deg) scale(3);
+    }
+
+    100%{
+        transform: rotate(360deg) scale(1);
+    }
+}
+
+.inputContainer{
+    display: flex;
+    align-items: center;
 }

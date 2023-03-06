@@ -28,7 +28,7 @@ export default function Home({footballNews, entertainmentNews, politicsNews, int
         
         
          <DashCard dashPosts={footballNews} title='Football' page='football' type='post'/>
-         <DashCard dashPosts={latestMovies} title = 'Latest Movies' page = 'latestMovie' type = 'movie'/>
+         <DashCard dashPosts={latestMovies} title = 'Latest Movies' page = 'latest Movie' type = 'movie'/>
          <DashCard dashPosts={entertainmentNews} title='Entertainment' page='entertainment' type='post'/>
          <DashCard dashPosts={politicsNews} title="Politics" page='politics' type='post'/>
          <DashCard dashPosts={internationalNews} title= "International" page='international' type='post'/>
