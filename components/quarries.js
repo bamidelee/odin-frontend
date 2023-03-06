@@ -33,6 +33,8 @@ export const SEARCH_DASHPOST =gql`
             date
             _id
             genre
+            postID
+            type
         }
     }
 `
