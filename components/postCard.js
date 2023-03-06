@@ -5,7 +5,9 @@ import formatDistanceToNowStrict from 'date-fns/formatDistanceToNow'
 import Link from 'next/link'
 import { useState } from 'react'
 
-export default function PostCard({news, title, page,type}){
+export default function PostCard({news, title, page,type, pageCount}){
+        const [count, ] = useState(Math.floor(pageCount/10))
+        
 
     return(
         <div className={styles.postCard}>
@@ -140,9 +142,10 @@ export default function PostCard({news, title, page,type}){
                         </div>
                     </Link>
                 </div>}
-                <div className={styles.pageChange}>
-                  { parseInt(page) > 1 && <Link href={`/page/${title}/${parseInt(page) - 1}/${type}`} replace>←Previous</Link>}
-                    <Link href={`/page/${title}/${parseInt(page) + 1}/${type}`} replace className={styles.next}>Next→</Link>
+               
+
+                <div className={styles.pagnation}>
+                    {[...Array(count)].map((p, i) => <Link className={parseInt(page) === i + 1 ? styles.activePage : styles.inactivePage} key={i} href={`/page/${title}/${i + 1}/${type}`}>{i + 1}</Link>)}
                 </div>
         </div>
     )

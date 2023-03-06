@@ -77,6 +77,13 @@ export const NEWS_PAGE = gql`
         }
     }
 `
+export const PAGE_COUNT = gql`
+    query pageCount($genre: String, $type: String){
+        pageCount(genre: $genre, type: $type){
+           count
+        }
+    }
+`
 
 export const RELATED_POST = gql`
     query relatedPost($genre: String){

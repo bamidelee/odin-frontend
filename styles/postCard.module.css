@@ -294,3 +294,18 @@
     }
 
 }
+
+.pagnation{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.inactivePage{
+    color: var(--fontGold);
+}
+
+.activePage{
+    color: var(--fontBlack);
+}
