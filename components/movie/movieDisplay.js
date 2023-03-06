@@ -10,7 +10,7 @@ export default function MovieDisplay ({latestMovies}){
     return(
         <div>
             <ClientOnly>
-              <Link href = {`/movie/${randomLatestMovie._id}`} replace>
+              <Link href = {`movies/${randomLatestMovie._id}`}>
                 <header  className = {styles.moviesHeader}>
                 <Image src={randomLatestMovie.primaryMedia} alt={randomLatestMovie.title} fill priority
                   sizes="(max-width: 768px) 100vw,

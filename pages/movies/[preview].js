@@ -15,7 +15,6 @@ export default function Preview({movie}) {
 
 export async function getStaticProps({params}) {
     const {preview} = params
-    console.log(preview)
     const { data } = await client.query({query: FIND_MOVIE, variables: {id : preview }});
         return {
         props: {

@@ -12,7 +12,7 @@ export default function RelatedNews({news}){
 
     return(
         <div>
-            {news.length > 0 && <PostList dashPosts={news.slice(0,5)} title ='Related news'/>}
+            {news.length > 0 && <PostList dashPosts={news.slice(0,5)} title ='Related news' replace = {true}/>}
         </div>
     )
 }
