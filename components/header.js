@@ -32,7 +32,7 @@ export default function Header ({mouseX, sideBar, setSideBar}) {
                 <span>NAIJA</span>ODIN
                 </h1>
             </div>
-            <Link href='/search' replace className={style.search}>
+            <Link href='/search'  className={style.search}>
                 <Icon path={mdiMagnify} size={1.3}  color= 'var(--fontGold)'/>
             </Link>
         </div>
