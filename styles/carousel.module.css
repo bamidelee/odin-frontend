@@ -22,7 +22,7 @@
 .carouselTitle{
     font-family: strange;
     color: var(--fontGold);
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     letter-spacing: 1px;
     border: 1px solid var(--fontGold);
     padding: 0 1rem;
@@ -54,4 +54,12 @@
     z-index: 1;
   }
 
+
+  .seeMore{
+    text-align: right;
+    color: var(--fontGold);
+    display: block;
+    margin: 2rem;
+    font-size: 1.3rem;
+  }
  

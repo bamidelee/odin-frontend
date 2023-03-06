@@ -69,7 +69,7 @@ const mediaQuery450 = window.matchMedia('(max-width: 450px)')
             </Link>
            )}
           </Slider>}
-          <Link href="/page/Latest movies/1" replace>See more</Link>
+          <Link href="/page/Latest movies/1" replace className={styles.seeMore}>See more...</Link>
         </div>
       );
     }
