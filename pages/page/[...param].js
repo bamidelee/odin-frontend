@@ -31,7 +31,7 @@ export async function getStaticProps({params}) {
         latestMoviesCount: movieCountData.latestMoviesCount.count
       
       },
-      revalidate: 60 * 60 * 60 * 6
+      revalidate: 60 * 60 * 60 * 2
    };
   }
 

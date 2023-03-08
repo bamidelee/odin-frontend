@@ -34,7 +34,7 @@ export async function getStaticProps({params}) {
         news: data.findPost,
         relatedNews: relatedNews.relatedPost
       },
-      revalidate: 60 * 60 * 60 * 6
+      revalidate: 60 * 60 * 60 * 2
    };
   }
 

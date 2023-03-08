@@ -1,12 +1,15 @@
 import MoviePreview from "../../components/movie/moviePreview";
 import { FIND_MOVIE } from '../../components/quarries';
+import ClientOnly from "../../components/Clientonly";
 import client from "../../apollo-client";
 
 export default function Preview({movie}) {
 
     return(
         <div>
-            <MoviePreview movie = {movie}/>
+            <ClientOnly>
+                <MoviePreview movie = {movie}/>
+            </ClientOnly>
 
         </div>
     )
@@ -21,7 +24,7 @@ export async function getStaticProps({params}) {
         
             movie: data.findMovie
         },
-        revalidate: 60 * 60 * 60 * 6
+        revalidate: 60 * 60 * 60 * 2
     };
 }
 

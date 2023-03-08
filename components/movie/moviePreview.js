@@ -12,12 +12,18 @@ export default function MoviePreview ({movie}){
     const [createTrend, { data, loading, error }] = useMutation(CREATE_TREND);
 
     useEffect(() => {
-      setHasMounted(true);
-    }, [])
-
-    useEffect(() => {
-        hasMounted && createTrend({variables: {postID: movie._id}})
+         createTrend({variables: {id: movie._id}})
     },[])
+
+    useEffect(() =>{
+        if(data){
+            console.log(data)
+        }
+
+        if(error){
+            console.log(error.message)
+        }
+    },[data, error])
     return (
         <div className={styles.moviePreview}>
                <div className={styles.previewHeader}>

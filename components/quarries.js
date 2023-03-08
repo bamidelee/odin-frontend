@@ -634,7 +634,7 @@ export const FIND_SERIES = gql`
 
 export const TRENDING = gql`
     query trending ($type: String){
-      trending (type : $type){ text
+      trending (type : $type){ 
         title
         primaryMedia
         date
@@ -739,8 +739,8 @@ export const SAD = gql`
 `
 
 export const CREATE_TREND = gql`
-    mutation createTrend($postID: ID){
-        createTrend(postID: $postID){
+    mutation createTrend($id: ID!){
+        createTrend(id: $id){
             _id
         }
     }

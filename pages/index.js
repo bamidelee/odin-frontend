@@ -63,6 +63,6 @@ export async function getStaticProps() {
       internationalNews: internationalData.dashNews,
       latestMovies: latestMovieData.latestMovies
     },
-    revalidate: 60 * 60 * 60 * 6
+    revalidate: 60 * 60 * 60 * 2
  };
 }
