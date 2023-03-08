@@ -29,3 +29,8 @@ html{
 
 }
 
+.ads{
+    display: flex;
+    justify-content: center;
+}
+
