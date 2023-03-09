@@ -12,7 +12,8 @@ import FixturesDisplay from '../components/fixtureDisplay';
 import ClientOnly from '../components/Clientonly';
 import { useQuery } from "@apollo/client"
 import Banner from '../components/banner';
-import BoxBanner from '../components/boxBanner';
+import Script from 'next/script';
+
 
 export default function Home({footballNews, entertainmentNews, politicsNews, internationalNews, latestMovies}) {
   const { data: trendingData, loading, error } = useQuery(TRENDING);
@@ -45,7 +46,16 @@ export default function Home({footballNews, entertainmentNews, politicsNews, int
       
        </div>
         <div className={styles.pageRight}>
-      
+      {mobileBanner &&  <div>
+                    <Script
+                    async
+                    type="application/javascript" src="https://a.exdynsrv.com/ad-provider.js"
+                    strategy="afterInteractive"
+                    />
+                        { <div className="ads"><ins class="adsbyexoclick" data-zoneid="4935076"></ins> </div>}
+                    
+                    <Script>{`(AdProvider = window.AdProvider || []).push({"serve": {}});`}</Script>
+                  </div>}
        {trendingData && <ClientOnly>
           <DashCard dashPosts={trendingData.trending.slice(0,10).sort((a,b) => b.trending.length - a.trending.length)} title='Trending movies' page='trending' type='movie'/>
         </ClientOnly>}

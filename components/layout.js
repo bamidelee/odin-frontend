@@ -36,15 +36,29 @@ export default function Layout ({children}) {
                 {desktopBanner && <DesktopBanner/>}
                     {children}
 
+                  { !desktopBanner &&<div>
                     <Script
-                    async 
+                    async
                     type="application/javascript" src="https://a.exdynsrv.com/ad-provider.js"
                     strategy="afterInteractive"
                     />
-                        <ins class="adsbyexoclick" data-zoneid="4935076"></ins> 
-                      
+                        { <div className="ads"><ins class="adsbyexoclick" data-zoneid="4935076"></ins> </div>}
+                    
                     <Script>{`(AdProvider = window.AdProvider || []).push({"serve": {}});`}</Script>
-     
+                  </div>
+                   }
+
+                    { desktopBanner &&<div>
+                    <Script
+                    async
+                    type="application/javascript" src="https://a.exdynsrv.com/ad-provider.js"
+                    strategy="afterInteractive"
+                    />
+                        { <div className="ads"> <ins class="adsbyexoclick" data-zoneid="4935098"></ins>  </div>}
+                    
+                    <Script>{`(AdProvider = window.AdProvider || []).push({"serve": {}});`}</Script>
+                  </div>
+                   }
 
                 </main>
                 <Footer/>
