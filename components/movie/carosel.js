@@ -47,7 +47,7 @@ const mediaQuery450 = window.matchMedia('(max-width: 450px)')
         infinite: true,
         speed: 500,
         slidesToShow:slideAmount,
-        slidesToScroll: 1,
+        slidesToScroll: slideAmount,
         className: 'react__slick__slider__parent'
       }
       return (

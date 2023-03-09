@@ -3,10 +3,20 @@ import { FIXTURE } from "../components/quarries";
 import client from "../apollo-client";
 import { useState, useEffect } from "react";
 import styles from '../styles/fixture.module.css'
+import BoxBanner from '../components/boxBanner'
+
 
 export default function Fixtures({fixtures}){
     const [competition, setCompetition] = useState('championsLeague')
     const [fixtureData, setFixtureData] = useState(fixtures.find(fixture => fixture.league === competition))
+    const [mobileBanner, setMobileBanner] = useState(false)
+
+    useEffect(() => {
+     
+      if(window.innerWidth < 650){
+        setMobileBanner(true)
+      }
+    },[])
 
     useEffect(() =>{
         setFixtureData(fixtures.find(fixture => fixture.league === competition))
@@ -14,6 +24,7 @@ export default function Fixtures({fixtures}){
 
     return(
         <div>
+            {mobileBanner && <BoxBanner/>}
                 <div className={styles.leagueSelect}>
                 <button className={competition === 'championsLeague'? styles.active: styles.inActive} id="championsLeague" onClick={({target}) => setCompetition(target.id)}>Champions League</button>
                 <button className={competition === 'premierLeague'? styles.active:styles.inActive} id="premierLeague" onClick={({target}) => setCompetition(target.id)}>Premier League</button>

@@ -2,13 +2,25 @@ import { NEWS_PAGE, LATEST_MOVIES, PAGE_COUNT, MOVIE_COUNT} from "../../componen
 import client from "../../apollo-client";
 import { useRouter } from 'next/router'
 import PostCard from '../../components/postCard'
+import BoxBanner from '../../components/boxBanner'
+import { useEffect, useState } from 'react';
+
 
 
 export default function News({news, latestMovies, pageCount, latestMoviesCount}){
+  const [mobileBanner, setMobileBanner] = useState(false)
+
+    useEffect(() => {
+     
+      if(window.innerWidth < 650){
+        setMobileBanner(true)
+      }
+    },[])
   const router = useRouter()
   const { param } = router.query
     return(
         <div>
+           {mobileBanner && <BoxBanner/>}
            <PostCard news={param[2] === 'post' ? news : latestMovies} title={param[0]} page = {param[1]} type = {param[2]} pageCount = {param[2] === 'post'?pageCount : latestMoviesCount}/>
         </div>
     )

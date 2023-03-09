@@ -11,7 +11,7 @@ export default function DashCard ({dashPosts, title, page, type}){
     return(
         <div className={styles.dashCard}>
             <h1>{title}</h1>
-            <Link href={type === 'post'?`post/${dashPosts[0]._id}`:`movies/${dashPosts[0]._id}`}>
+            <Link href={page === 'trending'?`movies/${dashPosts[0].postID}`: page === 'latest movie'?`movies/${dashPosts[0]._id}`:`post/${dashPosts[0]._id}`}>
                 <div className={styles.dashCard1}>
                     <div className={styles.imageContainer}>
                         <Image src = {dashPosts[0].primaryMedia} alt={dashPosts[0].title} fill priority
@@ -30,7 +30,7 @@ export default function DashCard ({dashPosts, title, page, type}){
                 </div>
             </Link>
             {dashPosts.slice(1,5).map((post, index) => 
-            <Link key={index} href={type === 'post'?`post/${post._id}`: `movies/${post._id}`}>
+            <Link key={index} href={page === 'trending'?`movies/${post.postID}`: page === 'latest movie'?`movies/${post._id}`:`post/${post._id}`}>
                 <div className={styles.item}>
                       <Image src={post.primaryMedia} alt={post.title} width={100} height={70}/>
                       <div className={styles.itemInfo}>
@@ -40,7 +40,7 @@ export default function DashCard ({dashPosts, title, page, type}){
                 </div>
             </Link>
             )}
-            {page && <Link href={`page/${page}/1/${type}`}>
+            {page && <Link href={page === 'trending'? 'movies':`page/${page}/1/${type}`}>
                 <p className={styles.seeMore}>See more...</p>
             </Link>}
         </div>

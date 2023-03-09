@@ -5,13 +5,20 @@ import SideBar from "./sidebar";
 import { AppWrapper } from '../context/appContext';
 import Footer from "./footer";
 import Script from "next/script";
-import Banner from "./banner";
-
+import DesktopBanner from "./desktopBanner";
 
 
 
 export default function Layout ({children}) {
 
+    const [desktopBanner, setDesktopBanner] = useState(false)
+
+    useEffect(() => {
+    
+      if(window.innerWidth > 650){
+        setDesktopBanner(true)
+      }
+    },[])
 
     const [sideBar, setSideBar] = useState(false)
     const ref = useRef(null)
@@ -26,8 +33,7 @@ export default function Layout ({children}) {
                 <Header mouseX={mouse.x} sideBar={sideBar} setSideBar={setSideBar}/>
                 <SideBar sideBar={sideBar} setSideBar = {setSideBar}/>
                 <main ref={ref} style={{paddingTop: '4rem'}} onClick = {(() => setSideBar(false))}>
-                <Banner/>
-               
+                {desktopBanner && <DesktopBanner/>}
                     {children}
 
                     <Script

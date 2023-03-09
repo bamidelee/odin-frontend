@@ -18,15 +18,7 @@ export default function MoviePreview ({movie}){
          hasMounted && createTrend({variables: {id: movie._id}})
     },[hasMounted])
 
-    useEffect(() => {
-        if(data){
-            console.log(data)
-        }
-
-        if(error){
-            console.log(error)
-        }
-    }, [data])
+    
 
 
     

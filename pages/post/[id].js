@@ -4,14 +4,24 @@ import client from "../../apollo-client";
 import RelatedNews from "../../components/relatedNews";
 import { useRouter } from 'next/router'
 import styles from '../../styles/newsDetails.module.css'
-
+import BoxBanner from '../../components/boxBanner'
+import { useEffect, useState } from 'react';
 
 
 export default  function Post({news, relatedNews}){
+  const [mobileBanner, setMobileBanner] = useState(false)
+
+    useEffect(() => {
+     
+      if(window.innerWidth < 650){
+        setMobileBanner(true)
+      }
+    },[])
   const router = useRouter()
   const { id } = router.query
     return(
        <div className={styles.details}>
+          {mobileBanner && <BoxBanner/>}
         <NewsDetails news={news}/>
         {relatedNews && <RelatedNews news={relatedNews.filter(news => news._id !== id)}/>}
        </div>
