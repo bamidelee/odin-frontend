@@ -37,7 +37,7 @@ export default function Home({footballNews, entertainmentNews, politicsNews, int
       <main className={styles.main}>
        <div className={styles.news}>
         
-          {mobileBanner && <ClientOnly><Banner/></ClientOnly>}
+          {mobileBanner && <Banner/>}
          <DashCard dashPosts={footballNews} title='Football' page='football' type='post'/>
          <DashCard dashPosts={latestMovies} title = 'Latest Movies' page = 'latest movie' type = 'movie'/>
          <DashCard dashPosts={entertainmentNews} title='Entertainment' page='entertainment' type='post'/>
