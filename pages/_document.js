@@ -5,13 +5,8 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-      <meta name='asg_verification' content='2VMGmMogM7WMadzH4Qfxnqmk'/>
-      <meta name="a.validate.02" content="vYwaOauN--MRhMt8yVyv5kWGpENnAweSSnTr" />
-      <Script
-      async = "true"
-      src="https://zvwhrc.com/na/waWQiOjExNDkzMzMsInNpZCI6MTE5MDA5Miwid2lkIjo0MzMwNDEsInNyYyI6Mn0=eyJ.js"
-      />
-     
+      <meta name="exoclick-site-verification" content="36f890cd1c58742a61865fd15cf4487a"></meta>
+
       </Head>
       <body>
         <Main />
