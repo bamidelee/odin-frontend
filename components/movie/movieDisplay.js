@@ -5,7 +5,7 @@ import Carosel from './carosel'
 import Image from 'next/image'
 import Link from "next/link";
 
-export default function MovieDisplay ({latestMovies}){
+export default function MovieDisplay ({latestMovies, trending}){
     const [randomLatestMovie, ] = useState(latestMovies[Math.floor(Math.random() * latestMovies.length)])
     return(
         <div>
@@ -28,7 +28,10 @@ export default function MovieDisplay ({latestMovies}){
               </Link>
             </ClientOnly>
             <ClientOnly>
-              <Carosel movies = {latestMovies} title= 'Latest'/>
+              <Carosel movies = {latestMovies} title= 'Latest' latestMovie={true}/>
+            </ClientOnly>
+            <ClientOnly>
+              <Carosel movies = {trending} title= 'Trending' trending= {true}/>
             </ClientOnly>
         </div>
     )

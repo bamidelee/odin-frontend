@@ -3,10 +3,10 @@ export default function Banner() {
     const banner = useRef()
 
     const atOptions = {
-        key: '8c47067f1ac7389ef98d7ba0c597c9d9',
+        key: '1d24a5888bd79927cba80711f10c599a',
         format: 'iframe',
-        height: 90,
-        width: 728,
+        height: 250,
+        width: 300,
         params: {},
     }
     useEffect(() => {
@@ -14,7 +14,7 @@ export default function Banner() {
         const conf = document.createElement('script')
         const script = document.createElement('script')
         script.type = 'text/javascript'
-        script.src = `//www.profitabledisplaynetwork.com/8c47067f1ac7389ef98d7ba0c597c9d9/invoke.js`
+        script.src = `//www.profitabledisplaynetwork.com/1d24a5888bd79927cba80711f10c599a/invoke.js`
         conf.innerHTML = `atOptions = ${JSON.stringify(atOptions)}`
 
         if (banner.current) {

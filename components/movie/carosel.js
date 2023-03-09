@@ -7,7 +7,7 @@ import ClientOnly from "../Clientonly";
 import Link from "next/link";
 import Image from 'next/image'
 
-export default function Carosel ({movies, title}) {
+export default function Carosel ({movies, title, latestMovie, trending}) {
   const [slideAmount, setSlideAmount] = useState(4)
 useEffect(() => {
   if(window.innerWidth < 659){
@@ -55,21 +55,21 @@ const mediaQuery450 = window.matchMedia('(max-width: 450px)')
           <h2 className={styles.carouselTitle}> {title} </h2>
          {movies && <Slider {...settings}>
            {movies.map((movie, index) => 
-            <Link href={`movies/${movie._id}`} key={index}>
+            <Link href={latestMovie? `movies/${movie._id}`: `movies/${movie.postID}`} key={index}>
               <div key={movie.id} className={styles.carouselContainer} >
                   <Image src={movie.primaryMedia} alt={movie.title}
                   width={100} height={70} className={styles.caroselImage}/>
                   <h2>
                       {movie.title}
                   </h2>
-                  {title === 'Trending' && <div className="rating">
+                  {title === 'Trending' && <div className={styles.rating}>
                     {index + 1}
                   </div>}
               </div>
             </Link>
            )}
           </Slider>}
-          <Link href="/page/movies/1"  className={styles.seeMore}>See more...</Link>
+         {!trending && <Link href={latestMovie?"/page/Latest movies/1/movies": "/page/Trending/1/movies"}  className={styles.seeMore}>See more...</Link>}
         </div>
       );
     }
