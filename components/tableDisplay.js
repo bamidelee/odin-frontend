@@ -36,7 +36,7 @@ export default function TableDisplay(){
               <Table standings={ JSON.parse(laligaTable.table).slice(0,6)} title='Laliga'/>
               <Table standings={JSON.parse(europaTable.table).slice(0,6)} title='Europa'/>
               <Table standings={JSON.parse(serieaTable.table).slice(0,6)} title='Seriea'/>
-              <Table standings={JSON.parse(leagueoneTable.table).slice(0,6)} title='league one'/>
+              <Table standings={JSON.parse(leagueoneTable.table).slice(0,6)} title='League one'/>
             </Carousel>}
         </Link>
     )
