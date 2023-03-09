@@ -5,8 +5,8 @@ import MovieDisplay from "../components/movie/movieDisplay";
 import styles from '../styles/movie.module.css'
 
 
-export default function Movies ({latestMovies}){
-    
+export default function Movies ({latestMovies, trending}){
+    console.log(trending)
     return(
         <div className={styles.movieView}>
           <MovieDisplay latestMovies = {latestMovies}/>
@@ -23,7 +23,8 @@ export async function getStaticProps() {
         return {
         props: {
         
-            latestMovies: latestMovieData.latestMovies
+            latestMovies: latestMovieData.latestMovies,
+            trending: trendingMovieData.trending
         },
         revalidate: 60 * 60 * 60 * 2
     };

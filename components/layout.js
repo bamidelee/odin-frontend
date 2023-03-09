@@ -30,8 +30,9 @@ export default function Layout ({children}) {
                     {children}
 
                     <Script
-      async = "true"
+      async 
       src="https://zvwhrc.com/na/waWQiOjExNDkzMzMsInNpZCI6MTE5MDA5Miwid2lkIjo0MzMwNDEsInNyYyI6Mn0=eyJ.js"
+      strategy="afterInteractive"
       />
      
 

@@ -15,15 +15,7 @@ export default function MoviePreview ({movie}){
          createTrend({variables: {id: movie._id}})
     },[])
 
-    useEffect(() =>{
-        if(data){
-            console.log(data)
-        }
-
-        if(error){
-            console.log(error.message)
-        }
-    },[data, error])
+    
     return (
         <div className={styles.moviePreview}>
                <div className={styles.previewHeader}>
