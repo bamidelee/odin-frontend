@@ -11,10 +11,10 @@ export default function Carosel ({movies, title, latestMovie, trending}) {
   const [slideAmount, setSlideAmount] = useState(6)
 useEffect(() => {
   if(window.innerWidth < 659){
-    setSlideAmount(3)
+    setSlideAmount(6)
   }
   if(window.innerWidth < 450){
-    setSlideAmount(2)
+    setSlideAmount(4)
   }
 },[])
 const mediaQuery990 = window.matchMedia('(max-width: 750px)')
