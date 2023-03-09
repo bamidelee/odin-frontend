@@ -5,11 +5,12 @@ import MovieDisplay from "../components/movie/movieDisplay";
 import styles from '../styles/movie.module.css'
 
 
-export default function Movies ({latestMovies, trending}){
+
+export default function Movies ({latestMovies}){
     
     return(
         <div className={styles.movieView}>
-          <MovieDisplay latestMovies = {latestMovies} trending = {trending}/>
+          <MovieDisplay latestMovies = {latestMovies} />
         </div>
     )
 
@@ -18,13 +19,12 @@ export default function Movies ({latestMovies, trending}){
 
 export async function getStaticProps() {
     const { data: latestMovieData } = await client.query({query: LATEST_MOVIES, variables: {pageNumber: '1'}});
-    const { data: trendingMovieData } = await client.query({query: TRENDING, variables: {type: 'movie'}});
  
         return {
         props: {
         
             latestMovies: latestMovieData.latestMovies,
-            trending: trendingMovieData.trending
+          
         },
         revalidate: 60 * 60 * 60 * 2
     };

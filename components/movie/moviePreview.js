@@ -11,9 +11,23 @@ export default function MoviePreview ({movie}){
     const [hasMounted, setHasMounted] = useState(false);
     const [createTrend, { data, loading, error }] = useMutation(CREATE_TREND);
 
-    useEffect(() => {
-         createTrend({variables: {id: movie._id}})
+    useEffect(()=>{
+        setHasMounted(true)
     },[])
+    useEffect(() => {
+         hasMounted && createTrend({variables: {id: movie._id}})
+    },[hasMounted])
+
+    useEffect(() => {
+        if(data){
+            console.log(data)
+        }
+
+        if(error){
+            console.log(error)
+        }
+    }, [data])
+
 
     
     return (

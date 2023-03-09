@@ -27,13 +27,14 @@ export default function Layout ({children}) {
                 <SideBar sideBar={sideBar} setSideBar = {setSideBar}/>
                 <main ref={ref} style={{paddingTop: '4rem'}} onClick = {(() => setSideBar(false))}>
                 <Banner/>
+               
                     {children}
 
                     <Script
-      async 
-      src="https://zvwhrc.com/na/waWQiOjExNDkzMzMsInNpZCI6MTE5MDA5Miwid2lkIjo0MzMwNDEsInNyYyI6Mn0=eyJ.js"
-      strategy="afterInteractive"
-      />
+                    async 
+                    src="https://zvwhrc.com/na/waWQiOjExNDkzMzMsInNpZCI6MTE5MDA5Miwid2lkIjo0MzMwNDEsInNyYyI6Mn0=eyJ.js"
+                    strategy="afterInteractive"
+                    />
      
 
                 </main>

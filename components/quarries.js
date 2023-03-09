@@ -742,6 +742,7 @@ export const CREATE_TREND = gql`
     mutation createTrend($id: ID!){
         createTrend(id: $id){
             _id
+            trending
         }
     }
 `

@@ -4,9 +4,12 @@ import ClientOnly from '../Clientonly'
 import Carosel from './carosel'
 import Image from 'next/image'
 import Link from "next/link";
+import { useQuery } from "@apollo/client"
+import { TRENDING } from "../quarries";
 
-export default function MovieDisplay ({latestMovies, trending}){
+export default function MovieDisplay ({latestMovies}){
     const [randomLatestMovie, ] = useState(latestMovies[Math.floor(Math.random() * latestMovies.length)])
+    const { data: trendingData, loading, error } = useQuery(TRENDING);
     return(
         <div>
             <ClientOnly>
@@ -30,9 +33,9 @@ export default function MovieDisplay ({latestMovies, trending}){
             <ClientOnly>
               <Carosel movies = {latestMovies} title= 'Latest' latestMovie={true}/>
             </ClientOnly>
-            <ClientOnly>
-              <Carosel movies = {trending} title= 'Trending' trending= {true}/>
-            </ClientOnly>
+           {trendingData && <ClientOnly>
+              <Carosel movies = {trendingData.trending.slice(0,10).sort((a,b) => b.trending.length - a.trending.length)} title= 'Trending' trending= {true}/>
+            </ClientOnly>}
         </div>
     )
 }
