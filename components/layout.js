@@ -38,9 +38,12 @@ export default function Layout ({children}) {
 
                     <Script
                     async 
-                    src="https://zvwhrc.com/na/waWQiOjExNDkzMzMsInNpZCI6MTE5MDA5Miwid2lkIjo0MzMwNDEsInNyYyI6Mn0=eyJ.js"
+                    type="application/javascript" src="https://a.exdynsrv.com/ad-provider.js"
                     strategy="afterInteractive"
                     />
+                        <ins class="adsbyexoclick" data-zoneid="4935076"></ins> 
+                      
+                    <Script>{`(AdProvider = window.AdProvider || []).push({"serve": {}});`}</Script>
      
 
                 </main>
