@@ -8,7 +8,7 @@ import Link from "next/link";
 import Image from 'next/image'
 
 export default function Carosel ({movies, title, latestMovie, trending}) {
-  const [slideAmount, setSlideAmount] = useState(4)
+  const [slideAmount, setSlideAmount] = useState(6)
 useEffect(() => {
   if(window.innerWidth < 659){
     setSlideAmount(3)
@@ -22,21 +22,21 @@ const mediaQuery700 = window.matchMedia('(max-width: 650px)')
 const mediaQuery450 = window.matchMedia('(max-width: 450px)')
   function handleTabletChange(e) {
  
-    if (e.matches && slideAmount !== 4) {
-    setSlideAmount(4)
+    if (e.matches && slideAmount !== 6) {
+    setSlideAmount(6)
     }
   }
   
   function handleTabletChange700(e) {
    
-    if (e.matches && slideAmount!== 3) {
-    setSlideAmount(3)
+    if (e.matches && slideAmount!== 6) {
+    setSlideAmount(6)
     }
   }
   function handleTabletChange450(e) {
    
-    if (e.matches && slideAmount!== 2) {
-    setSlideAmount(2)
+    if (e.matches && slideAmount!== 4) {
+    setSlideAmount(4)
     }
   }
   mediaQuery990.addListener(handleTabletChange)
@@ -46,8 +46,8 @@ const mediaQuery450 = window.matchMedia('(max-width: 450px)')
         dots: false,
         infinite: true,
         speed: 500,
-        slidesToShow: slideAmount,
-        slidesToScroll: slideAmount,
+        slidesToShow:slideAmount,
+        slidesToScroll: 1,
         className: 'react__slick__slider__parent'
       }
       return (

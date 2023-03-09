@@ -1,5 +1,5 @@
 .carousel{
-    width: 90vw;
+    width: 100vw;
     margin-left: auto;
     margin-right: auto;
     margin-top: 1rem;
@@ -10,8 +10,9 @@
 }
 
 .carouselContainer img{
-    height: 12rem;
-    width: 18rem
+    height:20%;
+    width: 90%;
+    border-radius: 10px;
   }
 
   .carouselContainer{
@@ -33,12 +34,9 @@
 
 .carouselContainer h2{
     margin: 0;
-    margin-bottom: 2rem;
-    font-size: 1rem;
-    color: white;
-    position: absolute;
-    bottom: 1rem;
-    left: 1rem;
+    font-size: 3vmin;
+    width: 80%;
+    color: var(--fontGold);
     word-break: break-all;
   }
 
@@ -47,8 +45,8 @@
     font-weight: 800;
     font-family: 'Monoton', cursive;
     padding: 0;
-    left: -1.5rem;
-    font-size: 10rem;
+    left: -1rem;
+    font-size: 10vmax;
     color: var(--fontGold);
     top: 1px;
     z-index: 1;
@@ -59,6 +57,9 @@
     text-align: right;
     color: var(--fontGold);
     display: block;
-    margin: 1rem;
+    margin-right: 2.5rem;
+    font-weight: 800;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
   }
  
