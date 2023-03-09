@@ -54,7 +54,7 @@ export default function Home({footballNews, entertainmentNews, politicsNews, int
                     />
                         { <div className="ads"><ins class="adsbyexoclick" data-zoneid="4935076"></ins> </div>}
                     
-                    <Script>{`(AdProvider = window.AdProvider || []).push({"serve": {}});`}</Script>
+                    <Script id='banner3'>{`(AdProvider = window.AdProvider || []).push({"serve": {}});`}</Script>
                   </div>}
        {trendingData && <ClientOnly>
           <DashCard dashPosts={trendingData.trending.slice(0,10).sort((a,b) => b.trending.length - a.trending.length)} title='Trending movies' page='trending' type='movie'/>

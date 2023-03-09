@@ -44,7 +44,7 @@ export default function Layout ({children}) {
                     />
                         { <div className="ads"><ins class="adsbyexoclick" data-zoneid="4935076"></ins> </div>}
                     
-                    <Script>{`(AdProvider = window.AdProvider || []).push({"serve": {}});`}</Script>
+                    <Script id="banner1">{`(AdProvider = window.AdProvider || []).push({"serve": {}});`}</Script>
                   </div>
                    }
 
@@ -56,7 +56,7 @@ export default function Layout ({children}) {
                     />
                         { <div className="ads"> <ins class="adsbyexoclick" data-zoneid="4935098"></ins>  </div>}
                     
-                    <Script>{`(AdProvider = window.AdProvider || []).push({"serve": {}});`}</Script>
+                    <Script id="banner2">{`(AdProvider = window.AdProvider || []).push({"serve": {}});`}</Script>
                   </div>
                    }
 
