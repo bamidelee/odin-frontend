@@ -34,7 +34,7 @@ export async function getStaticProps({params}) {
         
             movie: data.findMovie
         },
-        revalidate: 60 * 60 * 60 * 2
+     
     };
 }
 
