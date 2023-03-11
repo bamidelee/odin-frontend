@@ -43,6 +43,6 @@ export async function getStaticProps() {
         
             tables: tableData.tables
         },
-        revalidate: 60 * 60 * 60 * 2
+       
     };
 }

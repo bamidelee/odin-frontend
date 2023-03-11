@@ -37,6 +37,6 @@ export async function getStaticProps() {
             latestMovies: latestMovieData.latestMovies,
           
         },
-        revalidate: 60 * 60 * 60 * 2
+       
     };
 }
