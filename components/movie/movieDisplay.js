@@ -7,7 +7,7 @@ import Link from "next/link";
 import { useQuery } from "@apollo/client"
 import { TRENDING } from "../quarries";
 
-export default function MovieDisplay ({latestMovies}){
+export default function MovieDisplay ({latestMovies, comedyMovies}){
     const [randomLatestMovie, ] = useState(latestMovies[Math.floor(Math.random() * latestMovies.length)])
     const { data: trendingData, loading, error } = useQuery(TRENDING);
     return(
@@ -36,6 +36,9 @@ export default function MovieDisplay ({latestMovies}){
            {trendingData && <ClientOnly>
               <Carosel movies = {trendingData.trending.slice(0,10).sort((a,b) => b.trending.length - a.trending.length)} title= 'Trending' trending= {true}/>
             </ClientOnly>}
+            <ClientOnly>
+              <Carosel movies = {comedyMovies} title= 'Comedy'/>
+            </ClientOnly>
         </div>
     )
 }

@@ -40,7 +40,7 @@ export default function DashCard ({dashPosts, title, page, type}){
                 </div>
             </Link>
             )}
-            {page && <Link href={page === 'trending'? 'movies':`page/${page}/1/${type}`}>
+            {page && <Link href={page === 'trending'? 'movies':page === 'latest movie'? `page/Latest movies/1`:`page/${page}/1/${type}`}>
                 <p className={styles.seeMore}>See more...</p>
             </Link>}
         </div>

@@ -69,7 +69,7 @@ const mediaQuery450 = window.matchMedia('(max-width: 450px)')
             </Link>
            )}
           </Slider>}
-         {!trending && <Link href={latestMovie?"/page/Latest movies/1/movies": "/page/Trending/1/movies"}  className={styles.seeMore}>See more...</Link>}
+         {!trending && <Link href={latestMovie?"/page/Latest movies/1": `/page/${title.toLowerCase()}/1/movie`}  className={styles.seeMore}>See more...</Link>}
         </div>
       );
     }

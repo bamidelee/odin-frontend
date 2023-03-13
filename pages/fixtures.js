@@ -44,7 +44,7 @@ export async function getStaticProps() {
       
         fixtures: fixturesData.fixtures
       },
-      revalidate: 60 * 60 * 60 * 2
+      
    };
   }
   

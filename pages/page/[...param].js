@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react';
 
 export default function News({news, latestMovies, pageCount, latestMoviesCount}){
   const [mobileBanner, setMobileBanner] = useState(false)
-
+  
     useEffect(() => {
      
       if(window.innerWidth < 650){
@@ -21,7 +21,7 @@ export default function News({news, latestMovies, pageCount, latestMoviesCount})
     return(
         <div>
            {mobileBanner && <BoxBanner/>}
-           <PostCard news={param[2] === 'post' ? news : latestMovies} title={param[0]} page = {param[1]} type = {param[2]} pageCount = {param[2] === 'post'?pageCount : latestMoviesCount}/>
+           <PostCard news={param[2]  ? news : latestMovies} title={param[0]} page = {param[1]} type = {param[2]} pageCount = {param[2] === 'post'?pageCount : latestMoviesCount}/>
         </div>
     )
     

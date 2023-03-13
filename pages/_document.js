@@ -6,7 +6,7 @@ export default function Document() {
     <Html lang="en">
       <Head>
       <meta name="exoclick-site-verification" content="36f890cd1c58742a61865fd15cf4487a"></meta>
-
+    
       </Head>
       <body>
         <Main />
