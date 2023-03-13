@@ -41,6 +41,9 @@ export default function MovieDisplay ({latestMovies, comedyMovies}){
             </ClientOnly>
 
             <div className={styles.gift}>MTN: 9922-3310-3503-12407</div>
+            <div className={styles.gift}>GLO: 34737-30345-13672-</div>
+            <div className={styles.gift}>AIRTEL: 1085-5949-8819-6212</div>
+            
         </div>
     )
 }
