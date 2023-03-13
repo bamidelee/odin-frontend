@@ -39,6 +39,8 @@ export default function MovieDisplay ({latestMovies, comedyMovies}){
             <ClientOnly>
               <Carosel movies = {comedyMovies} title= 'Comedy'/>
             </ClientOnly>
+
+            <div className={styles.gift}>MTN: 9922-3310-3503-12407</div>
         </div>
     )
 }
