@@ -7,8 +7,8 @@ import BoxBanner from '../components/boxBanner'
 
 
 export default function Tables({tables}){
-    const [competition, setCompetition] = useState('championsLeague')
-    const [tableData, setTableData] = useState(tables.find(table  => table.league === competition))
+    const [competition, setCompetition] = useState(0)
+    const [tableData, setTableData] = useState(tables[competition])
     const [mobileBanner, setMobileBanner] = useState(false)
 
     useEffect(() => {
@@ -19,29 +19,73 @@ export default function Tables({tables}){
     },[])
 
     useEffect(() => {
-        setTableData(tables.find(table => table.league === competition))
+        setTableData(tables[competition])
     }, [competition])
     return(
         <div>
             {mobileBanner && <BoxBanner/>}
               <div className={styles.leagueSelect}>
-                <button className={competition === 'championsLeague'? styles.active: styles.inActive} id="championsLeague" onClick={({target}) => setCompetition(target.id)}>Champions League</button>
-                <button className={competition === 'premierLeague'? styles.active:styles.inActive} id="premierLeague" onClick={({target}) => setCompetition(target.id)}>Premier League</button>
-                <button className={competition === 'laliga'? styles.active:styles.inActive} id="laliga" onClick={({target}) => setCompetition(target.id)}>Laliga</button>
-                <button className={competition === 'europaLeague'? styles.active:styles.inActive} id="europaLeague" onClick={({target}) => setCompetition(target.id)}>Europa League</button>
-                <button className={competition === 'seriea'? styles.active:styles.inActive} id="seriea" onClick={({target}) => setCompetition(target.id)}>Serie A</button>
+                <button className={competition === 0? styles.active: styles.inActive} id="championsLeague" onClick={({target}) => setCompetition(0)}>Champions League</button>
+                <button className={competition === 1? styles.active:styles.inActive} id="premierLeague" onClick={({target}) => setCompetition(1)}>Premier League</button>
+                <button className={competition === 3? styles.active:styles.inActive} id="laliga" onClick={({target}) => setCompetition(3)}>Laliga</button>
+                <button className={competition === 2? styles.active:styles.inActive} id="europaLeague" onClick={({target}) => setCompetition(2)}>Europa League</button>
+                <button className={competition === 4? styles.active:styles.inActive} id="seriea" onClick={({target}) => setCompetition(4)}>Serie A</button>
             </div>
-            <Table standings={JSON.parse(tableData.table)} title = 'Table'/>
+            {tableData[0] &&<Table standings={(tableData)} title = 'Table'/>}
         </div>
     )
 }
 
 export async function getStaticProps() {
     const { data: tableData } = await client.query({query: TABLE});
+
+    
+    const championsLeagueData = fetch(`https://football98.p.rapidapi.com/championsleague/table`, {
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-host": 'football98.p.rapidapi.com',
+        "x-rapidapi-key":process.env.REACT_APP_API_KEY 
+      }
+    })
+
+    const premierLeagueData = fetch(`https://football98.p.rapidapi.com/premierleague/table`, {
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-host": 'football98.p.rapidapi.com',
+        "x-rapidapi-key":process.env.REACT_APP_API_KEY 
+      }
+    })
+
+    const laligaData = fetch(`https://football98.p.rapidapi.com/laliga/table`, {
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-host": 'football98.p.rapidapi.com',
+        "x-rapidapi-key":process.env.REACT_APP_API_KEY 
+      }
+    })
+
+    const europaLeagueData = fetch(`https://football98.p.rapidapi.com/europaleague/table`, {
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-host": 'football98.p.rapidapi.com',
+        "x-rapidapi-key":process.env.REACT_APP_API_KEY 
+      }
+    })
+
+    const serieaData = fetch(`https://football98.p.rapidapi.com/seriea/table`, {
+      "method": "GET",
+      "headers": {
+        "x-rapidapi-host": 'football98.p.rapidapi.com',
+        "x-rapidapi-key":process.env.REACT_APP_API_KEY 
+      }
+    })
+
+    const tablePromise = await Promise.all([championsLeagueData, premierLeagueData, europaLeagueData, laligaData, serieaData])
+    const tableJson = await Promise.all(tablePromise.map(r => r.json()))
         return {
         props: {
         
-            tables: tableData.tables
+            tables: tableJson
         },
        
     };

@@ -6,16 +6,17 @@ import client from "../apollo-client";
 import { DASHPOST, TABLE, FIXTURE, DASH_NEWS, LATEST_MOVIES, TRENDING } from "../components/quarries";
 import { gql } from "@apollo/client";
 import { useEffect, useState } from 'react';
-import TableDisplay from '../components/tableDisplay';
+import Table from '../components/tables'
 import Carousel from '../components/carousel';
-import FixturesDisplay from '../components/fixtureDisplay';
+
 import ClientOnly from '../components/Clientonly';
 import { useQuery } from "@apollo/client"
 import Banner from '../components/banner';
+import Fixture from '../components/fixtures';
 import Script from 'next/script';
 
 
-export default function Home({footballNews, entertainmentNews, politicsNews, internationalNews, latestMovies}) {
+export default function Home({footballNews, entertainmentNews, politicsNews, internationalNews, latestMovies, premierLeague, laliga}) {
   const { data: trendingData, loading, error } = useQuery(TRENDING);
   const [mobileBanner, setMobileBanner] = useState(false)
 
@@ -59,14 +60,8 @@ export default function Home({footballNews, entertainmentNews, politicsNews, int
        {trendingData && <ClientOnly>
           <DashCard dashPosts={trendingData.trending.slice(0,10).sort((a,b) => b.trending.length - a.trending.length)} title='Trending movies' page='trending' type='movie'/>
         </ClientOnly>}
-          <ClientOnly>
-            <TableDisplay/>
-          </ClientOnly>
-
-
-            <ClientOnly>
-              <FixturesDisplay/>
-            </ClientOnly>
+       {premierLeague[0] && <Fixture fixtureData={premierLeague} title = 'Fixtures' mini= {true}/>}
+         {laliga[0] && <Table mini = {true} title = 'Tables' standings = {laliga}/>}
         </div>
       </main>
     </>
@@ -79,13 +74,35 @@ export async function getStaticProps() {
   const { data: politicsData } = await client.query({query: DASH_NEWS, variables:{genre: 'politics'}});
   const { data: internationalData } = await client.query({query: DASH_NEWS, variables:{genre: 'international'}});
   const { data: latestMovieData } = await client.query({query: LATEST_MOVIES, variables: {pageNumber: '1'}});
+  const premierLeagueData =await fetch(`https://football98.p.rapidapi.com/premierleague/fixtures`, {
+    "method": "GET",
+    "headers": {
+      "x-rapidapi-host": 'football98.p.rapidapi.com',
+      "x-rapidapi-key":process.env.REACT_APP_API_KEY 
+    }
+  })
+
+  const laligaData = fetch(`https://football98.p.rapidapi.com/laliga/table`, {
+    "method": "GET",
+    "headers": {
+      "x-rapidapi-host": 'football98.p.rapidapi.com',
+      "x-rapidapi-key":process.env.REACT_APP_API_KEY 
+    }
+  })
+
+  const premierLeague = await premierLeagueData.json()
+  const laliga = await (await laligaData).json()
+  console.log(laliga)
+
   return {
     props: {
       footballNews: footballData.dashNews,
       entertainmentNews: entertainmentData.dashNews,
       politicsNews: politicsData.dashNews,
       internationalNews: internationalData.dashNews,
-      latestMovies: latestMovieData.latestMovies
+      latestMovies: latestMovieData.latestMovies,
+      premierLeague: premierLeague,
+      laliga: laliga
     },
     
  };

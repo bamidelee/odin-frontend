@@ -1,4 +1,5 @@
 import styles from '../styles/fixture.module.css'
+import Link from 'next/link'
 
 export default function Fixture({fixtureData, title, mini}){
     return(
@@ -6,7 +7,7 @@ export default function Fixture({fixtureData, title, mini}){
             <h2 className={styles.title}>
                 {title}
             </h2>
-            {mini?Object.keys(fixtureData[0]).map(key => <div key={key}>
+            {mini?Object.keys(fixtureData[0]).map(key => <Link href='fixtures' key={key} style = {{color: 'var(--fontBlack)'}}>
                     <div className = {styles.fixtureData}>
                         {fixtureData[0][key].slice(0,1).map((fixture, index) => <div className={styles.matchesContainer} key={index}>
                             <h3>
@@ -25,7 +26,7 @@ export default function Fixture({fixtureData, title, mini}){
                             </div>
                         </div>)}
                     </div>
-                </div>):
+                </Link>):
                 Object.keys(fixtureData[0]).map(key => <div key={key}>
                     <div className={styles.fixtureData}>
                         {fixtureData[0][key].map((fixture, index) => <div className={styles.matchesContainer} key={index}>
@@ -46,6 +47,8 @@ export default function Fixture({fixtureData, title, mini}){
                         </div>)}
                     </div>
                 </div>)}
+
+                    
         </div>
     )
 }
