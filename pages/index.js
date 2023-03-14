@@ -92,7 +92,7 @@ export async function getStaticProps() {
 
   const premierLeague = await premierLeagueData.json()
   const laliga = await (await laligaData).json()
-  console.log(laliga)
+  
 
   return {
     props: {

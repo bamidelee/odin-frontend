@@ -21,7 +21,7 @@ export default function News({news, latestMovies, pageCount, latestMoviesCount})
     return(
         <div>
            {mobileBanner && <BoxBanner/>}
-           <PostCard news={param[2]  ? news : latestMovies} title={param[0]} page = {param[1]} type = {param[2]} pageCount = {param[2] === 'post'?pageCount : latestMoviesCount}/>
+           <PostCard news={param[2]  ? news : latestMovies} title={param[0]} page = {param[1]} type = {param[2]} pageCount = {param[2] ?pageCount : latestMoviesCount}/>
         </div>
     )
     
