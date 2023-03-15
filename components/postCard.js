@@ -145,7 +145,7 @@ export default function PostCard({news, title, page,type, pageCount}){
                
 
                 <div className={styles.pagnation}>
-                    {[...Array(count)].map((p, i) => <Link className={parseInt(page) === i + 1 ? styles.activePage : styles.inactivePage} key={i} href={title === 'Latest movies'?`/page/${title.toLowerCase()}/${i + 1}`:`/page/${title.toLowerCase()}/${i + 1}/${type}`}>{i + 1}</Link>)}
+                    {[...Array(count)].map((p, i) => <Link className={parseInt(page) === i + 1 ? styles.activePage : styles.inactivePage} key={i} href={title === 'Latest movies'?`/page/${title}/${i + 1}`:`/page/${title.toLowerCase()}/${i + 1}/${type}`}>{i + 1}</Link>)}
                 </div>
         </div>
     )
