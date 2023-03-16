@@ -7,7 +7,7 @@ import BoxBanner from '../components/boxBanner'
 
 
 
-export default function Movies ({latestMovies, comedyMovies, thrillerMovies}){
+export default function Movies ({latestMovies, comedyMovies, thrillerMovies, actionMovies}){
     const [mobileBanner, setMobileBanner] = useState(false)
 
     useEffect(() => {
@@ -21,7 +21,7 @@ export default function Movies ({latestMovies, comedyMovies, thrillerMovies}){
     return(
         <div className={styles.movieView}>
              {mobileBanner && <BoxBanner/>}
-          <MovieDisplay latestMovies = {latestMovies} comedyMovies = {comedyMovies} thrillerMovies = {thrillerMovies} />
+          <MovieDisplay latestMovies = {latestMovies} comedyMovies = {comedyMovies} thrillerMovies = {thrillerMovies} actionMovies = {actionMovies} />
         </div>
     )
 
@@ -32,6 +32,7 @@ export async function getStaticProps() {
     const { data: latestMovieData } = await client.query({query: LATEST_MOVIES, variables: {pageNumber: '1'}});
     const { data: comedyData } = await client.query({query: NEWS_PAGE, variables: {genre: "comedy", pageNumber:"1", type: "movie"}});
     const { data: thrillerData } = await client.query({query: NEWS_PAGE, variables: {genre: "thriller", pageNumber:"1", type: "movie"}});
+    const { data: actionData } = await client.query({query: NEWS_PAGE, variables: {genre: "action", pageNumber:"1", type: "movie"}});
  
  
         return {
@@ -39,7 +40,8 @@ export async function getStaticProps() {
         
             latestMovies: latestMovieData.latestMovies,
             comedyMovies: comedyData.newsPage,
-            thrillerMovies: thrillerData.newsPage
+            thrillerMovies: thrillerData.newsPage,
+            actionMovies: actionData.newsPage
           
         },
        
