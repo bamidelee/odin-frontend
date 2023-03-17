@@ -46,9 +46,6 @@ export default function MovieDisplay ({latestMovies, comedyMovies, thrillerMovie
               <Carosel movies = {actionMovies} title= 'Action'/>
             </ClientOnly>
 
-           
-            <div className={styles.gift}>AIRTEL: 1381-2690-7935-7567</div>
-            <div className={styles.gift}>GLO: 34705-23681-02367</div>
             
         </div>
     )
