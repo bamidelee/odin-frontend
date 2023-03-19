@@ -23,11 +23,11 @@
 
 .secondaryMedia{
     margin: 1rem auto;
-    width: 60%;
 }
 
 .secondaryMedia iframe{
     width: 100vmin !important;
+   
 }
 
 .description{

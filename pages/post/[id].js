@@ -33,7 +33,6 @@ export async function getStaticProps({params}) {
     const { id } = params
     const { data } = await client.query({query: FIND_POST, variables: {id: id}});
     const {data: relatedNews} = await client.query({query: RELATED_POST, variables:{genre: data.findPost? data.findPost.genre[1]: null} })
-    console.log(data)
     if (!data.findPost) {
       return {
         notFound: true,
@@ -44,7 +43,7 @@ export async function getStaticProps({params}) {
         news: data.findPost,
         relatedNews: relatedNews.relatedPost
       },
-      revalidate: 60 * 60 * 60 * 2
+     
    };
   }
 
