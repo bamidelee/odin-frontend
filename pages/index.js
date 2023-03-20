@@ -1,7 +1,6 @@
 import Head from 'next/head'
 import DashCard from '../components/dashCard';
 import styles from '../styles/Home.module.css'
-import icon from '../public/titleIcon.png'
 import client from "../apollo-client";
 import { DASHPOST, TABLE, FIXTURE, DASH_NEWS, LATEST_MOVIES, TRENDING } from "../components/quarries";
 import { gql } from "@apollo/client";
@@ -33,7 +32,6 @@ export default function Home({footballNews, entertainmentNews, politicsNews, int
         <title>Naijaodin</title>
         <meta name="description" content="blog" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" href="/titleIcon.png/" />
       </Head>
       <main className={styles.main}>
        <div className={styles.news}>
