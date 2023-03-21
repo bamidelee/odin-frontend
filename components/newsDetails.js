@@ -31,7 +31,7 @@ export default function NewsDetails({news}){
                
            </div>
            }
-           <p className={styles.description}>{news.description}</p>
+          {news.description.split("/n").map(news => <p className={styles.description}>{news}</p>)}
         </div>
     )
 }

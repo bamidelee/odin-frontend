@@ -57,6 +57,7 @@
 
 .description p {
     color: var(--fontBlack);
+    text-align: center;
 }
 
 .trailer{
