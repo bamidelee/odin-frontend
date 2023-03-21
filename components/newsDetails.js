@@ -2,6 +2,7 @@ import Image from 'next/image'
 import styles from '../styles/newsDetails.module.css'
 import formatDistanceToNowStrict from 'date-fns/formatDistanceToNow'
 import {  TwitterVideoEmbed, TwitterTweetEmbed } from 'react-twitter-embed';
+import ClientOnly from "./Clientonly"
 import YouTube from 'react-youtube';
 export default function NewsDetails({news}){
    
@@ -31,7 +32,7 @@ export default function NewsDetails({news}){
                
            </div>
            }
-          {news.description.split("/n").map(news => <p className={styles.description}>{news}</p>)}
+          <ClientOnly>{news.description.split("/n").map(news => <p className={styles.description}>{news}</p>)}</ClientOnly>
         </div>
     )
 }
