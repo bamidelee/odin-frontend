@@ -32,7 +32,7 @@ export default function NewsDetails({news}){
                
            </div>
            }
-          <ClientOnly>{news.description.split("/n").map(news => <p className={styles.description}>{news}</p>)}</ClientOnly>
+          <ClientOnly>{news.description.split("/n").map((news, i) => <p key={i} className={styles.description}>{news}</p>)}</ClientOnly>
         </div>
     )
 }
