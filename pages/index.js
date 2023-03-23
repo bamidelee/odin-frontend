@@ -56,7 +56,7 @@ export default function Home({footballNews, entertainmentNews, politicsNews, int
                     <Script id='banner3'>{`(AdProvider = window.AdProvider || []).push({"serve": {}});`}</Script>
                   </div>}
        {trendingData && <ClientOnly>
-          <DashCard dashPosts={trendingData.trending.slice(0,10).sort((a,b) => b.trending.length - a.trending.length)} title='Trending movies' page='trending' type='movie'/>
+          <DashCard dashPosts={trendingData.trending.slice().sort((a,b) => b.trending.length - a.trending.length).slice(0,10)} title='Trending movies' page='trending' type='movie'/>
         </ClientOnly>}
        {premierLeague &&<div>
          {premierLeague[0] && <Fixture fixtureData={premierLeague} title = 'Fixtures' mini= {true}/>}
