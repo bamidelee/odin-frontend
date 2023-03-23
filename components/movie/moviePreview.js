@@ -65,6 +65,11 @@ export default function MoviePreview ({movie}){
                         <p>
                             {movie.secondaryMedia.split(',').map((link, i) => <Link href={link} key={i}>Server{i + 1}</Link>)}
                         </p>
+
+                        <h3>Stream links:</h3>
+                        <p>
+                            {movie.secondaryMedia.split(',').filter((link) => link.includes("https://mixdrop.co/") || link.includes("https://gofile.io/")).map((link, i) => <Link href={link} key={i}>Server{i + 1}</Link>)}
+                        </p>
                     </div>
         </div>
     )

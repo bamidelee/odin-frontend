@@ -58,8 +58,10 @@ export default function Home({footballNews, entertainmentNews, politicsNews, int
        {trendingData && <ClientOnly>
           <DashCard dashPosts={trendingData.trending.slice(0,10).sort((a,b) => b.trending.length - a.trending.length)} title='Trending movies' page='trending' type='movie'/>
         </ClientOnly>}
-       {premierLeague[0] && <Fixture fixtureData={premierLeague} title = 'Fixtures' mini= {true}/>}
-         {laliga[0] && <Table mini = {true} title = 'Tables' standings = {laliga}/>}
+       {premierLeague &&<div>
+         {premierLeague[0] && <Fixture fixtureData={premierLeague} title = 'Fixtures' mini= {true}/>}
+           {laliga[0] && <Table mini = {true} title = 'Tables' standings = {laliga}/>}
+       </div>}
         </div>
       </main>
     </>
@@ -88,8 +90,8 @@ export async function getStaticProps() {
     }
   })
 
-  const premierLeague = await premierLeagueData.json()
-  const laliga = await (await laligaData).json()
+  const premierLeague = premierLeagueData.status ===503 ?null:await premierLeagueData.json()
+  const laliga =premierLeagueData.status === 503? null :await  laligaData.json()
   
 
   return {

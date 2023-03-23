@@ -8,7 +8,7 @@ import BoxBanner from '../components/boxBanner'
 
 export default function Tables({tables}){
     const [competition, setCompetition] = useState(0)
-    const [tableData, setTableData] = useState(tables[competition])
+    const [tableData, setTableData] = useState(!tables? null :tables[competition])
     const [mobileBanner, setMobileBanner] = useState(false)
 
     useEffect(() => {
@@ -19,7 +19,7 @@ export default function Tables({tables}){
     },[])
 
     useEffect(() => {
-        setTableData(tables[competition])
+        setTableData(!tables? null :tables[competition])
     }, [competition])
     return(
         <div>
@@ -31,7 +31,7 @@ export default function Tables({tables}){
                 <button className={competition === 2? styles.active:styles.inActive} id="europaLeague" onClick={({target}) => setCompetition(2)}>Europa League</button>
                 <button className={competition === 4? styles.active:styles.inActive} id="seriea" onClick={({target}) => setCompetition(4)}>Serie A</button>
             </div>
-            {tableData[0] &&<Table standings={(tableData)} title = 'Table'/>}
+           {tableData && <div>{tableData[0] &&<Table standings={(tableData)} title = 'Table'/>}</div>}
         </div>
     )
 }
@@ -81,7 +81,7 @@ export async function getStaticProps() {
     })
 
     const tablePromise = await Promise.all([championsLeagueData, premierLeagueData, europaLeagueData, laligaData, serieaData])
-    const tableJson = await Promise.all(tablePromise.map(r => r.json()))
+    const tableJson =tablePromise[1].status === 503? null :  await Promise.all(tablePromise.map(r => r.json()))
         return {
         props: {
         

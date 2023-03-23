@@ -10,6 +10,7 @@ import { TRENDING } from "../quarries";
 export default function MovieDisplay ({latestMovies, comedyMovies, horrorMovies, actionMovies}){
     const [randomLatestMovie, ] = useState(latestMovies[Math.floor(Math.random() * latestMovies.length)])
     const { data: trendingData, loading, error } = useQuery(TRENDING);
+    console.log(trendingData)
     return(
         <div>
             <ClientOnly>
@@ -34,7 +35,7 @@ export default function MovieDisplay ({latestMovies, comedyMovies, horrorMovies,
               <Carosel movies = {latestMovies} title= 'Latest' latestMovie={true}/>
             </ClientOnly>
            {trendingData && <ClientOnly>
-              <Carosel movies = {trendingData.trending.slice(0,10).sort((a,b) => b.trending.length - a.trending.length)} title= 'Trending' trending= {true}/>
+              <Carosel movies = {trendingData.trending.slice().sort((a,b) => b.trending.length - a.trending.length).slice(0,10)} title= 'Trending' trending= {true}/>
             </ClientOnly>}
             <ClientOnly>
               <Carosel movies = {comedyMovies} title= 'Comedy'/>

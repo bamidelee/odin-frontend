@@ -8,7 +8,7 @@ import BoxBanner from '../components/boxBanner'
 
 export default function Fixtures({fixtures}){
     const [competition, setCompetition] = useState(0)
-    const [fixtureData, setFixtureData] = useState(fixtures[competition])
+    const [fixtureData, setFixtureData] = useState(!fixtures? null :fixtures[competition])
     const [mobileBanner, setMobileBanner] = useState(false)
 
     useEffect(() => {
@@ -19,7 +19,7 @@ export default function Fixtures({fixtures}){
     },[])
 
     useEffect(() =>{
-        setFixtureData(fixtures[competition])
+        setFixtureData(!fixtures?null :fixtures[competition])
     }, [competition])
 
     return(
@@ -32,7 +32,7 @@ export default function Fixtures({fixtures}){
                 <button className={competition === 2? styles.active:styles.inActive} id="europaLeague" onClick={({target}) => setCompetition(2)}>Europa League</button>
                 <button className={competition === 4? styles.active:styles.inActive} id="seriea" onClick={({target}) => setCompetition(4)}>Serie A</button>
             </div>
-           {fixtureData[0] && <Fixture fixtureData={fixtureData} title = 'Fixtures'/>}
+          {fixtureData && <div>{fixtureData[0] && <Fixture fixtureData={fixtureData} title = 'Fixtures'/>}</div>}
         </div>
     )
 }
@@ -79,7 +79,7 @@ export async function getStaticProps() {
       }
     })
     const fixturesPromise = await Promise.all([championsLeagueData, premierLeagueData, europaLeagueData, laligaData, serieaData])
-   const fixtureJson = await Promise.all(fixturesPromise.map(r => r.json()))
+   const fixtureJson =fixturesPromise[1].status === 503?null : await Promise.all(fixturesPromise.map(r => r.json()))
    
     return {
       props: {
