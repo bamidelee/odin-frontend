@@ -82,7 +82,7 @@ export async function getStaticProps() {
     }
   })
 
-  const laligaData = fetch(`https://football98.p.rapidapi.com/laliga/table`, {
+  const laligaData =await fetch(`https://football98.p.rapidapi.com/laliga/table`, {
     "method": "GET",
     "headers": {
       "x-rapidapi-host": 'football98.p.rapidapi.com',
@@ -90,8 +90,10 @@ export async function getStaticProps() {
     }
   })
 
+  console.log(laligaData)
+
   const premierLeague = premierLeagueData.status ===503 ?null:await premierLeagueData.json()
-  const laliga =premierLeagueData.status === 503? null :await  laligaData.json()
+  const laliga = laligaData.status === 503? null:await laligaData.json()
   
 
   return {
