@@ -29,10 +29,18 @@ export default function NewsDetails({news}){
                     news.secondaryMediaType === 'youtube' &&
                     <YouTube videoId={news.secondaryMedia}/>
                 }
+
+                {
+                    news.secondaryMediaType === 'image' &&<div className={styles.secondaryImage}>
+                         <Image src={news.secondaryMedia} alt={news.title} fill  sizes="(max-width: 768px) 100vmin,
+                        (max-width: 1200px) 50vw,
+                        33vw"/>
+                    </div>
+                }
                
            </div>
            }
-          <ClientOnly>{news.description.split("/n").map((news, i) => <p key={i} className={styles.description}>{news}</p>)}</ClientOnly>
+          {news.description.split("/n").map((news, i) => <p key={i} className={styles.description}>{news}</p>)}
         </div>
     )
 }
