@@ -35,3 +35,14 @@ html{
     width: 100vw;
 }
 
+.telegram{
+    text-align:  center;
+    color: var(--fontGold);
+    border: 1px solid var(--fontGold);
+    width: fit-content;
+    margin: 1rem auto;
+    font-size: 1.5rem;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+}

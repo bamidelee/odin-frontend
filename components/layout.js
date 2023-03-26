@@ -6,6 +6,9 @@ import { AppWrapper } from '../context/appContext';
 import Footer from "./footer";
 import Script from "next/script";
 import DesktopBanner from "./desktopBanner";
+import Icon from '@mdi/react';
+import { mdiSend } from '@mdi/js';
+import Link from "next/link";
 
 
 
@@ -32,8 +35,14 @@ export default function Layout ({children}) {
             <AppWrapper>
                 <Header mouseX={mouse.x} sideBar={sideBar} setSideBar={setSideBar}/>
                 <SideBar sideBar={sideBar} setSideBar = {setSideBar}/>
+
                 <main ref={ref} style={{paddingTop: '4rem'}} onClick = {(() => setSideBar(false))}>
+               
                 {desktopBanner && <DesktopBanner/>}
+                <Link href='https://t.me/naijaodin' className="telegram">
+                <Icon path={mdiSend} size={1.5} />
+                  Join our telegram channel
+                </Link>
                     {children}
 
                   { !desktopBanner &&<div>
