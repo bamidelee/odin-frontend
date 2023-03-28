@@ -39,7 +39,7 @@ export default function Layout ({children}) {
                 <main ref={ref} style={{paddingTop: '4rem'}} onClick = {(() => setSideBar(false))}>
                
                 {desktopBanner && <DesktopBanner/>}
-                <Link href='https://t.me/naijaodin' className="telegram">
+                <Link href='https://t.me/thenaijaodin' className="telegram">
                 <Icon path={mdiSend} size={1.5} />
                   Join our telegram channel
                 </Link>
