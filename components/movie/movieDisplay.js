@@ -12,7 +12,7 @@ export default function MovieDisplay ({latestMovies, comedyMovies, horrorMovies,
     const { data: trendingData, loading, error } = useQuery(TRENDING);
     console.log(trendingData)
     return(
-        <div>
+        <div className={styles.movieDisplay}>
             <ClientOnly>
               <Link href = {`movies/${randomLatestMovie._id}`}>
                 <header  className = {styles.moviesHeader}>

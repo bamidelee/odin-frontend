@@ -9,7 +9,6 @@
 .postCard{
     color: var(--fontBlack);
     padding: 2rem;
-    border: 1px solid var(--fontGold);
     margin: 1rem;
     border-radius: 10px;
 }
@@ -18,8 +17,6 @@
     padding-left: 1rem;
     color: var(--fontGold);
     font-size: 2rem;
-    border: 1px solid var(--fontGold);
-    background-color: var(--borderGrey);
     margin-top: 0;
 }
 
@@ -307,5 +304,13 @@
 }
 
 .activePage{
-    color: var(--fontBlack);
+    color: var(--backgroundWhite);
+    background-color: var(--fontGold);
+    padding: 5px;
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    display: flex;
+    align-items: center;
+    justify-items: center;
 }

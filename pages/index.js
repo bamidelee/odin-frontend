@@ -58,10 +58,10 @@ export default function Home({footballNews, entertainmentNews, politicsNews, int
        {trendingData && <ClientOnly>
           <DashCard dashPosts={trendingData.trending.slice().sort((a,b) => b.trending.length - a.trending.length).slice(0,10)} title='Trending movies' page='trending' type='movie'/>
         </ClientOnly>}
-       {premierLeague &&<div>
-         {premierLeague[0] && <Fixture fixtureData={premierLeague} title = 'Fixtures' mini= {true}/>}
-           {laliga[0] && <Table mini = {true} title = 'Tables' standings = {laliga}/>}
-       </div>}
+
+      {premierLeague && <div>{premierLeague[0] && <Fixture fixtureData={premierLeague} title = 'Fixtures' mini= {true}/>}</div>}
+       {premierLeague &&  <div>{laliga[0] && <Table mini = {true} title = 'Tables' standings = {laliga}/>}</div>}
+       
         </div>
       </main>
     </>

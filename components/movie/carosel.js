@@ -8,22 +8,23 @@ import Link from "next/link";
 import Image from 'next/image'
 
 export default function Carosel ({movies, title, latestMovie, trending}) {
-  const [slideAmount, setSlideAmount] = useState(6)
+  const [slideAmount, setSlideAmount] = useState(7)
 useEffect(() => {
-  if(window.innerWidth < 659){
+  if(window.innerWidth < 700){
     setSlideAmount(6)
   }
   if(window.innerWidth < 450){
     setSlideAmount(4)
   }
+
 },[])
 const mediaQuery990 = window.matchMedia('(max-width: 750px)')
-const mediaQuery700 = window.matchMedia('(max-width: 650px)')
+const mediaQuery700 = window.matchMedia('(max-width: 700px)')
 const mediaQuery450 = window.matchMedia('(max-width: 450px)')
   function handleTabletChange(e) {
  
-    if (e.matches && slideAmount !== 6) {
-    setSlideAmount(6)
+    if (e.matches && slideAmount !== 7) {
+    setSlideAmount(7)
     }
   }
   

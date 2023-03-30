@@ -11,7 +11,7 @@
 }
 
 .dashCard1Info{
-    background-color: rgba(0, 0, 0, 0.322);
+    background-color: rgba(255, 255, 255, 0.486);
     position: absolute;
     bottom: 0;
    padding-left: 1rem;
@@ -27,7 +27,7 @@
 }
 
 .dashCard{
-    border: 0.1px solid var(--fontGold);
+   
     display: inline-block;
     background-color: var(--backgroundWhite);
     border-radius: 10px;
@@ -38,11 +38,12 @@
 
 .dashCard h1{
     color: var(--fontGold);
-    border: 0.1px solid var(--fontGold);
     width: 90%;
-    margin: 5px auto;
+    margin: 1rem auto;
+    padding-left: .5rem;
+    border: 1px solid var(--fontGold);
     background-color: var(--borderGrey);
-    padding-left: 1rem;
+    font-size: 1.5rem;
 }
 
 .item{
@@ -62,6 +63,10 @@
 
 .itemDate{
     font-size: small;
+    background-color: var(--fontGold);
+    color: var(--backgroundWhite);
+    width: fit-content;
+    margin: .5rem;
 }
 
 .itemTitle{

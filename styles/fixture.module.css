@@ -10,12 +10,12 @@
 
 .fixtures{
     color: var(--fontBlack);
-    border: .1px solid var(--fontGold);
     background-color: var(--backgroundWhite);
     border-radius: 10px;
    width: 95%;
    margin-left: auto;
    margin-right: auto;
+   padding-top: 1rem;
   
 }
 

@@ -22,8 +22,9 @@
     background-color: var(--backgroundWhite);
     width: 95%;
     margin: 0 auto;
-    border: .1px solid var(--fontGold);
     border-radius: 10px;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
 }
 
 .standingsLeft{
@@ -59,7 +60,7 @@
     border: .1px solid var(--fontGold);
     background-color: var(--borderGrey);
     padding-left: 1rem;
-    margin: .5rem 1rem;
+    margin:  1rem;
 }
 
 .clubName{
