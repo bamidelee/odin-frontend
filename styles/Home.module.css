@@ -10,8 +10,8 @@ width: 100%;
 
 @media (max-width: 1000px) {
     .main{
-        grid-template-columns: 100% ;
-        padding: .5rem;
+        grid-template-columns: auto ;
+        padding: 0;
     }
 }
 
