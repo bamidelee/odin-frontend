@@ -1,6 +1,6 @@
 .carousel{
     width: 100vw;
-   margin: 2rem auto;
+   margin: 1rem auto;
     padding: 1rem;
     border-radius: 10px;
     background-color: var(--backgroundWhite);
@@ -11,12 +11,20 @@
     height:12vw;
     width: 12vw;
     border-radius: 10px;
+  
   }
 
   .carouselContainer{
     position: relative;
    transition: all .5s;
+   text-align: center;
+   width: min-content;
+   border: 1px solid var(--fontGold);
+   border-radius: 10px;
+   background-color: var(--fontGold);
 }
+
+
 
 .carouselTitle{
     font-family: strange;
@@ -34,10 +42,13 @@
 
 .carouselContainer h2{
     margin: 0;
-    font-size: 3vmin;
+    font-size: 1vmax;
+    text-overflow: ellipsis;
     width: 80%;
-    color: var(--fontGold);
+    height: 2rem;
+    color: var(--backgroundWhite);
     word-break: break-all;
+    padding: 10px;
 
   }
 
