@@ -6,6 +6,8 @@ import Image from 'next/image'
 import Link from "next/link";
 import { useQuery } from "@apollo/client"
 import { TRENDING } from "../quarries";
+import isYesterday from 'date-fns/isYesterday'
+import isToday from "date-fns/isToday";
 
 export default function MovieDisplay ({latestMovies, comedyMovies, horrorMovies, actionMovies}){
     const [randomLatestMovie, ] = useState(latestMovies[Math.floor(Math.random() * latestMovies.length)])
@@ -35,7 +37,7 @@ export default function MovieDisplay ({latestMovies, comedyMovies, horrorMovies,
               <Carosel movies = {latestMovies} title= 'Latest' latestMovie={true}/>
             </ClientOnly>
            {trendingData && <ClientOnly>
-              <Carosel movies = {trendingData.trending.slice().sort((a,b) => b.trending.length - a.trending.length).slice(0,10)} title= 'Trending' trending= {true}/>
+              <Carosel movies = {trendingData.trending.slice().sort((a,b) => b.trending.filter(d => isYesterday(d) || isToday(d)).length - a.trending.filter(d => isYesterday(d) || isToday(d)).length).slice(0,10)} title= 'Trending' trending= {true}/>
             </ClientOnly>}
             <ClientOnly>
               <Carosel movies = {comedyMovies} title= 'Comedy'/>
