@@ -13,6 +13,8 @@ import { useQuery } from "@apollo/client"
 import Banner from '../components/banner';
 import Fixture from '../components/fixtures';
 import Script from 'next/script';
+import isYesterday from 'date-fns/isYesterday';
+import isToday from 'date-fns/isToday';
 
 
 export default function Home({footballNews, entertainmentNews, politicsNews, internationalNews, latestMovies, premierLeague, laliga}) {
@@ -56,7 +58,7 @@ export default function Home({footballNews, entertainmentNews, politicsNews, int
                     <Script id='banner3'>{`(AdProvider = window.AdProvider || []).push({"serve": {}});`}</Script>
                   </div>}
        {trendingData && <ClientOnly>
-          <DashCard dashPosts={trendingData.trending.slice().sort((a,b) => b.trending.length - a.trending.length).slice(0,10)} title='Trending movies' page='trending' type='movie'/>
+          <DashCard dashPosts={trendingData.trending.slice().sort((a,b) => b.trending.filter(d => isYesterday(d) || isToday(d)).length - a.trending.filter(d => isYesterday(d) || isToday(d)).length).slice(0,10)} title='Trending movies' page='trending' type='movie'/>
         </ClientOnly>}
 
       {premierLeague && <div>{premierLeague[0] && <Fixture fixtureData={premierLeague} title = 'Fixtures' mini= {true}/>}</div>}
