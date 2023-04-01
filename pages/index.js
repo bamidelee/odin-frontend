@@ -43,7 +43,6 @@ export default function Home({footballNews, entertainmentNews, politicsNews, int
          <DashCard dashPosts={latestMovies} title = 'Latest Movies' page = 'latest movie' type = 'movie'/>
          <DashCard dashPosts={entertainmentNews} title='Entertainment' page='entertainment' type='post'/>
          <DashCard dashPosts={politicsNews} title="Politics" page='politics' type='post'/>
-         <DashCard dashPosts={internationalNews} title= "International" page='international' type='post'/>
       
        </div>
         <div className={styles.pageRight}>
@@ -57,12 +56,13 @@ export default function Home({footballNews, entertainmentNews, politicsNews, int
                     
                     <Script id='banner3'>{`(AdProvider = window.AdProvider || []).push({"serve": {}});`}</Script>
                   </div>}
-       {trendingData && <ClientOnly>
-          <DashCard dashPosts={trendingData.trending.slice().sort((a,b) => b.trending.filter(d => isYesterday(d) || isToday(d)).length - a.trending.filter(d => isYesterday(d) || isToday(d)).length).slice(0,10)} title='Trending movies' page='trending' type='movie'/>
+        {trendingData && <ClientOnly>
+        <DashCard dashPosts={trendingData.trending.slice().sort((a,b) => b.trending.filter(d => isYesterday(d) || isToday(d)).length - a.trending.filter(d => isYesterday(d) || isToday(d)).length).slice(0,10)} title='Trending movies' page='trending' type='movie'/>
         </ClientOnly>}
+        <DashCard dashPosts={internationalNews} title= "International" page='international' type='post'/>
 
-      {premierLeague && <div>{premierLeague[0] && <Fixture fixtureData={premierLeague} title = 'Fixtures' mini= {true}/>}</div>}
-       {premierLeague &&  <div>{laliga[0] && <Table mini = {true} title = 'Tables' standings = {laliga}/>}</div>}
+        {premierLeague && <div>{premierLeague[0] && <Fixture fixtureData={premierLeague} title = 'Fixtures' mini= {true}/>}</div>}
+        {premierLeague &&  <div>{laliga[0] && <Table mini = {true} title = 'Tables' standings = {laliga}/>}</div>}
        
         </div>
       </main>

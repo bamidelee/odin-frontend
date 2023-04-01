@@ -69,10 +69,9 @@
     text-align: right;
     color: var(--fontGold);
     display: block;
-    margin-right: 2.5rem;
-    font-weight: 600;
+    margin-right: 4vw;
     font-size: 1.2rem;
-    margin-bottom: 5px;
+    margin-top: 1rem;
   }
 
   @media screen  and (max-width: 700px) {
