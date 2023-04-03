@@ -47,18 +47,22 @@
 }
 
 .item{
-    display: flex;
+    display: grid;
+    grid-template-columns: 4rem auto;
     gap: 3px;
     border-top: 5px solid var(--borderGrey);
     margin: 0 1rem;
 
 }
 
+
 .itemInfo{
     display: flex;
     flex-direction: column;
     color: var(--fontBlack);
-   gap: 1rem;
+    justify-content: space-between;
+   align-self: left;
+   padding-left: 1rem;
 }
 
 .itemDate{
@@ -67,10 +71,11 @@
     color: var(--backgroundWhite);
     width: fit-content;
     margin: .5rem;
+
 }
 
 .itemTitle{
-    align-self: flex-end;
+  
 }
 
 .seeMore{

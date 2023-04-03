@@ -32,7 +32,7 @@ export default function DashCard ({dashPosts, title, page, type}){
             {dashPosts.slice(1,5).map((post, index) => 
             <Link key={index} href={page === 'trending'?`movies/${post.postID}`: page === 'latest movie'?`movies/${post._id}`:`post/${post._id}`}>
                 <div className={styles.item}>
-                      <Image src={post.primaryMedia} alt={post.title} width={100} height={70}/>
+                      <Image src={post.primaryMedia} alt={post.title} width={70} height={70}/>
                       <div className={styles.itemInfo}>
                         <div className={styles.itemDate}>  { formatDistanceToNowStrict(post.date, { representation: 'date' })}</div>
                           <div className={styles.itemTitle}>{post.title}</div>
