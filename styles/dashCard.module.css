@@ -55,6 +55,10 @@
 
 }
 
+.item img{
+    width: 4rem;
+}
+
 
 .itemInfo{
     display: flex;
@@ -70,7 +74,7 @@
     background-color: var(--fontGold);
     color: var(--backgroundWhite);
     width: fit-content;
-    margin: .5rem;
+    margin-top: .5rem;
 
 }
 
