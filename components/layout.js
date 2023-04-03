@@ -9,6 +9,7 @@ import DesktopBanner from "./desktopBanner";
 import Icon from '@mdi/react';
 import { mdiSend } from '@mdi/js';
 import Link from "next/link";
+import Loading from "./loading";
 
 
 
@@ -34,10 +35,10 @@ export default function Layout ({children}) {
         <>
             <AppWrapper>
                 <Header mouseX={mouse.x} sideBar={sideBar} setSideBar={setSideBar}/>
+                <Loading/>
                 <SideBar sideBar={sideBar} setSideBar = {setSideBar}/>
 
                 <main ref={ref} style={{paddingTop: '4rem', width: '100%'}} onClick = {(() => setSideBar(false))}>
-               
                 {desktopBanner && <DesktopBanner/>}
                 <Link href='https://t.me/thenaijaodin' className="telegram">
                 <Icon path={mdiSend} size={1.5} />
