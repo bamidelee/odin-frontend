@@ -149,3 +149,27 @@
   transform-origin: left top;
   transform: rotateZ(-2.1deg) scaleX(100%);
 }
+
+.activeLink .linkTop{
+    color: var(--fontGold);
+    transform: translateY(-0.5em) rotateZ(-3deg);
+    transition: transform 0.2s cubic-bezier(.12,.8,.57,1.00) 0.42s, color 0.5s ease 0.22s;
+  }
+
+  .activeLink .linkBottom{
+    color: var(--fontGold);
+    background-position: 100% bottom;
+    transition: color 0.2s ease 0.2s, background-position 0.2s ease;
+  }
+
+  .activeLink .linkTop:after{
+    top: 65%;
+    transform-origin: left top;
+    transform: rotateZ(-2.1deg) scaleX(100%);
+  }
+
+  .activeLink .linkBottom:after{
+    top: 65%;
+  transform-origin: left top;
+  transform: rotateZ(-2.1deg) scaleX(100%);
+  }
