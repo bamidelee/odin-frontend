@@ -27,7 +27,7 @@ export default function Search(){
                 <input type="text" placeholder='Start searching...' value={search} onChange={({target}) =>{setSearch(target.value); search && searchDashpost({variables:{title: search}})}}/>
               { loading && <div className={styles.loading}></div>}
             </div>
-           {!search && <p>Start typing to search for news</p>}
+           {!search && <p>Start typing to search </p>}
          {data && search &&<div className={styles.searchDashpost}>{data.searchDashpost.length > 0 && <PostList dashPosts={data.searchDashpost} title='Search result'/>}</div>}
         </div>
     )
