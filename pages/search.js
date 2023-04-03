@@ -28,7 +28,7 @@ export default function Search(){
               { loading && <div className={styles.loading}></div>}
             </div>
            {!search && <p>Start typing to search for news</p>}
-         {data && <div className={styles.searchDashpost}>{data.searchDashpost.length > 0 && <PostList dashPosts={data.searchDashpost} title='Search result'/>}</div>}
+         {data && search &&<div className={styles.searchDashpost}>{data.searchDashpost.length > 0 && <PostList dashPosts={data.searchDashpost} title='Search result'/>}</div>}
         </div>
     )
 }
