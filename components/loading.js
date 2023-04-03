@@ -1,5 +1,5 @@
 import styles from '../styles/loader.module.css'
-import { useRouter } from 'next/dist/client/router';
+import { useRouter } from 'next/router'
 import { useState, useEffect } from 'react';
 
 export default function Loading() {
@@ -9,7 +9,7 @@ export default function Loading() {
   
     useEffect(() => {
         const handleStart = (url) => (url !== router.asPath) && setLoading(true);
-        const handleComplete = (url) => (url === router.asPath) && setTimeout(() => setLoading(false), 1000);
+        const handleComplete = (url) => (url === router.asPath) && setTimeout(() => setLoading(false), 500);
   
         router.events.on('routeChangeStart', handleStart)
         router.events.on('routeChangeComplete', handleComplete)
