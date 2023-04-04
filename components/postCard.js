@@ -144,8 +144,22 @@ export default function PostCard({news, title, page,type, pageCount}){
                 </div>}
                
 
-                <div className={styles.pagnation}>
+                { count < 9 && <div className={styles.pagnation}>
                     {[...Array(count)].map((p, i) => <Link className={parseInt(page) === i + 1 ? styles.activePage : styles.inactivePage} key={i} href={title === 'Latest movies'?`/page/${title}/${i + 1}`:`/page/${title.toLowerCase()}/${i + 1}/${type}`}>{i + 1}</Link>)}
+                </div>}
+
+                <div className={styles.pagnation}>
+                    <Link  href={title === 'Latest movies'?`/page/${title}/1`:`/page/${title.toLowerCase()}/1/${type}`} className={parseInt(page) ===  1 ? styles.activePage : styles.inactivePage}>1</Link>
+                    <Link  href={title === 'Latest movies'?`/page/${title}/2`:`/page/${title.toLowerCase()}/2/${type}`} className={parseInt(page) ===  2 ? styles.activePage : styles.inactivePage}>2</Link>
+                   { parseInt(page) > 4 && <div>...</div>}
+                    <Link  href={title === 'Latest movies'?`/page/${title}/${(parseInt(page) >= 5 && parseInt(page) < count -3)? parseInt(page) -2:parseInt(page) >= count - 3? count - 6 : 3}`:`/page/${title.toLowerCase()}/${(parseInt(page) >= 5 && parseInt(page) < count -3)? parseInt(page) -2:parseInt(page) >= count - 3? count - 6 : 3}/${type}`} className={parseInt(page) ===  3 ? styles.activePage : styles.inactivePage}>{(parseInt(page) >= 5 && parseInt(page) < count -3)? parseInt(page) -2:parseInt(page) >= count - 3? count - 6 : 3}</Link>
+                    <Link  href={title === 'Latest movies'?`/page/${title}/${(parseInt(page) >= 5 && parseInt(page) < count -3)? parseInt(page) -1:parseInt(page) >= count - 3? count - 5 : 4}`:`/page/${title.toLowerCase()}/${(parseInt(page) >= 5 && parseInt(page) < count -3)? parseInt(page) -1:parseInt(page) >= count - 3? count - 5 : 4}/${type}`} className={parseInt(page) ===  4 ? styles.activePage : styles.inactivePage}>{(parseInt(page) >= 5 && parseInt(page) < count -3)? parseInt(page) -1:parseInt(page) >= count - 3? count - 5 : 4}</Link>
+                    <Link  href={title === 'Latest movies'?`/page/${title}/${parseInt(page) < 5 ? 5:parseInt(page) > count -4? count -4: parseInt(page)}`:`/page/${title.toLowerCase()}/${parseInt(page) < 5 ? 5:parseInt(page) > count -4? count -4: parseInt(page)}/${type}`} className={(parseInt(page) > 4 && parseInt(page) <= count -4) ? styles.activePage : styles.inactivePage}>{parseInt(page) < 5 ? 5:parseInt(page) > count -4? count -4: parseInt(page)}</Link>
+                    <Link  href={title === 'Latest movies'?`/page/${title}/${(parseInt(page) <= count - 4 && parseInt(page) > 4)? parseInt(page) + 1:  parseInt(page) < 5? 6 :   count - 3}`:`/page/${title.toLowerCase()}/${(parseInt(page) <= count - 4 && parseInt(page) > 4)? parseInt(page) + 1:  parseInt(page) < 5? 6 :  count - 3}/${type}`} className={parseInt(page) ===  count -3 ? styles.activePage : styles.inactivePage}>{(parseInt(page) <= count - 4 && parseInt(page) > 4)? parseInt(page) + 1:  parseInt(page) < 5? 6 :   count - 3}</Link>
+                    <Link  href={title === 'Latest movies'?`/page/${title}/${(parseInt(page) <= count - 4 && parseInt(page) > 4)? parseInt(page) + 2:  parseInt(page) < 5? 7 :   count - 2}`:`/page/${title.toLowerCase()}/${(parseInt(page) <= count - 4 && parseInt(page) > 4)? parseInt(page) + 2:  parseInt(page) < 5? 7 :   count - 2}/${type}`} className={parseInt(page) ===  count -2 ? styles.activePage : styles.inactivePage}>{(parseInt(page) <= count - 4 && parseInt(page) > 4)? parseInt(page) + 2:  parseInt(page) < 5? 7 :   count - 2}</Link>
+                  { parseInt(page) < count -3  && <div>...</div>}
+                    <Link  href={title === 'Latest movies'?`/page/${title}/${count -1}`:`/page/${title.toLowerCase()}/${count -1}/${type}`} className={parseInt(page) ===  count - 1 ? styles.activePage : styles.inactivePage}>{count - 1 }</Link>
+                    <Link  href={title === 'Latest movies'?`/page/${title}/${count -1}`:`/page/${title.toLowerCase()}/${count}/${type}`} className={parseInt(page) ===  count ? styles.activePage : styles.inactivePage}>{count }</Link>
                 </div>
         </div>
     )
