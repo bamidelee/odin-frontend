@@ -18,11 +18,7 @@ export default function MovieDisplay ({latestMovies, comedyMovies, horrorMovies,
             <ClientOnly>
               <Link href = {`movies/${randomLatestMovie._id}`}>
                 <header  className = {styles.moviesHeader}>
-                <Image src={randomLatestMovie.primaryMedia} alt={randomLatestMovie.title} fill priority
-                  sizes="(max-width: 768px) 100vw,
-                  (max-width: 1200px) 100vw,
-                  100vw"/>
-                      <div className={styles.headerDetails}>
+                <div className={styles.headerDetails}>
                         <h1>
                           {randomLatestMovie.title}
                         </h1>
@@ -30,6 +26,13 @@ export default function MovieDisplay ({latestMovies, comedyMovies, horrorMovies,
                           {randomLatestMovie.description}
                         </p>
                       </div>
+                <div className={styles.headerImage}>
+                  <Image src={randomLatestMovie.primaryMedia} alt={randomLatestMovie.title} fill priority
+                    sizes="(max-width: 768px) 100vw,
+                    (max-width: 1200px) 100vw,
+                    100vw"/>
+                </div>
+                     
                     </header>
               </Link>
             </ClientOnly>

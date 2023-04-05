@@ -5,36 +5,54 @@
  background-position: center;
  overflow: hidden;
  position: relative;
+ display: grid;
+ grid-template-columns: 50% 50%;
 
+}
 
+.headerImage{
+    position: relative;
+   
+ 
 }
 
 .headerDetails h1{
     font-family:strange;
     color: var(--fontGold);
     word-wrap: break-word;
+    font-size: 3rem;
+  
  }
 
  .headerDetails{
-    position: absolute;
-    top: 20vh;
-    left: 5vw;
-    width: 40vw;
-    height: 40vh;
-    color: white;
+    color: var(--fontBlack);
+    background-color: var(--backgroundWhite);
         text-align: center;
-        width: 90vmin;
         margin-left: auto;
         margin-right: auto;
-        left: 0;
-        right: 0;
-        top: 40vh;
         font-size: larger;
         overflow: hidden;
         text-overflow: ellipsis;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+      
        
 }
 
+
 .movieDisplay{
     background-color: var(--borderGrey);
+}
+
+
+@media screen and (max-width: 750px) {
+   .headerDetails{
+    display: none;
+   } 
+
+   .moviesHeader{
+    grid-template-columns: auto;
+   }
 }
