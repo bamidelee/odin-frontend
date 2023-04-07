@@ -49,6 +49,7 @@ export default function Layout ({children}) {
                     {children}
                  <div>
                    <Script type = 'text/javascript' src = {`//www.profitabledisplaynetwork.com/1d24a5888bd79927cba80711f10c599a/invoke.js`}></Script>
+              
                  </div>
                   { !desktopBanner &&<div>
                     <Script
