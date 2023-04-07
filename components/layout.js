@@ -6,10 +6,12 @@ import { AppWrapper } from '../context/appContext';
 import Footer from "./footer";
 import Script from "next/script";
 import DesktopBanner from "./desktopBanner";
+import BoxBanner from '../components/boxBanner'
 import Icon from '@mdi/react';
 import { mdiSend } from '@mdi/js';
 import Link from "next/link";
 import Loading from "./loading";
+import ClientOnly from '../components/Clientonly'
 
 
 
@@ -45,7 +47,9 @@ export default function Layout ({children}) {
                   Join our telegram channel
                 </Link>
                     {children}
-
+                 <div>
+                   <Script type = 'text/javascript' src = {`//www.profitabledisplaynetwork.com/1d24a5888bd79927cba80711f10c599a/invoke.js`}></Script>
+                 </div>
                   { !desktopBanner &&<div>
                     <Script
                     async

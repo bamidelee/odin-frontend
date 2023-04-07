@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import Script from 'next/script'
 export default function BoxBanner() {
     const boxBanner = useRef()
 
@@ -24,5 +25,6 @@ export default function BoxBanner() {
     }
 }, [])
 
-    return <div className='ads' ref={boxBanner}></div>
+    return <div className='ads' ref={boxBanner}>
+    </div>
 }

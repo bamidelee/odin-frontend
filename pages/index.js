@@ -43,7 +43,7 @@ export default function Home({footballNews, entertainmentNews, politicsNews, int
          <DashCard dashPosts={latestMovies} title = 'Latest Movies' page = 'latest movie' type = 'movie'/>
          <DashCard dashPosts={entertainmentNews} title='Entertainment' page='entertainment' type='post'/>
          <DashCard dashPosts={politicsNews} title="Politics" page='politics' type='post'/>
-      
+         {mobileBanner && <ClientOnly><Banner/></ClientOnly>}
        </div>
         <div className={styles.pageRight}>
       {mobileBanner &&  <div>
