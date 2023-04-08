@@ -5,8 +5,8 @@ export default function DesktopBanner({slot}) {
     const atAsyncOptions = {
         key: slot,
         format: 'iframe',
-        height: 50,
-        width: 320,
+        height: 90,
+        width: 720,
         params: {},
         async: true,
         container: getId(slot),
