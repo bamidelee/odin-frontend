@@ -29,10 +29,9 @@ html {
 }
 
 .ads {
-    display: flex;
-    justify-content: center;
-    width: 100vw;
-    margin: 1rem;
+ 
+    width: fit-content;
+    margin: 1rem auto;
 }
 
 .telegram {
