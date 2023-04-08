@@ -23,7 +23,7 @@ export default function Layout({ children }) {
     if (window.innerWidth > 650) {
       setDesktopBanner(true)
     }
-  })
+  },[])
 
   const [sideBar, setSideBar] = useState(false)
   const ref = useRef(null)
@@ -40,7 +40,7 @@ export default function Layout({ children }) {
         <SideBar sideBar={sideBar} setSideBar={setSideBar} />
 
         <main ref={ref} style={{ paddingTop: '4rem', width: '100%' }} onClick={(() => setSideBar(false))}>
-          {DesktopBanner && <Banner slot='8c47067f1ac7389ef98d7ba0c597c9d9' />}
+          {desktopBanner && <Banner slot='8c47067f1ac7389ef98d7ba0c597c9d9' />}
           <Link href='https://t.me/thenaijaodin' className="telegram">
             <Icon path={mdiSend} size={1.5} />
             Join our telegram channel
