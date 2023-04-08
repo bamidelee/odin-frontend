@@ -7,7 +7,7 @@ import { gql } from "@apollo/client";
 import { useEffect, useState } from 'react';
 import Table from '../components/tables'
 import Carousel from '../components/carousel';
-
+import DesktopBanner from '../components/desktopBanner';
 import ClientOnly from '../components/Clientonly';
 import { useQuery } from "@apollo/client"
 import Banner from '../components/banner';
@@ -38,24 +38,15 @@ export default function Home({footballNews, entertainmentNews, politicsNews, int
       <main className={styles.main}>
        <div className={styles.news}>
         
-          {mobileBanner && <ClientOnly><Banner/></ClientOnly>}
+          {mobileBanner && <Banner slot='1523ac683e9630ccc8aba4793a81d92b'/>}
          <DashCard dashPosts={footballNews} title='Football' page='football' type='post'/>
          <DashCard dashPosts={latestMovies} title = 'Latest Movies' page = 'latest movie' type = 'movie'/>
          <DashCard dashPosts={entertainmentNews} title='Entertainment' page='entertainment' type='post'/>
          <DashCard dashPosts={politicsNews} title="Politics" page='politics' type='post'/>
-         {mobileBanner && <ClientOnly><Banner/></ClientOnly>}
+
        </div>
         <div className={styles.pageRight}>
-      {mobileBanner &&  <div>
-                    <Script
-                    async
-                    type="application/javascript" src="https://a.exdynsrv.com/ad-provider.js"
-                    strategy="afterInteractive"
-                    />
-                        { <div className="ads"><ins class="adsbyexoclick" data-zoneid="4935076"></ins> </div>}
-                    
-                    <Script id='banner3'>{`(AdProvider = window.AdProvider || []).push({"serve": {}});`}</Script>
-                  </div>}
+    
         {trendingData && <ClientOnly>
         <DashCard dashPosts={trendingData.trending.slice().sort((a,b) => b.trending.filter(d => isYesterday(d) || isToday(d)).length - a.trending.filter(d => isYesterday(d) || isToday(d)).length).slice(0,10)} title='Trending movies' page='trending' type='movie'/>
         </ClientOnly>}

@@ -6,12 +6,11 @@ import { AppWrapper } from '../context/appContext';
 import Footer from "./footer";
 import Script from "next/script";
 import DesktopBanner from "./desktopBanner";
-import BoxBanner from '../components/boxBanner'
 import Icon from '@mdi/react';
 import { mdiSend } from '@mdi/js';
 import Link from "next/link";
 import Loading from "./loading";
-import ClientOnly from '../components/Clientonly'
+import ClientOnly from "./Clientonly";
 
 
 
@@ -41,38 +40,15 @@ export default function Layout ({children}) {
                 <SideBar sideBar={sideBar} setSideBar = {setSideBar}/>
 
                 <main ref={ref} style={{paddingTop: '4rem', width: '100%'}} onClick = {(() => setSideBar(false))}>
-                {desktopBanner && <DesktopBanner/>}
+                {desktopBanner && <DesktopBanner slot ='8c47067f1ac7389ef98d7ba0c597c9d9'/>}
                 <Link href='https://t.me/thenaijaodin' className="telegram">
                 <Icon path={mdiSend} size={1.5} />
                   Join our telegram channel
                 </Link>
                     {children}
-                 <div>
-                   <Script type = 'text/javascript' src = {`//www.profitabledisplaynetwork.com/1d24a5888bd79927cba80711f10c599a/invoke.js`}></Script>
-              
-                 </div>
-                  { !desktopBanner &&<div>
-                    <Script
-                    async
-                    type="application/javascript" src="https://a.exdynsrv.com/ad-provider.js"
-                    strategy="afterInteractive"
-                    />
-                        { <div className="ads"><ins class="adsbyexoclick" data-zoneid="4935076"></ins> </div>}
-                    
-                    <Script id="banner1">{`(AdProvider = window.AdProvider || []).push({"serve": {}});`}</Script>
-                  </div>
-                   }
+                    {desktopBanner && <DesktopBanner slot ='b025ba1d1be3acb2b5515d337ab3ebb6'/>}
 
-                    { desktopBanner &&<div>
-                    <Script
-                    async
-                    type="application/javascript" src="https://a.exdynsrv.com/ad-provider.js"
-                    strategy="afterInteractive"
-                    />
-                        { <div className="ads"> <ins class="adsbyexoclick" data-zoneid="4935098"></ins>  </div>}
-                    
-                    <Script id="banner2">{`(AdProvider = window.AdProvider || []).push({"serve": {}});`}</Script>
-                  </div>
+                  { !desktopBanner && <DesktopBanner slot = '1d24a5888bd79927cba80711f10c599a'/>
                    }
 
                 </main>
