@@ -6,7 +6,7 @@ export default function DesktopBanner({slot}) {
         key: slot,
         format: 'iframe',
         height: 90,
-        width: 720,
+        width: 728,
         params: {},
         async: true,
         container: getId(slot),
