@@ -17,16 +17,16 @@ import isYesterday from 'date-fns/isYesterday';
 import isToday from 'date-fns/isToday';
 
 
-export default function Home({footballNews, entertainmentNews, politicsNews, internationalNews, latestMovies, premierLeague, laliga}) {
+export default function Home({ footballNews, entertainmentNews, politicsNews, internationalNews, latestMovies, premierLeague, laliga }) {
   const { data: trendingData, loading, error } = useQuery(TRENDING);
   const [mobileBanner, setMobileBanner] = useState(false)
 
   useEffect(() => {
-   
-    if(window.innerWidth < 650){
+
+    if (window.innerWidth < 650) {
       setMobileBanner(true)
     }
-  },[])
+  }, [])
 
   return (
     <>
@@ -36,25 +36,25 @@ export default function Home({footballNews, entertainmentNews, politicsNews, int
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
       <main className={styles.main}>
-       <div className={styles.news}>
-        
-          {mobileBanner && <Banner slot='1523ac683e9630ccc8aba4793a81d92b'/>}
-         <DashCard dashPosts={footballNews} title='Football' page='football' type='post'/>
-         <DashCard dashPosts={latestMovies} title = 'Latest Movies' page = 'latest movie' type = 'movie'/>
-         <DashCard dashPosts={entertainmentNews} title='Entertainment' page='entertainment' type='post'/>
-         <DashCard dashPosts={politicsNews} title="Politics" page='politics' type='post'/>
+        <div className={styles.news}>
 
-       </div>
+          {mobileBanner && <Banner slot='1523ac683e9630ccc8aba4793a81d92b' />}
+          <DashCard dashPosts={footballNews} title='Football' page='football' type='post' />
+          <DashCard dashPosts={latestMovies} title='Latest Movies' page='latest movie' type='movie' />
+          <DashCard dashPosts={entertainmentNews} title='Entertainment' page='entertainment' type='post' />
+          <DashCard dashPosts={politicsNews} title="Politics" page='politics' type='post' />
+
+        </div>
         <div className={styles.pageRight}>
-    
-        {trendingData && <ClientOnly>
-        <DashCard dashPosts={trendingData.trending.slice().sort((a,b) => b.trending.filter(d => isYesterday(d) || isToday(d)).length - a.trending.filter(d => isYesterday(d) || isToday(d)).length).slice(0,10)} title='Trending movies' page='trending' type='movie'/>
-        </ClientOnly>}
-        <DashCard dashPosts={internationalNews} title= "International" page='international' type='post'/>
 
-        {premierLeague && <div>{premierLeague[0] && <Fixture fixtureData={premierLeague} title = 'Fixtures' mini= {true}/>}</div>}
-        {premierLeague &&  <div>{laliga[0] && <Table mini = {true} title = 'Tables' standings = {laliga}/>}</div>}
-       
+          {trendingData && <ClientOnly>
+            <DashCard dashPosts={trendingData.trending.slice().sort((a, b) => b.trending.filter(d => isYesterday(d) || isToday(d)).length - a.trending.filter(d => isYesterday(d) || isToday(d)).length).slice(0, 10)} title='Trending movies' page='trending' type='movie' />
+          </ClientOnly>}
+          <DashCard dashPosts={internationalNews} title="International" page='international' type='post' />
+
+          {premierLeague && <div>{premierLeague[0] && <Fixture fixtureData={premierLeague} title='Fixtures' mini={true} />}</div>}
+          {premierLeague && <div>{laliga[0] && <Table mini={true} title='Tables' standings={laliga} />}</div>}
+
         </div>
       </main>
     </>
@@ -62,32 +62,32 @@ export default function Home({footballNews, entertainmentNews, politicsNews, int
 }
 
 export async function getStaticProps() {
-  const { data: footballData } = await client.query({query: DASH_NEWS, variables:{genre: 'football'}});
-  const { data: entertainmentData } = await client.query({query: DASH_NEWS, variables:{genre: 'entertainment'}});
-  const { data: politicsData } = await client.query({query: DASH_NEWS, variables:{genre: 'politics'}});
-  const { data: internationalData } = await client.query({query: DASH_NEWS, variables:{genre: 'international'}});
-  const { data: latestMovieData } = await client.query({query: LATEST_MOVIES, variables: {pageNumber: '1'}});
-  const premierLeagueData =await fetch(`https://football98.p.rapidapi.com/premierleague/fixtures`, {
+  const { data: footballData } = await client.query({ query: DASH_NEWS, variables: { genre: 'football' } });
+  const { data: entertainmentData } = await client.query({ query: DASH_NEWS, variables: { genre: 'entertainment' } });
+  const { data: politicsData } = await client.query({ query: DASH_NEWS, variables: { genre: 'politics' } });
+  const { data: internationalData } = await client.query({ query: DASH_NEWS, variables: { genre: 'international' } });
+  const { data: latestMovieData } = await client.query({ query: LATEST_MOVIES, variables: { pageNumber: '1' } });
+  const premierLeagueData = await fetch(`https://football98.p.rapidapi.com/premierleague/fixtures`, {
     "method": "GET",
     "headers": {
       "x-rapidapi-host": 'football98.p.rapidapi.com',
-      "x-rapidapi-key":process.env.REACT_APP_API_KEY 
+      "x-rapidapi-key": process.env.REACT_APP_API_KEY
     }
   })
 
-  const laligaData =await fetch(`https://football98.p.rapidapi.com/laliga/table`, {
+  const laligaData = await fetch(`https://football98.p.rapidapi.com/laliga/table`, {
     "method": "GET",
     "headers": {
       "x-rapidapi-host": 'football98.p.rapidapi.com',
-      "x-rapidapi-key":process.env.REACT_APP_API_KEY 
+      "x-rapidapi-key": process.env.REACT_APP_API_KEY
     }
   })
 
   console.log(laligaData)
 
-  const premierLeague = premierLeagueData.status ===503 ?null:await premierLeagueData.json()
-  const laliga = laligaData.status === 503? null:await laligaData.json()
-  
+  const premierLeague = premierLeagueData.status === 503 ? null : await premierLeagueData.json()
+  const laliga = laligaData.status === 503 ? null : await laligaData.json()
+
 
   return {
     props: {
@@ -99,6 +99,6 @@ export async function getStaticProps() {
       premierLeague: premierLeague,
       laliga: laliga
     },
-    
- };
+
+  };
 }

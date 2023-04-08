@@ -1,4 +1,4 @@
-.fixtures .matches{
+.fixtures .matches {
     display: grid;
     grid-template-columns: 20% 10% 20%;
     justify-content: center;
@@ -8,22 +8,22 @@
     margin: 0 auto;
 }
 
-.fixtures{
+.fixtures {
     color: var(--fontBlack);
     background-color: var(--backgroundWhite);
     border-radius: 10px;
-   width: 95%;
-   margin-left: auto;
-   margin-right: auto;
-   padding-top: 1rem;
-  
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 1rem;
+
 }
 
-.fixtureData{
+.fixtureData {
     display: flex;
 }
 
-.fixtures .matchesContainer{
+.fixtures .matchesContainer {
     margin: 1rem;
     border: 1px solid var(--fontBlack);
     padding-bottom: 1rem;
@@ -32,9 +32,9 @@
 }
 
 
- .leagueSelect{
+.leagueSelect {
     width: 90vw;
-    margin: 0 auto ;
+    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
@@ -43,7 +43,7 @@
     margin: 2rem;
 }
 
-.leagueSelect button{
+.leagueSelect button {
     color: var(--fontBlack);
     background-color: transparent;
     border: none;
@@ -52,7 +52,7 @@
 }
 
 
-.material-symbols-outlined{
+.material-symbols-outlined {
     font-size: 2rem;
     margin-left: 2rem;
     color: white;
@@ -61,7 +61,7 @@
 
 
 
-.title{
+.title {
     color: var(--fontGold);
     border: .1px solid var(--fontGold);
     background-color: var(--borderGrey);
@@ -71,20 +71,20 @@
 
 
 
-.fixtureData{
+.fixtureData {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
 }
 
-.matchesContainer h3{
+.matchesContainer h3 {
     color: var(--fontGold);
 }
 
-.matchesContainer h2{
+.matchesContainer h2 {
     color: var(--fontGold);
 }
 
-.active{
+.active {
     color: var(--fontGold) !important;
 }

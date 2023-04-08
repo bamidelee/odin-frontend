@@ -1,40 +1,41 @@
-:root{
-    --backgroundBlack: 	rgb(0,0,0);
+:root {
+    --backgroundBlack: rgb(0, 0, 0);
     --backgroundWhite: white;
     --fontGold: rgb(114, 99, 13);
     --borderGrey: #35353b25;
-    --fontBlack: 	#696969;
+    --fontBlack: #696969;
 
 }
 
-body{
+body {
     background-color: var(--borderGrey);
     margin: 0;
     padding: 0;
     overflow-x: hidden;
 }
 
-.slick-arrow{
+.slick-arrow {
     visibility: hidden;
 }
 
-a{
+a {
     text-decoration: none;
 }
-html{
+
+html {
     margin: 0;
     padding: 0;
     overflow-x: hidden;
 }
 
-.ads{
+.ads {
     display: flex;
     justify-content: center;
     width: 100vw;
 }
 
-.telegram{
-    text-align:  center;
+.telegram {
+    text-align: center;
     color: var(--fontGold);
     border: 1px solid var(--fontGold);
     width: fit-content;

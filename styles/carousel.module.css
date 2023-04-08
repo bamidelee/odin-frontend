@@ -1,93 +1,91 @@
-.carousel{
-    width: 100vw;
-   margin: 1rem auto;
-    padding: 1rem;
+.carousel {
+  width: 100vw;
+  margin: 1rem auto;
+  padding: 1rem;
+  border-radius: 10px;
+  background-color: var(--backgroundWhite);
+
+}
+
+.carouselContainer img {
+  height: 12vw;
+  width: 12vw;
+  border-radius: 10px;
+
+}
+
+.carouselContainer {
+  position: relative;
+  transition: all .5s;
+  text-align: center;
+  width: min-content;
+  border: 1px solid var(--fontGold);
+  border-radius: 10px;
+  background-color: var(--fontGold);
+}
+
+
+
+.carouselTitle {
+  font-family: strange;
+  color: var(--fontGold);
+  font-size: 1.3rem;
+  letter-spacing: 1px;
+  width: 90%;
+  border: 1px solid var(--fontGold);
+  padding: 0 1rem;
+  background-color: var(--borderGrey);
+  margin-right: 1rem;
+  font-weight: 700;
+
+}
+
+.carouselContainer h2 {
+  margin: 0;
+  font-size: 1vmax;
+  text-overflow: ellipsis;
+  width: 80%;
+  height: 2rem;
+  color: var(--backgroundWhite);
+  word-break: break-all;
+  padding: 10px;
+
+}
+
+.carouselContainer .rating {
+  position: absolute;
+  font-weight: 800;
+  font-family: 'Monoton', cursive;
+  padding: 0;
+  left: -1rem;
+  font-size: 10vmax;
+  color: var(--fontGold);
+  top: -1rem;
+  z-index: 1;
+}
+
+
+.seeMore {
+  text-align: right;
+  color: var(--fontGold);
+  display: block;
+  margin-right: 4vw;
+  font-size: 1.2rem;
+  margin-top: 1rem;
+}
+
+@media screen and (max-width: 700px) {
+  .carouselContainer img {
+    height: 15vw;
+    width: 15vw;
     border-radius: 10px;
-    background-color: var(--backgroundWhite);
-    
+  }
 }
 
-.carouselContainer img{
-    height:12vw;
-    width: 12vw;
+@media screen and (max-width: 450px) {
+  .carouselContainer img {
+    height: 22vw;
+    width: 22vw;
     border-radius: 10px;
-  
   }
-
-  .carouselContainer{
-    position: relative;
-   transition: all .5s;
-   text-align: center;
-   width: min-content;
-   border: 1px solid var(--fontGold);
-   border-radius: 10px;
-   background-color: var(--fontGold);
 }
-
-
-
-.carouselTitle{
-    font-family: strange;
-    color: var(--fontGold);
-    font-size: 1.3rem;
-    letter-spacing: 1px;
-    width: 90%;
-    border: 1px solid var(--fontGold);
-    padding: 0 1rem;
-    background-color: var(--borderGrey);
-    margin-right: 1rem;
-    font-weight: 700;
-
-}
-
-.carouselContainer h2{
-    margin: 0;
-    font-size: 1vmax;
-    text-overflow: ellipsis;
-    width: 80%;
-    height: 2rem;
-    color: var(--backgroundWhite);
-    word-break: break-all;
-    padding: 10px;
-
-  }
-
-  .carouselContainer .rating{
-    position: absolute;
-    font-weight: 800;
-    font-family: 'Monoton', cursive;
-    padding: 0;
-    left: -1rem;
-    font-size: 10vmax;
-    color: var(--fontGold);
-    top: -1rem;
-    z-index: 1;
-  }
-
-
-  .seeMore{
-    text-align: right;
-    color: var(--fontGold);
-    display: block;
-    margin-right: 4vw;
-    font-size: 1.2rem;
-    margin-top: 1rem;
-  }
-
-  @media screen  and (max-width: 700px) {
-    .carouselContainer img{
-      height:15vw;
-      width: 15vw;
-      border-radius: 10px;
-    }
-  }
- 
-  @media screen  and (max-width: 450px) {
-    .carouselContainer img{
-      height:22vw;
-      width: 22vw;
-      border-radius: 10px;
-    }
-  }
-
-

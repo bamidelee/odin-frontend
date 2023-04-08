@@ -1,4 +1,4 @@
-.standings{
+.standings {
     display: grid;
     grid-template-columns: 40% 60%;
     padding-top: 5px;
@@ -6,18 +6,18 @@
     padding-left: 1rem;
 }
 
-.standingsContainer{
+.standingsContainer {
     margin-left: auto;
     margin-right: auto;
-    background-color:var(--backgroundWhite);
+    background-color: var(--backgroundWhite);
     padding: .5rem;
 }
 
-.standings:nth-child(even){
+.standings:nth-child(even) {
     background-color: var(--borderGrey);
 }
 
-.Standings{
+.Standings {
     color: var(--fontBlack);
     background-color: var(--backgroundWhite);
     width: 95%;
@@ -27,27 +27,27 @@
     padding-top: 1rem;
 }
 
-.standingsLeft{
+.standingsLeft {
     display: flex;
     align-items: center;
     gap: 3px;
-    
+
 }
 
-.standingsRight{
+.standingsRight {
     display: grid;
     grid-template-columns: 16% 16% 16% 16% 16% 16%;
     justify-items: center;
     align-items: center;
 }
 
-.standingsHeader{
+.standingsHeader {
     display: grid;
     grid-template-columns: 40% 60%;
     padding-left: 1rem;
 }
 
-.standingsHeaderLeft{
+.standingsHeaderLeft {
     display: grid;
     grid-template-columns: 16% 16% 16% 16% 16% 16%;
     justify-items: center;
@@ -55,16 +55,16 @@
     color: var(--fontGold);
 }
 
-.title{
+.title {
     color: var(--fontGold);
     border: .1px solid var(--fontGold);
     background-color: var(--borderGrey);
     padding-left: 1rem;
-    margin:  1rem;
+    margin: 1rem;
 }
 
-.clubName{
+.clubName {
     white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }

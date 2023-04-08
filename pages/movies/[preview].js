@@ -5,20 +5,20 @@ import client from "../../apollo-client";
 import BoxBanner from '../../components/boxBanner'
 import { useEffect, useState } from 'react';
 
-export default function Preview({movie}) {
+export default function Preview({ movie }) {
     const [mobileBanner, setMobileBanner] = useState(false)
 
     useEffect(() => {
-     
-      if(window.innerWidth < 650){
-        setMobileBanner(true)
-      }
-    },[])
-    return(
+
+        if (window.innerWidth < 650) {
+            setMobileBanner(true)
+        }
+    }, [])
+    return (
         <div>
-            {mobileBanner && <BoxBanner/>}
+            {mobileBanner && <BoxBanner />}
             <ClientOnly>
-                <MoviePreview movie = {movie}/>
+                <MoviePreview movie={movie} />
             </ClientOnly>
 
         </div>
@@ -26,21 +26,21 @@ export default function Preview({movie}) {
 }
 
 
-export async function getStaticProps({params}) {
-    const {preview} = params
-    const { data } = await client.query({query: FIND_MOVIE, variables: {id : preview }});
-        return {
+export async function getStaticProps({ params }) {
+    const { preview } = params
+    const { data } = await client.query({ query: FIND_MOVIE, variables: { id: preview } });
+    return {
         props: {
-        
+
             movie: data.findMovie
         },
-     
+
     };
 }
 
 export async function getStaticPaths() {
     return {
-      paths: [],
-      fallback: 'blocking', // can also be true or 'blocking'
+        paths: [],
+        fallback: 'blocking', // can also be true or 'blocking'
     }
-  }
+}

@@ -1,28 +1,28 @@
-.footer{
+.footer {
     text-align: center;
     background-color: var(--backgroundWhite);
     color: var(--fontBlack);
     padding: 2rem;
 }
 
-.socials{
+.socials {
     display: flex;
     justify-content: center;
     gap: 2rem;
     text-align: center;
 }
 
-.socials p{
+.socials p {
     color: var(--fontBlack);
     font-size: 1.2rem;
-   
+
 }
 
-.socials h3{
+.socials h3 {
     color: var(--fontGold);
 }
 
-.socials a{
+.socials a {
     border: 1px solid var(--fontGold);
     padding: 1rem;
     display: flex;
@@ -31,11 +31,11 @@
     gap: 3px;
 }
 
-.mail h3{
+.mail h3 {
     color: var(--fontGold);
 }
 
-.mail{
+.mail {
     display: flex;
     justify-content: center;
     align-items: center;

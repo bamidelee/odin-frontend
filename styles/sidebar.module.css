@@ -1,62 +1,62 @@
-.sidebar{
-    position: fixed;
-    transition: all .3s;
-    overflow: hidden;
-    background-color:  var(--backgroundWhite);
-    height: 100vh;
-    box-sizing: border-box;
-    z-index: 10;
-    padding-top:20vh;
-    display: flex;
-    flex-direction: column;
-    color: var(--fontBlack);
-    gap: 2rem;
-    font-size: 1.2rem;
-    padding-left: 2rem;
-    justify-content:flex-start ;
+.sidebar {
+  position: fixed;
+  transition: all .3s;
+  overflow: hidden;
+  background-color: var(--backgroundWhite);
+  height: 100vh;
+  box-sizing: border-box;
+  z-index: 10;
+  padding-top: 20vh;
+  display: flex;
+  flex-direction: column;
+  color: var(--fontBlack);
+  gap: 2rem;
+  font-size: 1.2rem;
+  padding-left: 2rem;
+  justify-content: flex-start;
 
 }
 
-.sidebar a{
-    color: var(--fontBlack);
-    display: flex;
-    align-items: center;
+.sidebar a {
+  color: var(--fontBlack);
+  display: flex;
+  align-items: center;
 }
 
-.sidebar a:active{
-    color: var(--fontGold);
+.sidebar a:active {
+  color: var(--fontGold);
 }
 
 
 
 
-.open{
-    width: 250px;
+.open {
+  width: 250px;
 }
 
-.closed{
-    width: 0px;
-    padding: 0;
+.closed {
+  width: 0px;
+  padding: 0;
 }
 
-.sidebar button{
-    display: flex;
-    background-color: var(--backgroundWhite);
-    color: var(--fontBlack);
-    align-items: center;
-    border: none;
-    outline: none;
-    font-size: 1.2rem;
-    padding: 0;
-    gap: 1px;
+.sidebar button {
+  display: flex;
+  background-color: var(--backgroundWhite);
+  color: var(--fontBlack);
+  align-items: center;
+  border: none;
+  outline: none;
+  font-size: 1.2rem;
+  padding: 0;
+  gap: 1px;
 }
 
-.newsLinks{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-left: 2rem;
-    overflow: hidden;
+.newsLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-left: 2rem;
+  overflow: hidden;
 }
 
 
@@ -69,8 +69,8 @@
   padding: 0;
   line-height: 1em;
   margin: 0;
-  
-  
+
+
 }
 
 .linkTop {
@@ -85,7 +85,7 @@
 .linkTop:after {
   content: "";
   position: absolute;
-  
+
   top: 36%;
   left: 0;
   width: 100%;
@@ -107,7 +107,7 @@
   background-position: left bottom;
   background-repeat: no-repeat;
   background-image: linear-gradient(to right, var(--fontGold) 50%, transparent 50%);
-  
+
 }
 
 
@@ -115,7 +115,7 @@
 .linkBottom:after {
   content: "";
   position: absolute;
-  
+
   top: 40%;
   left: 0;
   width: 100%;
@@ -129,7 +129,7 @@
 .link:hover .linkTop {
   color: var(--fontGold);
   transform: translateY(-0.5em) rotateZ(-3deg);
-  transition: transform 0.2s cubic-bezier(.12,.8,.57,1.00) 0.42s, color 0.5s ease 0.22s;
+  transition: transform 0.2s cubic-bezier(.12, .8, .57, 1.00) 0.42s, color 0.5s ease 0.22s;
 }
 
 .link:hover .linkBottom {
@@ -150,26 +150,26 @@
   transform: rotateZ(-2.1deg) scaleX(100%);
 }
 
-.activeLink .linkTop{
-    color: var(--fontGold);
-    transform: translateY(-0.5em) rotateZ(-3deg);
-    transition: transform 0.2s cubic-bezier(.12,.8,.57,1.00) 0.42s, color 0.5s ease 0.22s;
-  }
+.activeLink .linkTop {
+  color: var(--fontGold);
+  transform: translateY(-0.5em) rotateZ(-3deg);
+  transition: transform 0.2s cubic-bezier(.12, .8, .57, 1.00) 0.42s, color 0.5s ease 0.22s;
+}
 
-  .activeLink .linkBottom{
-    color: var(--fontGold);
-    background-position: 100% bottom;
-    transition: color 0.2s ease 0.2s, background-position 0.2s ease;
-  }
+.activeLink .linkBottom {
+  color: var(--fontGold);
+  background-position: 100% bottom;
+  transition: color 0.2s ease 0.2s, background-position 0.2s ease;
+}
 
-  .activeLink .linkTop:after{
-    top: 65%;
-    transform-origin: left top;
-    transform: rotateZ(-2.1deg) scaleX(100%);
-  }
-
-  .activeLink .linkBottom:after{
-    top: 65%;
+.activeLink .linkTop:after {
+  top: 65%;
   transform-origin: left top;
   transform: rotateZ(-2.1deg) scaleX(100%);
-  }
+}
+
+.activeLink .linkBottom:after {
+  top: 65%;
+  transform-origin: left top;
+  transform: rotateZ(-2.1deg) scaleX(100%);
+}

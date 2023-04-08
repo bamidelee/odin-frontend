@@ -7,12 +7,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 
-export default function RelatedNews({news}){
-   
+export default function RelatedNews({ news }) {
 
-    return(
+
+    return (
         <div>
-            {news.length > 0 && <PostList dashPosts={news.slice(0,5)} title ='Related news' replace = {true}/>}
+            {news.length > 0 && <PostList dashPosts={news.slice(0, 5)} title='Related news' replace={true} />}
         </div>
     )
 }

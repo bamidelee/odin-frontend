@@ -1,12 +1,12 @@
-.search{
+.search {
     min-height: 80vh;
     color: var(--fontBlack);
     padding: 0 2rem;
-   
-    
+
+
 }
 
-.search input{
+.search input {
     border: 1px solid var(--fontGold);
     font-size: 1.3rem;
     color: var(--fontBlack);
@@ -16,21 +16,21 @@
     width: 70vmin;
 }
 
-.search h1{
+.search h1 {
     color: var(--fontGold);
 }
 
-.searchResult{
- 
+.searchResult {
+
     margin: 2rem auto;
 }
 
-.searchDashpost{
+.searchDashpost {
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
 
- .loading{
+.loading {
     width: 2px;
     height: 2px;
     border-image: linear-gradient(var(--fontGold), var(--fontGold)) 30;
@@ -45,30 +45,30 @@
 }
 
 @keyframes loading {
-    0%{
+    0% {
         transform: rotate(0) scale(1);
     }
 
-    50%{
+    50% {
         transform: rotate(90deg) scale(2);
     }
 
-    75%{
+    75% {
         transform: rotate(180deg) scale(3);
     }
 
-    100%{
+    100% {
         transform: rotate(360deg) scale(1);
     }
 }
 
-.inputContainer{
+.inputContainer {
     display: flex;
     align-items: center;
 }
 
 @media screen and (max-width: 750px) {
-    .search{
+    .search {
         padding: 0 1rem
     }
 }
