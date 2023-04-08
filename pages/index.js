@@ -17,6 +17,7 @@ import isYesterday from 'date-fns/isYesterday';
 import isToday from 'date-fns/isToday';
 
 
+
 export default function Home({ footballNews, entertainmentNews, politicsNews, internationalNews, latestMovies, premierLeague, laliga }) {
   const { data: trendingData, loading, error } = useQuery(TRENDING);
   const [mobileBanner, setMobileBanner] = useState(false)
@@ -35,27 +36,40 @@ export default function Home({ footballNews, entertainmentNews, politicsNews, in
         <meta name="description" content="blog" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
-      <main className={styles.main}>
-        <div className={styles.news}>
+      <main>
+        
+        <ClientOnly>
+          <Banner slot={mobileBanner? '1523ac683e9630ccc8aba4793a81d92b' : '8c47067f1ac7389ef98d7ba0c597c9d9'}/>
+        </ClientOnly>
+      
 
-          {mobileBanner && <Banner slot='1523ac683e9630ccc8aba4793a81d92b' />}
-          <DashCard dashPosts={footballNews} title='Football' page='football' type='post' />
-          <DashCard dashPosts={latestMovies} title='Latest Movies' page='latest movie' type='movie' />
-          <DashCard dashPosts={entertainmentNews} title='Entertainment' page='entertainment' type='post' />
-          <DashCard dashPosts={politicsNews} title="Politics" page='politics' type='post' />
 
+        <div className={styles.main}>
+
+          <div className={styles.news}>
+
+
+            <DashCard dashPosts={footballNews} title='Football' page='football' type='post' />
+            <DashCard dashPosts={latestMovies} title='Latest Movies' page='latest movie' type='movie' />
+            <DashCard dashPosts={entertainmentNews} title='Entertainment' page='entertainment' type='post' />
+            <DashCard dashPosts={politicsNews} title="Politics" page='politics' type='post' />
+          </div>
+          <div className={styles.pageRight}>
+            {trendingData && <ClientOnly>
+              <DashCard dashPosts={trendingData.trending.slice().sort((a, b) => b.trending.filter(d => isYesterday(d) || isToday(d)).length - a.trending.filter(d => isYesterday(d) || isToday(d)).length).slice(0, 10)} title='Trending movies' page='trending' type='movie' />
+            </ClientOnly>}
+            <DashCard dashPosts={internationalNews} title="International" page='international' type='post' />
+            {premierLeague && <div>{premierLeague[0] && <Fixture fixtureData={premierLeague} title='Fixtures' mini={true} />}</div>}
+            {premierLeague && <div>{laliga[0] && <Table mini={true} title='Tables' standings={laliga} />}</div>}
+          </div>
         </div>
-        <div className={styles.pageRight}>
+        {!mobileBanner && <div>
+          <Script async="async" data-cfasync="false" src="//pl18660884.highrevenuegate.com/1e845c512aba6f843b89be278fa82a95/invoke.js"></Script>
+          <div id="container-1e845c512aba6f843b89be278fa82a95"></div>
+        </div>}
 
-          {trendingData && <ClientOnly>
-            <DashCard dashPosts={trendingData.trending.slice().sort((a, b) => b.trending.filter(d => isYesterday(d) || isToday(d)).length - a.trending.filter(d => isYesterday(d) || isToday(d)).length).slice(0, 10)} title='Trending movies' page='trending' type='movie' />
-          </ClientOnly>}
-          <DashCard dashPosts={internationalNews} title="International" page='international' type='post' />
-
-          {premierLeague && <div>{premierLeague[0] && <Fixture fixtureData={premierLeague} title='Fixtures' mini={true} />}</div>}
-          {premierLeague && <div>{laliga[0] && <Table mini={true} title='Tables' standings={laliga} />}</div>}
-
-        </div>
+        {mobileBanner && <DesktopBanner slot='1d24a5888bd79927cba80711f10c599a' />
+        }
       </main>
     </>
   )
