@@ -12,7 +12,7 @@ import isToday from "date-fns/isToday";
 export default function MovieDisplay({ latestMovies, comedyMovies, horrorMovies, actionMovies }) {
   const [randomLatestMovie,] = useState(latestMovies[Math.floor(Math.random() * latestMovies.length)])
   const { data: trendingData, loading, error } = useQuery(TRENDING);
-  console.log(trendingData)
+  
   return (
     <div className={styles.movieDisplay}>
       <ClientOnly>

@@ -12,7 +12,7 @@ import ClientOnly from "../../components/Clientonly";
 
 export default function News({ news, latestMovies, pageCount, latestMoviesCount }) {
   const [mobileBanner, setMobileBanner] = useState(false)
-
+  
   useEffect(() => {
 
     if (window.innerWidth < 650) {
@@ -27,7 +27,7 @@ export default function News({ news, latestMovies, pageCount, latestMoviesCount 
         <Banner slot={mobileBanner ? '1523ac683e9630ccc8aba4793a81d92b' : '8c47067f1ac7389ef98d7ba0c597c9d9'} />
       </ClientOnly>
 
-      <PostCard news={param[2] ? news : latestMovies} title={param[0]} page={param[1]} type={param[2]} pageCount={param[2] ? pageCount : latestMoviesCount} />
+      <PostCard news={param[2] ? news : latestMovies} title={param[0]} page={param[1]} type={param[2]} pageCount={param[0] == 'Latest movies' ? latestMoviesCount : pageCount} />
       {!mobileBanner && <div>
         <Script async="async" data-cfasync="false" src="//pl18660884.highrevenuegate.com/1e845c512aba6f843b89be278fa82a95/invoke.js"></Script>
         <div id="container-1e845c512aba6f843b89be278fa82a95"></div>

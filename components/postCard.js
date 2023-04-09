@@ -3,12 +3,15 @@ import Image from 'next/image'
 import NewsDetails from './newsDetails'
 import formatDistanceToNowStrict from 'date-fns/formatDistanceToNow'
 import Link from 'next/link'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function PostCard({ news, title, page, type, pageCount }) {
-    const [count,] = useState(Math.floor(pageCount / 10))
+    const [count, setCount] = useState(Math.floor(pageCount / 10))
+ 
 
-
+    useEffect(( ) => {
+        setCount(Math.floor(pageCount / 10))
+    }, [pageCount])
     return (
         <div className={styles.postCard}>
             <h1>{`${title.charAt(0).toUpperCase()}${title.slice(1)}`}</h1>
