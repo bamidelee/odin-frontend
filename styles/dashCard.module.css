@@ -7,7 +7,8 @@
     color: var(--fontGold);
     font-weight: 700;
     font-size: 2rem;
-
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .dashCard1Info {
@@ -17,6 +18,10 @@
     padding-left: 1rem;
     width: calc(100% - 1rem);
     color: var(--fontGold);
+    max-height: 70vmin;
+    overflow: hidden;
+   
+    
 }
 
 
