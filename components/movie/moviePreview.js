@@ -6,6 +6,10 @@ import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { CREATE_TREND } from '../quarries';
 import { useMutation } from '@apollo/client';
+import Icon from '@mdi/react';
+import { mdiArrowCollapseRight } from '@mdi/js';
+import { mdiArrowCollapseLeft } from '@mdi/js';
+
 
 export default function MoviePreview({ movie }) {
     const [hasMounted, setHasMounted] = useState(false);
@@ -37,6 +41,10 @@ export default function MoviePreview({ movie }) {
                     <p>
                         {movie.genre.map(genre => <span key={genre}>{genre} / </span>)}
                     </p>
+                    {movie.season && <h3>Season</h3>}
+                    {movie.season && <p>{movie.season}</p>}
+                    {movie.episode && <h3>Episode</h3>}
+                    {movie.episode && <p>{movie.episode}</p>}
                     <h3>Director</h3>
                     <p>{movie.director}</p>
                     <h3>Stars</h3>
@@ -70,6 +78,28 @@ export default function MoviePreview({ movie }) {
                 <p>
                     {movie.secondaryMedia.split(',').filter((link) => link.includes("https://mixdrop.co/") || link.includes("https://gofile.io/")).map((link, i) => <Link href={link} key={i}>Server{i + 1}</Link>)}
                 </p>
+            </div>
+            <div className={styles.otherEpisodes}>
+                <div>
+                    {movie.previous && <Link href={`/series/${movie.previous._id}`} className={styles.changeEpisode}>
+                    <div className={styles.upper}>
+                        <Icon path={mdiArrowCollapseLeft} size={1} />
+                            previous
+                    </div>
+                        <div>{`Episode ${movie.previous.episode}`}</div>
+                    </Link>}
+                </div>
+
+                <div>
+                    {movie.next && <Link href={`/series/${movie.next._id}`} className={styles.changeEpisode}>
+                        <div className={styles.upper}>
+                            Next
+                            <Icon path={mdiArrowCollapseRight} size={1} />
+                        </div>
+                        <div>{`Episode ${movie.next.episode}`}</div>
+                    
+                    </Link>}
+                </div>
             </div>
         </div>
     )

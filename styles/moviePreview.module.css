@@ -106,6 +106,38 @@
     color: var(--fontGold);
 }
 
+.stars {
+    text-align: center;
+}
+
+.otherEpisodes{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    justify-items: center;
+    margin: 1rem;
+
+}
+
+.changeEpisode{
+    width: fit-content;
+    font-size: 1.2rem;
+    padding: 4px;
+    display: flex;
+    flex-direction: column;
+    color: var(--fontBlack);
+}
+
+.changeEpisode div {
+    color: var(--fontGold);
+}
+
+.changeEpisode .upper{
+    color: var(--fontBlack);
+    display: flex;
+    align-items: center;
+ 
+}
+
 @media screen and (max-width : 900px) {
     .previewHeader {
         grid-template-columns: auto;
@@ -129,6 +161,3 @@
     }
 }
 
-.stars {
-    text-align: center;
-}
