@@ -460,10 +460,12 @@ export const FIND_SERIES = gql`
             next{
                _id
                episode
+               episodeTitle
             }
             previous{
                 _id
                 episode
+                episodeTitle
             }
             _id
             country

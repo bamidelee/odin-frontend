@@ -26,7 +26,7 @@ export default function PostList({ dashPosts, title, replace }) {
         <div className={styles.dashCard}>
             <h1>{title}</h1>
             {dashPosts.map((post, index) =>
-                <Link key={index} href={post.type === 'post' ? `/post/${post.postID}` : `/movies/${post.postID}`}>
+                <Link key={index} href={post.type === 'post' ? `/post/${post.postID}` :post.type === 'movie'? `/movies/${post.postID}`: `/series/${post.postID}`}>
                     <div className={styles.item}>
                         <Image src={post.primaryMedia} alt={post.title} width={100} height={70} />
                         <div className={styles.itemInfo}>

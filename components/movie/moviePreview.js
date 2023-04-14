@@ -19,7 +19,10 @@ export default function MoviePreview({ movie }) {
         setHasMounted(true)
     }, [])
     useEffect(() => {
-        hasMounted && createTrend({ variables: { id: movie._id } })
+        !movie.season && hasMounted && createTrend({ variables: { id: movie._id } })
+        if(movie.season){
+            movie.episode === '1' && createTrend({ variables: { id: movie._id } })
+        }
     }, [hasMounted])
 
 
@@ -45,6 +48,8 @@ export default function MoviePreview({ movie }) {
                     {movie.season && <p>{movie.season}</p>}
                     {movie.episode && <h3>Episode</h3>}
                     {movie.episode && <p>{movie.episode}</p>}
+                    {movie.episodeTitle && <h3>Episode title</h3>}
+                    {movie.episodeTitle && <p>{movie.episodeTitle}</p>}
                     <h3>Director</h3>
                     <p>{movie.director}</p>
                     <h3>Stars</h3>
@@ -87,6 +92,7 @@ export default function MoviePreview({ movie }) {
                             previous
                     </div>
                         <div>{`Episode ${movie.previous.episode}`}</div>
+                        <div className={styles.upper}>{movie.previous.episodeTitle}</div>
                     </Link>}
                 </div>
 
@@ -97,6 +103,7 @@ export default function MoviePreview({ movie }) {
                             <Icon path={mdiArrowCollapseRight} size={1} />
                         </div>
                         <div>{`Episode ${movie.next.episode}`}</div>
+                        <div className={styles.upper}>{movie.next.episodeTitle}</div>
                     
                     </Link>}
                 </div>
