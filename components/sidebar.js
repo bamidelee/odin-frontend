@@ -8,6 +8,8 @@ import { mdiNewspaper } from '@mdi/js';
 import { mdiFilmstrip } from '@mdi/js';
 import { mdiSoccerField } from '@mdi/js';
 import { mdiTable } from '@mdi/js';
+import { mdiMovieRoll } from '@mdi/js'
+import { mdiMagnify } from '@mdi/js';
 import { useRouter } from 'next/router'
 
 export default function SideBar(props) {
@@ -30,8 +32,20 @@ export default function SideBar(props) {
           <span class={styles.linkBottom}>Movies</span>
         </div>
       </Link>
-      <button onClick={() => setNewsOpen(!newsOpen)}><Icon path={mdiNewspaper} size={1} />News <Icon path={mdiChevronDown} size={1} /></button>
-      <div className={styles.newsLinks} style={{ display: newsOpen ? 'flex' : 'none' }}>
+      <Link href="/series" onClick={() => props.setSideBar(false)}><Icon path={mdiMovieRoll} size={1} />
+        <div className={`${styles.link} ${router.pathname == '/series' && styles.activeLink}`}>
+          <span className={styles.linkTop}>Series</span>
+          <span class={styles.linkBottom}>Series</span>
+        </div>
+      </Link>
+      <Link href="/search" onClick={() => props.setSideBar(false)}><Icon path={mdiMagnify} size={1} />
+        <div className={`${styles.link} ${router.pathname == '/search' && styles.activeLink}`}>
+          <span className={styles.linkTop}>Search</span>
+          <span class={styles.linkBottom}>Search</span>
+        </div>
+      </Link>
+     { /*<button onClick={() => setNewsOpen(!newsOpen)}><Icon path={mdiNewspaper} size={1} />News <Icon path={mdiChevronDown} size={1} /></button>*/}
+      {/* <div className={styles.newsLinks} style={{ display: newsOpen ? 'flex' : 'none' }}>
         <Link href="/page/football/1/post" onClick={() => props.setSideBar(false)}>
           <div className={`${styles.link} ${router.asPath == '/page/football/1/post' && styles.activeLink}`}>
             <span className={styles.linkTop}>Football</span>
@@ -56,8 +70,8 @@ export default function SideBar(props) {
             <span class={styles.linkBottom}>International</span>
           </div>
         </Link>
-      </div>
-      <Link href="/fixtures" onClick={() => props.setSideBar(false)}><Icon path={mdiSoccerField} size={1} />
+  </div>*/}
+     {/* <Link href="/fixtures" onClick={() => props.setSideBar(false)}><Icon path={mdiSoccerField} size={1} />
         <div className={`${styles.link} ${router.pathname == '/fixtures' && styles.activeLink}`}>
           <span className={styles.linkTop}>Fixtures</span>
           <span class={styles.linkBottom}>Fixtures</span>
@@ -67,7 +81,7 @@ export default function SideBar(props) {
           <span className={styles.linkTop}>Tables</span>
           <span class={styles.linkBottom}>Tables</span>
         </div>
-      </Link>
+</Link>*/}
     </div>
   )
 }

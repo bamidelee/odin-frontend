@@ -93,6 +93,14 @@ export const MOVIE_COUNT = gql`
     }
 `
 
+export const LATEST_SERIES_COUNT = gql`
+    query LatestSeriesCount{
+        latestSeriesCount{
+           count
+        }
+    }
+`
+
 export const RELATED_POST = gql`
     query relatedPost($genre: String){
         relatedPost(genre: $genre){
@@ -146,6 +154,20 @@ export const LATEST_MOVIES = gql`
             primaryMedia
             date
             _id
+            postID
+        }
+    }
+`
+
+export const LATEST_SERIES = gql`
+    query latestSeries($pageNumber: String){
+        latestSeries(pageNumber: $pageNumber){
+            title
+            description
+            primaryMedia
+            date
+            _id
+            postID
         }
     }
 `
@@ -477,6 +499,48 @@ export const FIND_SERIES = gql`
 export const TRENDING = gql`
     query trending ($type: String){
       trending (type : $type){ 
+        title
+        primaryMedia
+        date
+        type
+        trending
+        postID
+        _id
+        genre}
+    }
+`
+
+export const POPULAR_MOVIES = gql`
+    query popularMovies ($type: String){
+      popularMovies (type : $type){ 
+        title
+        primaryMedia
+        trending
+        postID
+        _id
+        }
+    }
+`
+
+
+
+export const TRENDING_SERIES = gql`
+    query trendingSeries ($type: String){
+      trendingSeries (type : $type){ 
+        title
+        primaryMedia
+        date
+        type
+        trending
+        postID
+        _id
+        genre}
+    }
+`
+
+export const POPULAR_SERIES = gql`
+    query popularSeries ($type: String){
+      popularSeries (type : $type){ 
         title
         primaryMedia
         date

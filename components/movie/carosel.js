@@ -7,7 +7,7 @@ import ClientOnly from "../Clientonly";
 import Link from "next/link";
 import Image from 'next/image'
 
-export default function Carosel({ movies, title, latestMovie, trending }) {
+export default function Carosel({ movies, title, latestMovie, trending, type, latestSeries}) {
   const [slideAmount, setSlideAmount] = useState(7)
   useEffect(() => {
     if (window.innerWidth < 700) {
@@ -56,7 +56,7 @@ export default function Carosel({ movies, title, latestMovie, trending }) {
       <h2 className={styles.carouselTitle}> {title} </h2>
       {movies && <Slider {...settings}>
         {movies.map((movie, index) =>
-          <Link href={latestMovie ? `movies/${movie._id}` : `movies/${movie.postID}`} key={index}>
+          <Link href={type === ' movies'? `movies/${movie.postID}` : `series/${movie.postID}`} key={index}>
             <div key={movie.id} className={styles.carouselContainer} >
               <Image src={movie.primaryMedia} alt={movie.title}
                 width={100} height={70} className={styles.caroselImage} />
@@ -70,7 +70,7 @@ export default function Carosel({ movies, title, latestMovie, trending }) {
           </Link>
         )}
       </Slider>}
-      {!trending && <Link href={latestMovie ? "/page/Latest movies/1" : `/page/${title.toLowerCase()}/1/movie`} className={styles.seeMore}>See more...</Link>}
+      {!trending && <Link href={latestMovie?  `/page/Latest movies/1/latestMovies`: latestSeries? `/page/Latest Series/1/latestSeries` : type === 'movies' ?  `/page/${title.toLowerCase()}/1/movie` : `/page/${title.toLowerCase()}/1/series`} className={styles.seeMore}>See more...</Link>}
     </div>
   );
 }

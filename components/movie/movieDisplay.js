@@ -5,13 +5,13 @@ import Carosel from './carosel'
 import Image from 'next/image'
 import Link from "next/link";
 import { useQuery } from "@apollo/client"
-import { TRENDING } from "../quarries";
+import { TRENDING, TRENDING_SERIES } from "../quarries";
 import isYesterday from 'date-fns/isYesterday'
 import isToday from "date-fns/isToday";
 
-export default function MovieDisplay({ latestMovies, comedyMovies, horrorMovies, actionMovies }) {
+export default function MovieDisplay({ latestMovies, comedyMovies, horrorMovies, actionMovies, type, trending }) {
   const [randomLatestMovie,] = useState(latestMovies[Math.floor(Math.random() * latestMovies.length)])
-  const { data: trendingData, loading, error } = useQuery(TRENDING);
+  
   
   return (
     <div className={styles.movieDisplay}>
@@ -37,20 +37,24 @@ export default function MovieDisplay({ latestMovies, comedyMovies, horrorMovies,
         </Link>
       </ClientOnly>
       <ClientOnly>
-        <Carosel movies={latestMovies} title='Latest' latestMovie={true} />
+        <Carosel movies={latestMovies} title='Latest' latestMovie={type === 'movies' && true} latestSeries = {type === 'series' && true}  type={type}/>
       </ClientOnly>
-      {trendingData && <ClientOnly>
-        <Carosel movies={trendingData.trending.slice().sort((a, b) => b.trending.filter(d => isYesterday(d) || isToday(d)).length - a.trending.filter(d => isYesterday(d) || isToday(d)).length).slice(0, 10)} title='Trending' trending={true} />
+
+      {trending && <ClientOnly>
+        <Carosel movies={trending} title='Trending' trending={true} type={type} />
       </ClientOnly>}
-      <ClientOnly>
-        <Carosel movies={comedyMovies} title='Comedy' />
-      </ClientOnly>
-      <ClientOnly>
-        <Carosel movies={horrorMovies} title='Horror' />
-      </ClientOnly>
-      <ClientOnly>
-        <Carosel movies={actionMovies} title='Action' />
-      </ClientOnly>
+
+    
+      
+     { comedyMovies &&<ClientOnly>
+        <Carosel movies={comedyMovies} title='Comedy' type={type} />
+      </ClientOnly>}
+     {horrorMovies && <ClientOnly>
+        <Carosel movies={horrorMovies} title='Horror' type={type}/>
+      </ClientOnly>}
+     {actionMovies && <ClientOnly>
+        <Carosel movies={actionMovies} title='Action' type={type} />
+      </ClientOnly>}
 
 
     </div>

@@ -1,4 +1,4 @@
-import { NEWS_PAGE, LATEST_MOVIES, PAGE_COUNT, MOVIE_COUNT } from "../../components/quarries"
+import { NEWS_PAGE, LATEST_MOVIES, PAGE_COUNT, MOVIE_COUNT, LATEST_SERIES, LATEST_SERIES_COUNT } from "../../components/quarries"
 import client from "../../apollo-client";
 import { useRouter } from 'next/router'
 import PostCard from '../../components/postCard'
@@ -10,9 +10,9 @@ import ClientOnly from "../../components/Clientonly";
 
 
 
-export default function News({ news, latestMovies, pageCount, latestMoviesCount }) {
+export default function News({ news, latestMovies, pageCount, latestMoviesCount, latestSeries, latestSeriesCount }) {
   const [mobileBanner, setMobileBanner] = useState(false)
-  
+
   useEffect(() => {
 
     if (window.innerWidth < 650) {
@@ -27,7 +27,7 @@ export default function News({ news, latestMovies, pageCount, latestMoviesCount 
         <Banner slot={mobileBanner ? '1523ac683e9630ccc8aba4793a81d92b' : '8c47067f1ac7389ef98d7ba0c597c9d9'} />
       </ClientOnly>
 
-      <PostCard news={param[2] ? news : latestMovies} title={param[0]} page={param[1]} type={param[2]} pageCount={param[0] == 'Latest movies' ? latestMoviesCount : pageCount} />
+      <PostCard news={param[2] === 'latestMovies' ? latestMovies : param[2] === 'latestSeries'? latestSeries: news} title={param[0]} page={param[1]} type={param[2]} pageCount={param[2] == 'latestMovies' ? latestMoviesCount : param[2] === 'latestSeries'? latestSeriesCount : pageCount}  pageLink = {(param[2] === 'latestMovies' || param[2] === 'movie')? 'movies': 'series'}/>
       {!mobileBanner && <div>
         <Script async="async" data-cfasync="false" src="//pl18660884.highrevenuegate.com/1e845c512aba6f843b89be278fa82a95/invoke.js"></Script>
         <div id="container-1e845c512aba6f843b89be278fa82a95"></div>
@@ -46,15 +46,19 @@ export async function getStaticProps({ params }) {
 
   const { data } = await client.query({ query: NEWS_PAGE, variables: { genre: param[0], pageNumber: param[1], type: param[2] } });
   const { data: latestMovieData } = await client.query({ query: LATEST_MOVIES, variables: { pageNumber: param[1] } });
+  const { data: latestSeriesData } = await client.query({ query: LATEST_SERIES, variables: { pageNumber: param[1] } });
   const { data: pageCountData } = await client.query({ query: PAGE_COUNT, variables: { genre: param[0], type: param[2] } });
   const { data: movieCountData } = await client.query({ query: MOVIE_COUNT });
+  const { data: seriesCountData } = await client.query({ query: LATEST_SERIES_COUNT });
 
   return {
     props: {
       news: data ? data.newsPage : null,
       latestMovies: latestMovieData ? latestMovieData.latestMovies : null,
       pageCount: pageCountData.pageCount.count,
-      latestMoviesCount: movieCountData.latestMoviesCount.count
+      latestMoviesCount: movieCountData.latestMoviesCount.count,
+      latestSeries: latestSeriesData.latestSeries,
+      latestSeriesCount: seriesCountData.latestSeriesCount.count
 
     },
 
