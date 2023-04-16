@@ -56,7 +56,7 @@ export default function Carosel({ movies, title, latestMovie, trending, type, la
       <h2 className={styles.carouselTitle}> {title} </h2>
       {movies && <Slider {...settings}>
         {movies.map((movie, index) =>
-          <Link href={type === ' movies'? `movies/${movie.postID}` : `series/${movie.postID}`} key={index}>
+          <Link href={type === 'movies'? `movies/${movie.postID}` : `series/${movie.postID}`} key={index}>
             <div key={movie.id} className={styles.carouselContainer} >
               <Image src={movie.primaryMedia} alt={movie.title}
                 width={100} height={70} className={styles.caroselImage} />
