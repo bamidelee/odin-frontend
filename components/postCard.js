@@ -16,7 +16,7 @@ export default function PostCard({ news, title, page, type, pageCount, pageLink 
     return (
         <div className={styles.postCard}>
            
-           {news && <DashCard dashPosts={news} title= {`${title.charAt(0).toUpperCase()}${title.slice(1)}`} page={pageLink}/>}
+           {news && <DashCard dashPosts={news} title= {`${title.charAt(0).toUpperCase()}${title.slice(1)}`} page={pageLink} mini= {true}/>}
             {/*news.length === 10 && <div className={styles.postCardTiles}>
                 <Link href={type === 'post' ? `/post/${news[0].postID}` : type === 'movie' ? `/movies/${news[0].postID}` : `/movies/${news[0]._id}`} className={`${styles.tile} ${styles.one}`}>
                     <div className={styles.tileImage}>

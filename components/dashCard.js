@@ -5,7 +5,7 @@ import styles from '../styles/dashCard.module.css'
 import formatDistanceToNowStrict from 'date-fns/formatDistanceToNow'
 
 
-export default function DashCard({ dashPosts, title, page, type }) {
+export default function DashCard({ dashPosts, title, page, type , mini}) {
 
 
     return (
@@ -29,7 +29,7 @@ export default function DashCard({ dashPosts, title, page, type }) {
                 )}
             </div>
             {page && <Link href={`/${page}`}>
-                <p className={styles.seeMore}>See more...</p>
+               { !mini && <p className={styles.seeMore}>See more...</p>}
             </Link>}
         </div>
     )
