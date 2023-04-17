@@ -159,6 +159,7 @@
 .note{
     border: 1px solid var(--fontGold);
     position: relative;
+    text-align: center;
     width: 60%;
     margin: 2rem auto;
     padding-top: 2rem;
