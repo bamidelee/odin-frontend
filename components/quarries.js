@@ -74,6 +74,7 @@ export const NEWS_PAGE = gql`
             date
             _id
             postID
+            type
         }
     }
 `
