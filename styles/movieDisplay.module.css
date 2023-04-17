@@ -27,7 +27,7 @@
 
 .headerDetails {
     color: var(--fontBlack);
-    background-color: var(--backgroundWhite);
+    background-image: linear-gradient(to right, var(--backgroundWhite), rgba(255, 255, 255, 0));
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -37,6 +37,9 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
+    position: relative;
+    z-index: 3;
+
 
 
 
@@ -48,6 +51,14 @@
     overflow: hidden;
 }
 
+.fade{
+    position: absolute;
+    background-image: linear-gradient(to right, var(--backgroundWhite), rgba(255, 255, 255, 0.26));
+    height: 100%;
+    width: 60%;
+    z-index: 2;
+}
+
 
 @media screen and (max-width: 750px) {
     .headerDetails {
@@ -56,6 +67,10 @@
 
     .moviesHeader {
        grid-template-columns: 100%;
+    }
+
+    .fade{
+        display: none;
     }
 
  

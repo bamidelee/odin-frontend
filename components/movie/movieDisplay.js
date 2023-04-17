@@ -16,8 +16,9 @@ export default function MovieDisplay({ latestMovies, comedyMovies, horrorMovies,
   return (
     <div className={styles.movieDisplay}>
       <ClientOnly>
-        <Link href={type == 'movies'? `movies/${randomLatestMovie.postID}` : `series/${randomLatestMovie.postID}` }>
+        <Link href={randomLatestMovie.type === 'movie'? `movies/${randomLatestMovie.postID}` : `series/${randomLatestMovie.postID}` }>
           <header className={styles.moviesHeader}>
+            <div className={styles.fade}></div>
             <div className={styles.headerDetails}>
               <h1>
                 {randomLatestMovie.title}
