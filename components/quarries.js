@@ -155,6 +155,7 @@ export const LATEST_MOVIES = gql`
             date
             _id
             postID
+            type
         }
     }
 `
@@ -168,6 +169,7 @@ export const LATEST_SERIES = gql`
             date
             _id
             postID
+            type
         }
     }
 `
@@ -518,6 +520,7 @@ export const POPULAR_MOVIES = gql`
         trending
         postID
         _id
+        type
         }
     }
 `
