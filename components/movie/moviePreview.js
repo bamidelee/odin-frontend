@@ -25,7 +25,8 @@ export default function MoviePreview({ movie }) {
         }
     }, [hasMounted])
 
-
+    const mixDrop = movie.secondaryMedia.split(',').find((link) => link.includes("https://mixdrop"))
+    const mixDropLink = mixDrop && mixDrop.substring(21)
 
 
 
@@ -68,12 +69,16 @@ export default function MoviePreview({ movie }) {
                 <p>{movie.description}</p>
             </div>
 
-            {movie.trailer && <div className={styles.trailer}>
+            {/*movie.trailer && <div className={styles.trailer}>
                 <h3>Trailer</h3>
                 <YouTube videoId={movie.trailer} />
-            </div>}
+    </div>*/}
+            <div className={styles.note}>
+                <h2>Note</h2>
+                <p>The stream link might be broken, you can still dowwnload and watch on your local device</p>
+            </div>
 
-            <div className={styles.download}>
+           {!movie.secondaryMedia.split(',').find((link) => link.includes("https://mixdrop")) && <div className={styles.download}>
                 <h3>Download links:</h3>
                 <p>
                     {movie.secondaryMedia.split(',').map((link, i) => <Link href={link} key={i}>Server{i + 1}</Link>)}
@@ -83,7 +88,11 @@ export default function MoviePreview({ movie }) {
                 <p>
                     {movie.secondaryMedia.split(',').filter((link) => link.includes("https://mixdrop.co/") || link.includes("https://gofile.io/")).map((link, i) => <Link href={link} key={i}>Server{i + 1}</Link>)}
                 </p>
-            </div>
+            </div>}
+            {movie.secondaryMedia.split(',').find((link) => link.includes("https://mixdrop")) &&
+             <div className={styles.stream}><iframe  width="640" height="480" src={`//mixdrop.gl/e/${mixDropLink}`} scrolling="no" frameborder="0" allowfullscreen="true"></iframe> </div>}
+             {movie.secondaryMedia.split(',').find((link) => link.includes("https://mixdrop")) && <Link  className={styles.download} href={`https://mixdrop.gl/f/${mixDropLink}`}>Download</Link>}
+             
             <div className={styles.otherEpisodes}>
                 <div>
                     {movie.previous && <Link href={`/series/${movie.previous._id}`} className={styles.changeEpisode}>
