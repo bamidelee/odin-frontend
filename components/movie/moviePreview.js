@@ -75,7 +75,7 @@ export default function MoviePreview({ movie }) {
     </div>*/}
             <div className={styles.note}>
                 <h2>Note</h2>
-                <p>The stream link might be broken, you can still dowwnload and watch on your local device</p>
+                <p>The stream link might be broken, you can still download and watch on your local device</p>
             </div>
 
            {!movie.secondaryMedia.split(',').find((link) => link.includes("https://mixdrop")) && <div className={styles.download}>

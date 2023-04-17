@@ -7,7 +7,7 @@ import BoxBanner from '../components/boxBanner'
 import Banner from "../components/banner";
 import Script from "next/script";
 import ClientOnly from "../components/Clientonly";
-
+import DashCard from '../components/dashCard'
 
 export default function Search() {
   const [search, setSearch] = useState('')
@@ -33,7 +33,7 @@ export default function Search() {
         {loading && <div className={styles.loading}></div>}
       </div>
       {!search && <p>Start typing to search </p>}
-      {data && search && <div className={styles.searchDashpost}>{data.searchDashpost.length > 0 && <PostList dashPosts={data.searchDashpost} title='Search result' />}</div>}
+      {data && search && <div className={styles.searchDashpost}>{data.searchDashpost.length > 0 && <DashCard title='Search Result' dashPosts={data.searchDashpost} />}</div>}
       {!mobileBanner && <ClientOnly>
         <div>
           <Script async="async" data-cfasync="false" src="//pl18660884.highrevenuegate.com/1e845c512aba6f843b89be278fa82a95/invoke.js"></Script>
