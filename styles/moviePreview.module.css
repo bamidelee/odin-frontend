@@ -18,7 +18,8 @@
 .previewRight h2 {
     font-size: 2.5rem;
     color: var(--fontGold);
-    word-break: break-all;
+    text-align: center;
+    word-break: keep-all !important;
 
 }
 
@@ -30,6 +31,7 @@
 .previewRight p {
     color: var(--fontBlack);
     margin: 0;
+
 }
 
 .previewRight {
