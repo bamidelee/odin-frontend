@@ -14,7 +14,7 @@ import { mdiArrowCollapseLeft } from '@mdi/js';
 export default function MoviePreview({ movie }) {
     const [hasMounted, setHasMounted] = useState(false);
     const [createTrend, { data, loading, error }] = useMutation(CREATE_TREND);
-    const [server, setServer] = useState('')
+    const [server, setServer] = useState(' ')
 
     const mixDrop = movie.secondaryMedia.split(',').find((link) => link.includes("https://mixdrop"))
     const mixDropLink = mixDrop && mixDrop.substring(21)
@@ -82,10 +82,10 @@ export default function MoviePreview({ movie }) {
                 <p>{movie.description}</p>
             </div>
 
-           
 
-            <div  className={styles.stream}>
-            <h2>Stream</h2>
+
+            <div className={styles.stream}>
+                <h2>Stream</h2>
                 {!movie.secondaryMedia.split(',').find((link) => link.includes("https://mixdrop")) && <div className={styles.download}>
                     <h3>Download links:</h3>
                     <p>
@@ -114,9 +114,9 @@ export default function MoviePreview({ movie }) {
 
             <div className={styles.downloadLinks}>
                 <h2>Download</h2>
-            {movie.secondaryMedia.split(',').find((link) => link.includes("streamtape")) && <Link className={styles.download} href={`${streamTape}`}>Streamtape</Link>}
+                {movie.secondaryMedia.split(',').find((link) => link.includes("streamtape")) && <Link className={styles.download} href={`${streamTape}`}>Streamtape</Link>}
                 {movie.secondaryMedia.split(',').find((link) => link.includes("https://mixdrop")) && <Link className={styles.download} href={`https://mixdrop.gl/f/${mixDropLink}?download`}>Mixdrop</Link>}
-              
+
             </div>
 
             <div className={styles.otherEpisodes}>
