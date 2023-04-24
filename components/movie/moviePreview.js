@@ -82,11 +82,7 @@ export default function MoviePreview({ movie }) {
                 <p>{movie.description}</p>
             </div>
 
-            {/*movie.trailer && <div className={styles.trailer}>
-            
-                
-    </div>*/}
-            
+           
 
             <div  className={styles.stream}>
             <h2>Stream</h2>
