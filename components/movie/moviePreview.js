@@ -84,7 +84,7 @@ export default function MoviePreview({ movie }) {
 
             {/*movie.trailer && <div className={styles.trailer}>
             
-                <YouTube videoId={movie.trailer} />
+                
     </div>*/}
             
 
