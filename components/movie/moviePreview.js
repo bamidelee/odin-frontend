@@ -104,7 +104,7 @@ export default function MoviePreview({ movie }) {
                     <div>
                         <iframe src={`${streamTape}`} width="800" height="600" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>
                     </div>}
-                <p>If current server doesn't work please try other servers below.</p>
+                <p>If current server does not work please try other servers below.</p>
                 <div className={styles.serverChange}>
                     {streamTape && <button onClick={() => setServer('streamtape')}>Streamtape</button>}
                     {mixDrop && <button onClick={() => setServer('mixdrop')}>Mixdrop</button>}
