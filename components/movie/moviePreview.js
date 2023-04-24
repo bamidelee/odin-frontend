@@ -14,19 +14,32 @@ import { mdiArrowCollapseLeft } from '@mdi/js';
 export default function MoviePreview({ movie }) {
     const [hasMounted, setHasMounted] = useState(false);
     const [createTrend, { data, loading, error }] = useMutation(CREATE_TREND);
+    const [server, setServer] = useState('')
+
+    const mixDrop = movie.secondaryMedia.split(',').find((link) => link.includes("https://mixdrop"))
+    const mixDropLink = mixDrop && mixDrop.substring(21)
+    const streamTape = movie.secondaryMedia.split(',').find((link) => link.includes("streamtape"))
+
 
     useEffect(() => {
         setHasMounted(true)
     }, [])
     useEffect(() => {
         !movie.season && hasMounted && createTrend({ variables: { id: movie._id } })
-        if(movie.season){
+        if (movie.season) {
             movie.episode === '1' && createTrend({ variables: { id: movie._id } })
         }
     }, [hasMounted])
 
-    const mixDrop = movie.secondaryMedia.split(',').find((link) => link.includes("https://mixdrop"))
-    const mixDropLink = mixDrop && mixDrop.substring(21)
+    useEffect(() => {
+        if (streamTape) {
+            setServer('streamtape')
+        }
+
+        else {
+            setServer('mixdrop')
+        }
+    }, [])
 
 
 
@@ -73,33 +86,50 @@ export default function MoviePreview({ movie }) {
                 <h3>Trailer</h3>
                 <YouTube videoId={movie.trailer} />
     </div>*/}
-            <div className={styles.note}>
-                <h2>Note</h2>
-                <p>The stream link might be broken, you can still download and watch on your local device</p>
+            
+
+            <div  className={styles.stream}>
+            <h2>Stream</h2>
+                {!movie.secondaryMedia.split(',').find((link) => link.includes("https://mixdrop")) && <div className={styles.download}>
+                    <h3>Download links:</h3>
+                    <p>
+                        {movie.secondaryMedia.split(',').map((link, i) => <Link href={link} key={i}>Server{i + 1}</Link>)}
+                    </p>
+                    <h3>Stream links:</h3>
+                    <p>
+                        {movie.secondaryMedia.split(',').filter((link) => link.includes("https://mixdrop.co/") || link.includes("https://gofile.io/")).map((link, i) => <Link href={link} key={i}>Server{i + 1}</Link>)}
+                    </p>
+                </div>}
+                {movie.secondaryMedia.split(',').find((link) => link.includes("https://mixdrop")) && server === 'mixdrop' &&
+                    <div><iframe width="640" height="480" src={`//mixdrop.gl/e/${mixDropLink}`} scrolling="no" frameborder="0" allowfullscreen="true"></iframe> </div>}
+
+
+                {movie.secondaryMedia.split(',').find((link) => link.includes("streamtape")) && server === 'streamtape' &&
+                    <div>
+                        <iframe src={`${streamTape}`} width="800" height="600" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>
+                    </div>}
+                <p>If current server doesn't work please try other servers below.</p>
+                <div className={styles.serverChange}>
+                    {streamTape && <button onClick={() => setServer('streamtape')}>Streamtape</button>}
+                    {mixDrop && <button onClick={() => setServer('mixdrop')}>Mixdrop</button>}
+                </div>
             </div>
 
-           {!movie.secondaryMedia.split(',').find((link) => link.includes("https://mixdrop")) && <div className={styles.download}>
-                <h3>Download links:</h3>
-                <p>
-                    {movie.secondaryMedia.split(',').map((link, i) => <Link href={link} key={i}>Server{i + 1}</Link>)}
-                </p>
 
-                <h3>Stream links:</h3>
-                <p>
-                    {movie.secondaryMedia.split(',').filter((link) => link.includes("https://mixdrop.co/") || link.includes("https://gofile.io/")).map((link, i) => <Link href={link} key={i}>Server{i + 1}</Link>)}
-                </p>
-            </div>}
-            {movie.secondaryMedia.split(',').find((link) => link.includes("https://mixdrop")) &&
-             <div className={styles.stream}><iframe  width="640" height="480" src={`//mixdrop.gl/e/${mixDropLink}`} scrolling="no" frameborder="0" allowfullscreen="true"></iframe> </div>}
-             {movie.secondaryMedia.split(',').find((link) => link.includes("https://mixdrop")) && <Link  className={styles.download} href={`https://mixdrop.gl/f/${mixDropLink}?download`}>Download</Link>}
-             
+            <div className={styles.downloadLinks}>
+                <h2>Download</h2>
+            {movie.secondaryMedia.split(',').find((link) => link.includes("streamtape")) && <Link className={styles.download} href={`${streamTape}`}>Streamtape</Link>}
+                {movie.secondaryMedia.split(',').find((link) => link.includes("https://mixdrop")) && <Link className={styles.download} href={`https://mixdrop.gl/f/${mixDropLink}?download`}>Mixdrop</Link>}
+              
+            </div>
+
             <div className={styles.otherEpisodes}>
                 <div>
                     {movie.previous && <Link href={`/series/${movie.previous._id}`} className={styles.changeEpisode}>
-                    <div className={styles.upper}>
-                        <Icon path={mdiArrowCollapseLeft} size={1} />
+                        <div className={styles.upper}>
+                            <Icon path={mdiArrowCollapseLeft} size={1} />
                             previous
-                    </div>
+                        </div>
                         <div>{`Episode ${movie.previous.episode}`}</div>
                         <div className={styles.upper}>{movie.previous.episodeTitle}</div>
                     </Link>}
@@ -113,7 +143,7 @@ export default function MoviePreview({ movie }) {
                         </div>
                         <div>{`Episode ${movie.next.episode}`}</div>
                         <div className={styles.upper}>{movie.next.episodeTitle}</div>
-                    
+
                     </Link>}
                 </div>
             </div>
