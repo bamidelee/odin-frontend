@@ -37,7 +37,11 @@ export default function MoviePreview({ movie }) {
     }, [hasMounted])
 
     useEffect(() => {
-        if (streamTape) {
+
+        if(streamSB){
+            setServer('streamsb')
+        }
+        else if (streamTape) {
             setServer('streamtape')
         }
 
@@ -107,17 +111,18 @@ export default function MoviePreview({ movie }) {
 
                 {movie.secondaryMedia.split(',').find((link) => link.includes("streamtape")) && server === 'streamtape' &&
                     <div>
-                        <iframe src={`https://streamtape.com/e/${streamTapeLink}/`} width="800" height="600" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>
+                        <iframe src={`https://streamtape.com/e/${streamTapeLink}/`} width="800" height="600" allowfullscreen = "true" allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>
                     </div>}
 
                 {movie.secondaryMedia.split(',').find((link) => link.includes("lvturbo")) && server === 'streamsb' &&
                     <div>
-                       <iframe src={`https://lvturbo.com/e/${streamSBLink}`} frameborder='0' marginwidth='0' marginheight='0' scrolling='no' width='640' height='360' allowfullscreen></iframe>
+                       <iframe src={`https://lvturbo.com/e/${streamSBLink}`} frameborder='0' marginwidth='0' marginheight='0' scrolling='no' width='640' height='360' allowfullscreen = "true"></iframe>
                     </div>}
                 <p>If current server does not work please try other servers below.</p>
                 <div className={styles.serverChange}>
+                {streamSB && <button className={server === 'streamsb' ? styles.activeLink : styles.inactiveLink} onClick={() => setServer('streamsb')}>Streamsb</button>}
                     {streamTape && <button className={server === 'streamtape' ? styles.activeLink : styles.inactiveLink} onClick={() => setServer('streamtape')}>Streamtape</button>}
-                    {streamSB && <button className={server === 'streamsb' ? styles.activeLink : styles.inactiveLink} onClick={() => setServer('streamsb')}>Streamsb</button>}
+                  
                     {mixDrop && <button className={server === 'mixdrop' ? styles.activeLink : styles.inactiveLink} onClick={() => setServer('mixdrop')}>Mixdrop</button>}
                   
                 </div>
