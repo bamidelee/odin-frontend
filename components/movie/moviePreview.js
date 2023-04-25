@@ -116,7 +116,7 @@ export default function MoviePreview({ movie }) {
 
                 {movie.secondaryMedia.split(',').find((link) => link.includes("lvturbo")) && server === 'streamsb' &&
                     <div>
-                       <iframe src={`https://lvturbo.com/e/${streamSBLink}`} frameborder='0' marginwidth='0' marginheight='0' scrolling='no' width='640' height='360' allowfullscreen = "true"></iframe>
+                       <iframe src={`https://lvturbo.com/e/${streamSBLink}`} frameborder='0' marginwidth='0' marginheight='0' scrolling='no' width='640' height='360' allowfullscreen="true"></iframe>
                     </div>}
                 <p>If current server does not work please try other servers below.</p>
                 <div className={styles.serverChange}>
