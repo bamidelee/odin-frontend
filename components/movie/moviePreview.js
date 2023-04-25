@@ -17,8 +17,13 @@ export default function MoviePreview({ movie }) {
     const [server, setServer] = useState(' ')
 
     const mixDrop = movie.secondaryMedia.split(',').find((link) => link.includes("https://mixdrop"))
-    const mixDropLink = mixDrop && mixDrop.substring(21)
+    const mixDropLink = mixDrop && mixDrop.split('/')[4]
     const streamTape = movie.secondaryMedia.split(',').find((link) => link.includes("streamtape"))
+    const streamTapeLink =streamTape && streamTape.split('/')[4]
+    const streamSB = movie.secondaryMedia.split(',').find((link) => link.includes("lvturbo"))
+    const streamSBLink = streamSB && streamSB.split('/')[4]
+
+    console.log(streamTapeLink)
 
 
     useEffect(() => {
@@ -102,12 +107,19 @@ export default function MoviePreview({ movie }) {
 
                 {movie.secondaryMedia.split(',').find((link) => link.includes("streamtape")) && server === 'streamtape' &&
                     <div>
-                        <iframe src={`${streamTape}`} width="800" height="600" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>
+                        <iframe src={`https://streamtape.com/e/${streamTapeLink}/`} width="800" height="600" allowfullscreen allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>
+                    </div>}
+
+                {movie.secondaryMedia.split(',').find((link) => link.includes("lvturbo")) && server === 'streamsb' &&
+                    <div>
+                       <iframe src={`https://lvturbo.com/e/${streamSBLink}`} frameborder='0' marginwidth='0' marginheight='0' scrolling='no' width='640' height='360' allowfullscreen></iframe>
                     </div>}
                 <p>If current server does not work please try other servers below.</p>
                 <div className={styles.serverChange}>
-                    {streamTape && <button className={server === 'streamtape'? styles.activeLink: styles.inactiveLink} onClick={() => setServer('streamtape')}>Streamtape</button>}
-                    {mixDrop && <button className={server === 'mixdrop'? styles.activeLink: styles.inactiveLink}   onClick={() => setServer('mixdrop')}>Mixdrop</button>}
+                    {streamTape && <button className={server === 'streamtape' ? styles.activeLink : styles.inactiveLink} onClick={() => setServer('streamtape')}>Streamtape</button>}
+                    {streamSB && <button className={server === 'streamsb' ? styles.activeLink : styles.inactiveLink} onClick={() => setServer('streamsb')}>Streamsb</button>}
+                    {mixDrop && <button className={server === 'mixdrop' ? styles.activeLink : styles.inactiveLink} onClick={() => setServer('mixdrop')}>Mixdrop</button>}
+                  
                 </div>
             </div>
 
@@ -115,6 +127,7 @@ export default function MoviePreview({ movie }) {
             <div className={styles.downloadLinks}>
                 <h2>Download</h2>
                 {movie.secondaryMedia.split(',').find((link) => link.includes("streamtape")) && <Link className={styles.download} href={`${streamTape}`}>Streamtape</Link>}
+                {movie.secondaryMedia.split(',').find((link) => link.includes("lvturbo")) && <Link className={styles.download} href={`${streamSB}`}>Streamsb</Link>}
                 {movie.secondaryMedia.split(',').find((link) => link.includes("https://mixdrop")) && <Link className={styles.download} href={`https://mixdrop.gl/f/${mixDropLink}?download`}>Mixdrop</Link>}
 
             </div>
