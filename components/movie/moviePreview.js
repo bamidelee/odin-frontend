@@ -106,8 +106,8 @@ export default function MoviePreview({ movie }) {
                     </div>}
                 <p>If current server does not work please try other servers below.</p>
                 <div className={styles.serverChange}>
-                    {streamTape && <button onClick={() => setServer('streamtape')}>Streamtape</button>}
-                    {mixDrop && <button onClick={() => setServer('mixdrop')}>Mixdrop</button>}
+                    {streamTape && <button className={server === 'streamtape'? styles.activeLink: styles.inactiveLink} onClick={() => setServer('streamtape')}>Streamtape</button>}
+                    {mixDrop && <button className={server === 'mixdrop'? styles.activeLink: styles.inactiveLink}   onClick={() => setServer('mixdrop')}>Mixdrop</button>}
                 </div>
             </div>
 

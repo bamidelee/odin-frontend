@@ -194,13 +194,18 @@
 }
 
 .serverChange button{
-    background-color: var(--fontGold);
     border: none;
     outline: none;
-    color: var(--backgroundWhite);
+    color: var(--fontGold);
+    background-color: var(--backgroundWhite);
     font-size: 1rem;
     padding: .5rem;
     border-radius: 10px;
+}
+
+.activeLink{
+    background-color: var(--fontGold) !important;
+    color: var(--backgroundWhite) !important;
 }
 
 .downloadLinks{
