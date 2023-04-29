@@ -95,7 +95,7 @@ export default function MoviePreview({ movie }) {
 
             <div className={styles.stream}>
                 <h2>Stream</h2>
-                {!movie.secondaryMedia.split(',').find((link) => link.includes("https://mixdrop")) && <div className={styles.download}>
+                {/*!movie.secondaryMedia.split(',').find((link) => link.includes("https://mixdrop")) && <div className={styles.download}>
                     <h3>Download links:</h3>
                     <p>
                         {movie.secondaryMedia.split(',').map((link, i) => <Link href={link} key={i}>Server{i + 1}</Link>)}
@@ -104,7 +104,7 @@ export default function MoviePreview({ movie }) {
                     <p>
                         {movie.secondaryMedia.split(',').filter((link) => link.includes("https://mixdrop.co/") || link.includes("https://gofile.io/")).map((link, i) => <Link href={link} key={i}>Server{i + 1}</Link>)}
                     </p>
-                </div>}
+    </div>*/}
                 {movie.secondaryMedia.split(',').find((link) => link.includes("https://mixdrop")) && server === 'mixdrop' &&
                     <div><iframe width="640" height="480" src={`//mixdrop.gl/e/${mixDropLink}`} scrolling="no" frameborder="0" allowfullscreen="true"></iframe> </div>}
 
