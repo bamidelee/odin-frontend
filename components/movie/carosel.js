@@ -7,6 +7,8 @@ import ClientOnly from "../Clientonly";
 import Link from "next/link";
 import Image from 'next/image'
 
+
+
 export default function Carosel({ movies, title, latestMovie, trending, type, latestSeries}) {
   const [slideAmount, setSlideAmount] = useState(7)
   useEffect(() => {
@@ -46,10 +48,11 @@ export default function Carosel({ movies, title, latestMovie, trending, type, la
   const settings = {
     dots: false,
     infinite: true,
-    speed: 500,
+    speed: 600,
     slidesToShow: slideAmount,
     slidesToScroll: slideAmount,
-    className: 'react__slick__slider__parent'
+    className: 'react__slick__slider__parent',
+   
   }
   return (
     <div className={styles.carousel}>

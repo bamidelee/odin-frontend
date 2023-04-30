@@ -31,6 +31,14 @@
     gap: 3px;
 }
 
+.socials a p {
+    margin: 0;
+}
+
+.socials a h3{
+    margin:  0;
+}
+
 .mail h3 {
     color: var(--fontGold);
 }
@@ -40,4 +48,13 @@
     justify-content: center;
     align-items: center;
     gap: 3px;
+}
+
+@media screen and (max-width: 750px) {
+    .socials a{
+        flex-direction: column;
+        gap: 1px;
+        justify-content: center;
+    }
+    
 }

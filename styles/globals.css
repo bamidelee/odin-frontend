@@ -15,9 +15,7 @@ body {
  
 }
 
-.slick-arrow {
-    visibility: hidden;
-}
+
 
 a {
     text-decoration: none;
@@ -48,3 +46,23 @@ html {
     display: flex;
     align-items: center;
 }
+
+.slick-arrow{
+    height: 100% !important;
+    width: 3rem !important;
+    z-index: 100000 !important;
+    opacity: 0 !important;
+    background-color:rgba(114, 99, 13, 0.678) !important;
+    display: block !important;
+    transition: all .5s;
+  
+  }
+
+  .slick-next{
+    right: 25px !important;
+    
+  }
+
+  .slick-arrow:hover{
+    opacity: 1 !important;
+  }

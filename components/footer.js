@@ -28,6 +28,7 @@ export default function Footer() {
                 <h3>E-mail:</h3>
                 <p>Naijaodin@gmail.com</p>
             </div>
+            <p>Copyright © NAIJAODIN </p>
         </div>
     )
 }

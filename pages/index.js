@@ -5,16 +5,12 @@ import client from "../apollo-client";
 import { DASHPOST,POPULAR_MOVIES, POPULAR_SERIES } from "../components/quarries";
 import { gql } from "@apollo/client";
 import { useEffect, useState } from 'react';
-import Table from '../components/tables'
-import Carousel from '../components/carousel';
 import DesktopBanner from '../components/desktopBanner';
 import ClientOnly from '../components/Clientonly';
 import { useQuery } from "@apollo/client"
 import Banner from '../components/banner';
-import Fixture from '../components/fixtures';
 import Script from 'next/script';
-import isYesterday from 'date-fns/isYesterday';
-import isToday from 'date-fns/isToday';
+
 
 
 
