@@ -69,7 +69,11 @@ html {
 
   @media screen and (max-width: 750px) {
     .slick-next{
-        right: 1rem !important;
+        right: .5rem !important;
+    }
+
+    .slick-arrow{
+        width: 2.5rem !important;
     }
     
   }
