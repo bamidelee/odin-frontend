@@ -50,7 +50,7 @@ html {
 .slick-arrow{
     height: 100% !important;
     width: 3rem !important;
-    z-index: 100000 !important;
+    z-index: 5 !important;
     opacity: 0 !important;
     background-color:rgba(114, 99, 13, 0.678) !important;
     display: block !important;
@@ -59,10 +59,17 @@ html {
   }
 
   .slick-next{
-    right: 25px !important;
+    right: 2rem !important;
     
   }
 
   .slick-arrow:hover{
     opacity: 1 !important;
+  }
+
+  @media screen and (max-width: 750px) {
+    .slick-next{
+        right: 1rem !important;
+    }
+    
   }
