@@ -9,9 +9,10 @@ import { TRENDING, TRENDING_SERIES } from "../quarries";
 import isYesterday from 'date-fns/isYesterday'
 import isToday from "date-fns/isToday";
 
-export default function MovieDisplay({ latestMovies, comedyMovies, horrorMovies, actionMovies, type, trending, romance }) {
+export default function MovieDisplay({ latestMovies, comedyMovies, horrorMovies, actionMovies, type, trending, romance, sciFi }) {
   const [randomLatestMovie,] = useState(latestMovies[Math.floor(Math.random() * latestMovies.length)])
   
+
   
   return (
     <div className={styles.movieDisplay}>
@@ -59,6 +60,10 @@ export default function MovieDisplay({ latestMovies, comedyMovies, horrorMovies,
 
       {romance && <ClientOnly>
         <Carosel movies={romance} title='Romance' type={type} />
+      </ClientOnly>}
+
+      {sciFi && <ClientOnly>
+        <Carosel movies={sciFi} title='Science fiction' type={type} />
       </ClientOnly>}
 
 

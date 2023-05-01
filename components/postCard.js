@@ -11,7 +11,7 @@ export default function PostCard({ news, title, page, type, pageCount, pageLink 
  
     console.log(pageLink)
     useEffect(( ) => {
-        setCount(Math.floor(pageCount / 10))
+        setCount(Math.ceil(pageCount / 10))
     }, [pageCount])
     return (
         <div className={styles.postCard}>
