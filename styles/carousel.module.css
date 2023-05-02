@@ -33,11 +33,11 @@
   font-size: 1.3rem;
   letter-spacing: 1px;
   border: 1px solid var(--fontGold);
-  padding: 0 1rem;
+  padding:  1rem ;
   background-color: var(--borderGrey);
   margin-right: 1rem;
   font-weight: 700;
-  
+  width: 90%;
 
 
 }
