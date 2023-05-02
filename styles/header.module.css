@@ -41,7 +41,7 @@
     height: 10px;
     width: 10px;
     border-radius: 50%;
-    background-color: var(--fontBlack);
+    background-color: var(--fontGold);
     position: absolute;
     top: -2px;
 }

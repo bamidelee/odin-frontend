@@ -1,9 +1,9 @@
 :root {
     --backgroundBlack: rgb(0, 0, 0);
-    --backgroundWhite: white;
-    --fontGold: rgb(114, 99, 13);
-    --borderGrey: #35353b25;
-    --fontBlack: #696969;
+    --backgroundWhite: rgb(51, 50, 50);
+    --fontGold: rgb(172, 149, 23);
+    --borderGrey: #000000;
+    --fontBlack: #e2dfdf;
 
 }
 
