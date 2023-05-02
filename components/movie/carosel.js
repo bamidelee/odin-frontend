@@ -9,7 +9,7 @@ import Image from 'next/image'
 
 
 
-export default function Carosel({ movies, title, latestMovie, trending, type, latestSeries}) {
+export default function Carosel({ movies, title, latestMovie, trending, type, latestSeries, autoPlay}) {
   const [slideAmount, setSlideAmount] = useState(7)
   useEffect(() => {
     if (window.innerWidth < 700) {
@@ -52,6 +52,8 @@ export default function Carosel({ movies, title, latestMovie, trending, type, la
     slidesToShow: slideAmount,
     slidesToScroll: slideAmount,
     className: 'react__slick__slider__parent',
+    autoplay: autoPlay,
+    autoplaySpeed: 3000,
    
   }
   return (

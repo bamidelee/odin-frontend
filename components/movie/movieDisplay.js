@@ -43,7 +43,7 @@ export default function MovieDisplay({ latestMovies, comedyMovies, horrorMovies,
       </ClientOnly>
 
       {trending && <ClientOnly>
-        <Carosel movies={trending} title='Trending' trending={true} type={type} />
+        <Carosel movies={trending} title='Trending' trending={true} type={type} autoPlay={true}/>
       </ClientOnly>}
 
     
