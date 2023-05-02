@@ -38,8 +38,8 @@
 
 .item {
 
-    width: 30vmin;
-    height: 40vmin;
+    width: 35vmin;
+    height: 55vmin;
     display: grid;
     grid-template-rows: 75% 25%;
     border-radius: 10px;
