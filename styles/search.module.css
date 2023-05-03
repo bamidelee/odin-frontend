@@ -10,6 +10,7 @@
     border: 1px solid var(--fontGold);
     font-size: 1.3rem;
     color: var(--fontBlack);
+    background-color: var(--borderGrey);
     padding: 1rem;
     outline: none;
     border-radius: 20px;
