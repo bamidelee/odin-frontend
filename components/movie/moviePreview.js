@@ -67,6 +67,10 @@ export default function MoviePreview({ movie }) {
                     <p>
                         {movie.genre.map(genre => <span key={genre}>{genre} / </span>)}
                     </p>
+                    <h3>Industry</h3>
+                    <p>
+                        {movie.country}
+                    </p>
                     {movie.season && <h3>Season</h3>}
                     {movie.season && <p>{movie.season}</p>}
                     {movie.episode && <h3>Episode</h3>}
