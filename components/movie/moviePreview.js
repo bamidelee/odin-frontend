@@ -19,9 +19,16 @@ export default function MoviePreview({ movie }) {
     const mixDrop = movie.secondaryMedia.split(',').find((link) => link.includes("https://mixdrop"))
     const mixDropLink = mixDrop && mixDrop.split('/')[4]
     const streamTape = movie.secondaryMedia.split(',').find((link) => link.includes("streamtape"))
-    const streamTapeLink =streamTape && streamTape.split('/')[4]
+    const streamTapeLink = streamTape && streamTape.split('/')[4]
     const streamSB = movie.secondaryMedia.split(',').find((link) => link.includes("lvturbo"))
     const streamSBLink = streamSB && streamSB.split('/')[4]
+    const [displayTrailer, setDisplayTrailer] = useState(false)
+    const opts = {
+        playerVars: {
+            // https://developers.google.com/youtube/player_parameters
+            autoplay: true,
+        },
+    };
 
     console.log(streamTapeLink)
 
@@ -38,7 +45,7 @@ export default function MoviePreview({ movie }) {
 
     useEffect(() => {
 
-        if(streamSB){
+        if (streamSB) {
             setServer('streamsb')
         }
         else if (streamTape) {
@@ -54,6 +61,10 @@ export default function MoviePreview({ movie }) {
 
     return (
         <div className={styles.moviePreview}>
+          { displayTrailer && <div className={styles.trailer} onClick={() => setDisplayTrailer(false)}>
+                <YouTube videoId={movie.trailer} opts={opts} />;
+            </div>}
+
             <div className={styles.previewHeader}>
                 <div className={styles.movieImageContainer}>
                     <Image src={movie.primaryMedia} alt={movie.title} fill priority
@@ -87,6 +98,7 @@ export default function MoviePreview({ movie }) {
                     <p>{format(new Date(movie.releaseDate), 'MM/dd/yyyy')}</p>
                     <h3>Language</h3>
                     <p>{movie.language}</p>
+                    <h3 className={styles.trailerButton} onClick={() => setDisplayTrailer(true)}>Trailer</h3>
                 </div>
 
             </div>
@@ -115,20 +127,20 @@ export default function MoviePreview({ movie }) {
 
                 {movie.secondaryMedia.split(',').find((link) => link.includes("streamtape")) && server === 'streamtape' &&
                     <div>
-                        <iframe src={`https://streamtape.com/e/${streamTapeLink}/`} width="800" height="600" allowfullscreen = "true" allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>
+                        <iframe src={`https://streamtape.com/e/${streamTapeLink}/`} width="800" height="600" allowfullscreen="true" allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>
                     </div>}
 
                 {movie.secondaryMedia.split(',').find((link) => link.includes("lvturbo")) && server === 'streamsb' &&
                     <div>
-                       <iframe src={`https://lvturbo.com/e/${streamSBLink}`} frameborder='0' marginwidth='0' marginheight='0' scrolling='no' width='640' height='360' allowfullscreen="true"></iframe>
+                        <iframe src={`https://lvturbo.com/e/${streamSBLink}`} frameborder='0' marginwidth='0' marginheight='0' scrolling='no' width='640' height='360' allowfullscreen="true"></iframe>
                     </div>}
                 <p>If current server does not work please try other servers below.</p>
                 <div className={styles.serverChange}>
-                {streamSB && <button className={server === 'streamsb' ? styles.activeLink : styles.inactiveLink} onClick={() => setServer('streamsb')}>Streamsb</button>}
+                    {streamSB && <button className={server === 'streamsb' ? styles.activeLink : styles.inactiveLink} onClick={() => setServer('streamsb')}>Streamsb</button>}
                     {streamTape && <button className={server === 'streamtape' ? styles.activeLink : styles.inactiveLink} onClick={() => setServer('streamtape')}>Streamtape</button>}
-                  
+
                     {mixDrop && <button className={server === 'mixdrop' ? styles.activeLink : styles.inactiveLink} onClick={() => setServer('mixdrop')}>Mixdrop</button>}
-                  
+
                 </div>
             </div>
 
