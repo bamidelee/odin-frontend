@@ -30,7 +30,6 @@ export default function MoviePreview({ movie }) {
         },
     };
 
-    console.log(streamTapeLink)
 
 
     useEffect(() => {
@@ -61,7 +60,7 @@ export default function MoviePreview({ movie }) {
 
     return (
         <div className={styles.moviePreview}>
-          { displayTrailer && <div className={styles.trailer} onClick={() => setDisplayTrailer(false)}>
+          {displayTrailer && <div className={styles.trailer} onClick={() => setDisplayTrailer(false)}>
                 <YouTube videoId={movie.trailer} opts={opts} />;
             </div>}
 
@@ -98,7 +97,7 @@ export default function MoviePreview({ movie }) {
                     <p>{format(new Date(movie.releaseDate), 'MM/dd/yyyy')}</p>
                     <h3>Language</h3>
                     <p>{movie.language}</p>
-                    <h3 className={styles.trailerButton} onClick={() => setDisplayTrailer(true)}>Trailer</h3>
+                   {movie.trailer &&  <h3 className={styles.trailerButton} onClick={() => setDisplayTrailer(true)}>Trailer</h3>}
                 </div>
 
             </div>
