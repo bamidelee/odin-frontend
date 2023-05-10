@@ -186,6 +186,7 @@ export const FIND_MOVIE = gql`
             language
             stars
             trailer
+            source
             comments{
                 text
                 sender{

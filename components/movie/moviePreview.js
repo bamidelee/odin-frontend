@@ -31,7 +31,6 @@ export default function MoviePreview({ movie }) {
     };
 
 
-
     useEffect(() => {
         setHasMounted(true)
     }, [])
@@ -151,6 +150,8 @@ export default function MoviePreview({ movie }) {
                 {movie.secondaryMedia.split(',').find((link) => link.includes("https://mixdrop")) && <Link className={styles.download} href={`https://mixdrop.gl/f/${mixDropLink}?download`}>Mixdrop</Link>}
 
             </div>
+
+           {movie.source && <Link href={movie.source} className={styles.subtitle}>Subtitle</Link>}
 
             <div className={styles.otherEpisodes}>
                 <div>

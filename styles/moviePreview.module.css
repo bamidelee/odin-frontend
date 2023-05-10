@@ -63,7 +63,7 @@
 }
 
 .trailer {
-   top: 0; 
+    top: 0;
     position: fixed;
     z-index: 10;
     width: 100vw;
@@ -124,7 +124,7 @@
     text-align: center;
 }
 
-.otherEpisodes{
+.otherEpisodes {
     display: grid;
     grid-template-columns: 50% 50%;
     justify-items: center;
@@ -132,7 +132,7 @@
 
 }
 
-.changeEpisode{
+.changeEpisode {
     width: fit-content;
     font-size: 1.2rem;
     padding: 4px;
@@ -146,15 +146,16 @@
     color: var(--fontGold);
 }
 
-.changeEpisode .upper{
+.changeEpisode .upper {
     color: var(--fontBlack);
     display: flex;
     align-items: center;
     text-align: center;
     justify-content: center;
- 
+
 }
-.stream{
+
+.stream {
     width: 60%;
     display: flex;
     justify-content: center;
@@ -170,32 +171,32 @@
     color: var(--fontBlack);
 }
 
-.stream h2{
+.stream h2 {
     color: var(--fontGold);
     position: absolute;
     background-color: var(--backgroundWhite);
     top: -2rem;
 }
 
-.stream iframe{
+.stream iframe {
     margin-left: auto !important;
     margin-right: auto !important;
-    width:100vmin !important;
+    width: 100vmin !important;
 
 }
 
-.stream p{
+.stream p {
     color: var(--fontBlack);
 }
 
-.serverChange{
+.serverChange {
     display: flex;
     gap: 1rem;
     justify-content: center;
     margin: 1rem;
 }
 
-.serverChange button{
+.serverChange button {
     border: none;
     outline: none;
     color: var(--fontGold);
@@ -205,12 +206,12 @@
     border-radius: 10px;
 }
 
-.activeLink{
+.activeLink {
     background-color: var(--fontGold) !important;
     color: var(--fontBlack) !important;
 }
 
-.downloadLinks{
+.downloadLinks {
     display: flex;
     justify-content: center;
     border: 1px solid var(--fontGold);
@@ -219,23 +220,35 @@
     box-sizing: border-box;
     margin: 2rem auto;
     display: flex;
-   width: 100vmin;
+    width: 100vmin;
     padding: 1rem;
     color: var(--fontBlack);
     gap: 1rem;
 }
 
-.downloadLinks h2{
+.downloadLinks h2 {
     color: var(--fontGold);
     position: absolute;
     background-color: var(--backgroundWhite);
     top: -2rem;
 }
 
-.trailerButton{
+.trailerButton {
     color: var(--fontBlack) !important;
     border-bottom: 1px solid var(--fontGold);
     cursor: pointer;
+}
+
+.subtitle {
+    color: var(--fontBlack) !important;
+    border-bottom: 1px solid var(--fontGold);
+    cursor: pointer;
+    text-align: center !important;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+    font-size: 1.5rem;
 }
 
 @media screen and (max-width : 900px) {
@@ -260,11 +273,10 @@
 
     }
 
-    .stream{
+    .stream {
         width: 90%;
         padding: 1rem;
-       
-       
+
+
     }
 }
-
