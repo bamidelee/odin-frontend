@@ -78,6 +78,18 @@ export const NEWS_PAGE = gql`
         }
     }
 `
+
+export const FIND_CONTENT_BY_COUNTRY = gql`
+    query findContentByCountry($country: String, $pageNumber: String){
+        findContentByCountry(country: $country, pageNumber: $pageNumber){
+            title
+            primaryMedia
+            description
+            date
+            _id
+        }
+    }
+`
 export const PAGE_COUNT = gql`
     query pageCount($genre: String, $type: String){
         pageCount(genre: $genre, type: $type){
@@ -477,12 +489,14 @@ export const FIND_SERIES = gql`
             date
             language
             stars
-           
+            trailer
             releaseDate
             genre
             season
             episode
             episodeTitle
+            trailer
+            source
             next{
                _id
                episode

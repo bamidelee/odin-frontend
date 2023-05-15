@@ -9,15 +9,15 @@ import { TRENDING, TRENDING_SERIES } from "../quarries";
 import isYesterday from 'date-fns/isYesterday'
 import isToday from "date-fns/isToday";
 
-export default function MovieDisplay({ latestMovies, comedyMovies, horrorMovies, actionMovies, type, trending, romance, sciFi }) {
+export default function MovieDisplay({ latestMovies, comedyMovies, horrorMovies, actionMovies, type, trending, romance, sciFi, southKorea }) {
   const [randomLatestMovie,] = useState(latestMovies[Math.floor(Math.random() * latestMovies.length)])
-  
 
-  
+
+
   return (
     <div className={styles.movieDisplay}>
       <ClientOnly>
-        <Link href={randomLatestMovie.type === 'movie'? `movies/${randomLatestMovie.postID}` : `series/${randomLatestMovie.postID}` }>
+        <Link href={randomLatestMovie.type === 'movie' ? `movies/${randomLatestMovie.postID}` : `series/${randomLatestMovie.postID}`}>
           <header className={styles.moviesHeader}>
             <div className={styles.fade}></div>
             <div className={styles.headerDetails}>
@@ -39,22 +39,21 @@ export default function MovieDisplay({ latestMovies, comedyMovies, horrorMovies,
         </Link>
       </ClientOnly>
       <ClientOnly>
-        <Carosel movies={latestMovies} title='Latest' latestMovie={type === 'movies' && true} latestSeries = {type === 'series' && true}  type={type}/>
+        <Carosel movies={latestMovies} title='Latest' latestMovie={type === 'movies' && true} latestSeries={type === 'series' && true} type={type} />
       </ClientOnly>
 
       {trending && <ClientOnly>
-        <Carosel movies={trending} title='Trending' trending={true} type={type} autoPlay={true}/>
+        <Carosel movies={trending} title='Trending' trending={true} type={type} autoPlay={true} />
       </ClientOnly>}
 
-    
-      
-     { comedyMovies &&<ClientOnly>
+      {comedyMovies && <ClientOnly>
         <Carosel movies={comedyMovies} title='Comedy' type={type} />
       </ClientOnly>}
-     {horrorMovies && <ClientOnly>
-        <Carosel movies={horrorMovies} title='Horror' type={type}/>
+      {horrorMovies && <ClientOnly>
+        <Carosel movies={horrorMovies} title='Horror' type={type} />
       </ClientOnly>}
-     {actionMovies && <ClientOnly>
+
+      {actionMovies && <ClientOnly>
         <Carosel movies={actionMovies} title='Action' type={type} />
       </ClientOnly>}
 
@@ -65,6 +64,10 @@ export default function MovieDisplay({ latestMovies, comedyMovies, horrorMovies,
       {sciFi && <ClientOnly>
         <Carosel movies={sciFi} title='Science fiction' type={type} />
       </ClientOnly>}
+
+      {/*southKorea && <ClientOnly>
+        <Carosel movies={southKorea} title='South korea' type={type} />
+      </ClientOnly>*/}
 
 
     </div>
