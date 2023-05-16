@@ -251,6 +251,10 @@
     font-size: 1.5rem;
 }
 
+    background-color: red;
+
+
+
 @media screen and (max-width : 900px) {
     .previewHeader {
         grid-template-columns: auto;

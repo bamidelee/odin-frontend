@@ -9,6 +9,7 @@ import { useMutation } from '@apollo/client';
 import Icon from '@mdi/react';
 import { mdiArrowCollapseRight } from '@mdi/js';
 import { mdiArrowCollapseLeft } from '@mdi/js';
+import ReactPlayer from 'react-player'
 
 
 export default function MoviePreview({ movie }) {
@@ -17,6 +18,7 @@ export default function MoviePreview({ movie }) {
     const [server, setServer] = useState(' ')
 
     const mixDrop = movie.secondaryMedia.split(',').find((link) => link.includes("https://mixdrop"))
+    const goFile = movie.secondaryMedia.split(',').find((link) => link.includes("gofile"))
     const mixDropLink = mixDrop && mixDrop.split('/')[4]
     const mixDroop = movie.secondaryMedia.split(',').find((link) => link.includes("https://mixdroop"))
     const mixDroopLink = mixDroop && mixDroop.split('/')[4]
@@ -44,8 +46,10 @@ export default function MoviePreview({ movie }) {
     }, [hasMounted])
 
     useEffect(() => {
-
-        if (streamSB) {
+        if (goFile) {
+            setServer('goFile')
+        }
+        else if (streamSB) {
             setServer('streamsb')
         }
         else if (streamTape) {
@@ -61,7 +65,7 @@ export default function MoviePreview({ movie }) {
 
     return (
         <div className={styles.moviePreview}>
-          {displayTrailer && <div className={styles.trailer} onClick={() => setDisplayTrailer(false)}>
+            {displayTrailer && <div className={styles.trailer} onClick={() => setDisplayTrailer(false)}>
                 <YouTube videoId={movie.trailer} opts={opts} />;
             </div>}
 
@@ -98,7 +102,7 @@ export default function MoviePreview({ movie }) {
                     <p>{format(new Date(movie.releaseDate), 'MM/dd/yyyy')}</p>
                     <h3>Language</h3>
                     <p>{movie.language}</p>
-                   {movie.trailer &&  <h3 className={styles.trailerButton} onClick={() => setDisplayTrailer(true)}>Trailer</h3>}
+                    {movie.trailer && <h3 className={styles.trailerButton} onClick={() => setDisplayTrailer(true)}>Trailer</h3>}
                 </div>
 
             </div>
@@ -123,7 +127,7 @@ export default function MoviePreview({ movie }) {
     </div>*/}
                 {movie.secondaryMedia.split(',').find((link) => link.includes("https://mixdrop")) && server === 'mixdrop' &&
                     <div><iframe width="640" height="360" src={`//mixdrop.gl/e/${mixDropLink}`} scrolling="no" frameborder="0" allowfullscreen="true"></iframe> </div>}
-                      {movie.secondaryMedia.split(',').find((link) => link.includes("https://mixdroop")) && server === 'mixdrop' &&
+                {movie.secondaryMedia.split(',').find((link) => link.includes("https://mixdroop")) && server === 'mixdrop' &&
                     <div><iframe width="640" height="360" src={`//mixdrop.gl/e/${mixDroopLink}`} scrolling="no" frameborder="0" allowfullscreen="true"></iframe> </div>}
 
 
@@ -136,13 +140,18 @@ export default function MoviePreview({ movie }) {
                     <div>
                         <iframe src={`https://lvturbo.com/e/${streamSBLink}`} frameborder='0' marginwidth='0' marginheight='0' scrolling='no' width='640' height='360' allowfullscreen="true" autoplay="true"></iframe>
                     </div>}
+
+                {goFile && server === 'goFile' && <div className={styles.vidPlayer}>
+                    <ReactPlayer url={goFile} controls/>
+                </div>}
                 <p>If current server does not work please try other servers below.</p>
                 <div className={styles.serverChange}>
+                    {streamTape && <button className={server === 'goFile' ? styles.activeLink : styles.inactiveLink} onClick={() => setServer('goFile')}>Main-server</button>}
                     {streamSB && <button className={server === 'streamsb' ? styles.activeLink : styles.inactiveLink} onClick={() => setServer('streamsb')}>Streamsb</button>}
                     {streamTape && <button className={server === 'streamtape' ? styles.activeLink : styles.inactiveLink} onClick={() => setServer('streamtape')}>Streamtape</button>}
 
                     {(mixDrop || mixDroop) && <button className={server === 'mixdrop' ? styles.activeLink : styles.inactiveLink} onClick={() => setServer('mixdrop')}>Mixdrop</button>}
-                    
+
 
                 </div>
             </div>
@@ -150,14 +159,16 @@ export default function MoviePreview({ movie }) {
 
             <div className={styles.downloadLinks}>
                 <h2>Download</h2>
+                {goFile && <Link className={styles.download} href={goFile}>Main-server</Link>}
                 {movie.secondaryMedia.split(',').find((link) => link.includes("streamtape")) && <Link className={styles.download} href={`${streamTape}`}>Streamtape</Link>}
                 {movie.secondaryMedia.split(',').find((link) => link.includes("lvturbo")) && <Link className={styles.download} href={`${streamSB}`}>Streamsb</Link>}
                 {movie.secondaryMedia.split(',').find((link) => link.includes("https://mixdrop")) && <Link className={styles.download} href={`https://mixdrop.gl/f/${mixDropLink}?download`}>Mixdrop</Link>}
                 {movie.secondaryMedia.split(',').find((link) => link.includes("https://mixdroop")) && <Link className={styles.download} href={`https://mixdrop.gl/f/${mixDroopLink}?download`}>Mixdrop</Link>}
 
+
             </div>
 
-           {movie.source && <Link href={movie.source} className={styles.subtitle}>Subtitle</Link>}
+            {movie.source && <Link href={movie.source} className={styles.subtitle}>Subtitle</Link>}
 
             <div className={styles.otherEpisodes}>
                 <div>
