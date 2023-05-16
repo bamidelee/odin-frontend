@@ -185,6 +185,10 @@
 
 }
 
+.stream video{
+    width: 100vmin !important;
+}
+
 .stream p {
     color: var(--fontBlack);
 }
@@ -251,7 +255,7 @@
     font-size: 1.5rem;
 }
 
-    background-color: red;
+  
 
 
 
