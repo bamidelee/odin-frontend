@@ -187,6 +187,7 @@
 
 .stream video{
     width: 100vmin !important;
+    height: 360px;
 }
 
 .stream p {
