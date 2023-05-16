@@ -122,19 +122,19 @@ export default function MoviePreview({ movie }) {
                     </p>
     </div>*/}
                 {movie.secondaryMedia.split(',').find((link) => link.includes("https://mixdrop")) && server === 'mixdrop' &&
-                    <div><iframe width="640" height="480" src={`//mixdrop.gl/e/${mixDropLink}`} scrolling="no" frameborder="0" allowfullscreen="true"></iframe> </div>}
+                    <div><iframe width="640" height="360" src={`//mixdrop.gl/e/${mixDropLink}`} scrolling="no" frameborder="0" allowfullscreen="true"></iframe> </div>}
                       {movie.secondaryMedia.split(',').find((link) => link.includes("https://mixdroop")) && server === 'mixdrop' &&
-                    <div><iframe width="640" height="480" src={`//mixdrop.gl/e/${mixDroopLink}`} scrolling="no" frameborder="0" allowfullscreen="true"></iframe> </div>}
+                    <div><iframe width="640" height="360" src={`//mixdrop.gl/e/${mixDroopLink}`} scrolling="no" frameborder="0" allowfullscreen="true"></iframe> </div>}
 
 
                 {movie.secondaryMedia.split(',').find((link) => link.includes("streamtape")) && server === 'streamtape' &&
                     <div>
-                        <iframe src={`https://streamtape.com/e/${streamTapeLink}/`} width="800" height="600" allowfullscreen="true" allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>
+                        <iframe src={`https://streamtape.com/e/${streamTapeLink}/`} width="640" height="360" allowfullscreen="true" allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>
                     </div>}
 
                 {movie.secondaryMedia.split(',').find((link) => link.includes("lvturbo")) && server === 'streamsb' &&
                     <div>
-                        <iframe src={`https://lvturbo.com/e/${streamSBLink}`} frameborder='0' marginwidth='0' marginheight='0' scrolling='no' width='640' height='360' allowfullscreen="true"></iframe>
+                        <iframe src={`https://lvturbo.com/e/${streamSBLink}`} frameborder='0' marginwidth='0' marginheight='0' scrolling='no' width='640' height='360' allowfullscreen="true" autoplay="true"></iframe>
                     </div>}
                 <p>If current server does not work please try other servers below.</p>
                 <div className={styles.serverChange}>
