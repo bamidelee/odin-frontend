@@ -14,6 +14,7 @@ import ClientOnly from "./Clientonly";
 import Banner from "./banner";
 
 
+
 export default function Layout({ children }) {
 
   const [bigScreen, setBigScreen] = useState(false)
@@ -35,7 +36,7 @@ export default function Layout({ children }) {
 
   return (
     <>
-      <AppWrapper>
+      <AppWrapper >
         <Header mouseX={mouse.x} sideBar={sideBar} setSideBar={setSideBar} />
         <Loading />
         <SideBar sideBar={sideBar} setSideBar={setSideBar} />

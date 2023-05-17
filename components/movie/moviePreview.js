@@ -59,7 +59,7 @@ export default function MoviePreview({ movie }) {
         else {
             setServer('mixdrop')
         }
-    }, [])
+    }, [movie])
 
 
 
