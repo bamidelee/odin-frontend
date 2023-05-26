@@ -59,8 +59,12 @@ html {
   }
 
   .slick-next{
-    right: 2rem !important;
+    right: 6vw !important;
     
+  }
+
+  .slick-prev{
+    left: -0.7rem !important;
   }
 
   .slick-arrow:hover{
@@ -69,8 +73,9 @@ html {
 
   @media screen and (max-width: 750px) {
     .slick-next{
-        right: .5rem !important;
+        right: 2vw !important;
     }
+
 
     .slick-arrow{
         width: 2.5rem !important;

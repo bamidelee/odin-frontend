@@ -12,6 +12,7 @@ import { mdiArrowCollapseLeft } from '@mdi/js';
 import ReactPlayer from 'react-player'
 
 
+
 export default function MoviePreview({ movie }) {
     const [hasMounted, setHasMounted] = useState(false);
     const [createTrend, { data, loading, error }] = useMutation(CREATE_TREND);
