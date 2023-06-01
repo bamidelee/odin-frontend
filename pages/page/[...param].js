@@ -27,7 +27,7 @@ export default function News({ news, latestMovies, pageCount, latestMoviesCount,
         <Banner slot={mobileBanner ? '1523ac683e9630ccc8aba4793a81d92b' : '8c47067f1ac7389ef98d7ba0c597c9d9'} />
       </ClientOnly>
 
-      <PostCard news={param[2] === 'latestMovies' ? latestMovies : param[2] === 'latestSeries'? latestSeries: param[3] === 'country' ? country :news} title={param[0]} page={param[1]} type={param[2]} pageCount={param[2] == 'latestMovies' ? latestMoviesCount : param[2] === 'latestSeries'? latestSeriesCount : param[3]  ? countryCount : pageCount}  pageLink = {(param[2] === 'latestMovies' || param[2] === 'movie')? 'movies': 'series'} country = {param[3] ? true : false}/>
+      <PostCard news={param[2] === 'latestMovies' ? latestMovies : param[2] === 'latestSeries'? latestSeries: param[3] === 'country' ? country :news} title={param[0]} page={param[1]} type={param[2]} pageCount={param[2] == 'latestMovies' ? latestMoviesCount : param[2] === 'latestSeries'? latestSeriesCount : param[3]  ? countryCount : pageCount}  pageLink = {(param[2] === 'latestMovies' || param[2] === 'movie')? 'movies': 'series'} country = {param[3]}/>
       {!mobileBanner && <div>
         <Script async="async" data-cfasync="false" src="//pl18660884.highrevenuegate.com/1e845c512aba6f843b89be278fa82a95/invoke.js"></Script>
         <div id="container-1e845c512aba6f843b89be278fa82a95"></div>
