@@ -76,7 +76,7 @@
   text-align: right;
   color: var(--fontGold);
   display: block;
-  margin-right: 4vw;
+  margin-right: 6vw;
   font-size: 1.2rem;
   margin-top: 5px;
 }
@@ -109,6 +109,10 @@
 .carousel .rating{
   font-size: 9vmax;
   left: -1.2rem;
+}
+
+.seeMore{
+  margin-right: 4vw;
 }
 
 }

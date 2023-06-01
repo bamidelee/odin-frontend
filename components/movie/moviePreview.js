@@ -35,6 +35,7 @@ export default function MoviePreview({ movie }) {
         },
     };
 
+ 
 
     useEffect(() => {
         setHasMounted(true)
@@ -143,7 +144,15 @@ export default function MoviePreview({ movie }) {
                     </div>}
 
                 {goFile && server === 'goFile' && <div className={styles.vidPlayer}>
-                    <ReactPlayer url={goFile} controls/>
+                    <ReactPlayer url={goFile} controls
+                      config={{ file: {
+                        tracks: [
+                          {kind: 'subtitles', src: movie.source, srcLang: 'en', default: true},
+                        ]
+                      }}}
+
+                      light={<img src={movie.primaryMedia} alt='Thumbnail' />}
+                    />
                 </div>}
                 <p>If current server does not work please try other servers below.</p>
                 <div className={styles.serverChange}>

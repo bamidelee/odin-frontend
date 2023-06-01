@@ -98,6 +98,14 @@ export const PAGE_COUNT = gql`
     }
 `
 
+export const COUNTRY_COUNT = gql `
+query countryCount ($country: String){
+    countryCount(country: $country){
+        count
+    }
+}
+`
+
 export const MOVIE_COUNT = gql`
     query LatestMovieCount{
         latestMoviesCount{

@@ -10,9 +10,9 @@ import ClientOnly from "../components/Clientonly";
 
 
 
-export default function Movies({ latestMovies, comedyMovies, horrorMovies, actionMovies, trending, romanceMovies, sciFiMovies, southKorea }) {
+export default function Movies({ latestMovies, comedyMovies, horrorMovies, actionMovies, trending, romanceMovies, sciFiMovies, southKorea, bollywood }) {
   const [mobileBanner, setMobileBanner] = useState(false)
-  console.log(southKorea)
+
 
   useEffect(() => {
 
@@ -27,7 +27,7 @@ export default function Movies({ latestMovies, comedyMovies, horrorMovies, actio
      <ClientOnly>
         <Banner slot={mobileBanner ? '1523ac683e9630ccc8aba4793a81d92b' : '8c47067f1ac7389ef98d7ba0c597c9d9'} />
       </ClientOnly>
-      <MovieDisplay latestMovies={latestMovies} comedyMovies={comedyMovies} horrorMovies={horrorMovies} actionMovies={actionMovies} trending= {trending} type='movies' romance ={romanceMovies} sciFi = {sciFiMovies} southKorea = {southKorea}/>
+      <MovieDisplay latestMovies={latestMovies} comedyMovies={comedyMovies} horrorMovies={horrorMovies} actionMovies={actionMovies} trending= {trending} type='movies' romance ={romanceMovies} sciFi = {sciFiMovies} southKorea = {southKorea} bollywood = {bollywood}/>
       {!mobileBanner && <ClientOnly>
         <div>
           <Script async="async" data-cfasync="false" src="//pl18660884.highrevenuegate.com/1e845c512aba6f843b89be278fa82a95/invoke.js"></Script>
@@ -52,6 +52,7 @@ export async function getStaticProps() {
   const { data: romanceData } = await client.query({ query: NEWS_PAGE, variables: { genre: "romance", pageNumber: "1", type: "movie" } });
   const { data: sciFiData } = await client.query({ query: NEWS_PAGE, variables: { genre: "science fiction", pageNumber: "1", type: "movie" } });
   const { data: southKoreaData } = await client.query({ query: FIND_CONTENT_BY_COUNTRY, variables: { country: "south korea", pageNumber: "1" } });
+  const { data: bollywoodData } = await client.query({ query: FIND_CONTENT_BY_COUNTRY, variables: { country: "bollywood", pageNumber: "1" } });
 
 
   return {
@@ -64,7 +65,8 @@ export async function getStaticProps() {
       trending: trendingData.trending,
       romanceMovies: romanceData.newsPage,
       sciFiMovies: sciFiData.newsPage,
-      southKorea: southKoreaData.findContentByCountry
+      southKorea: southKoreaData.findContentByCountry,
+      bollywood: bollywoodData.findContentByCountry
 
     },
 

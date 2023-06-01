@@ -5,7 +5,7 @@ import styles from '../styles/dashCard.module.css'
 import formatDistanceToNowStrict from 'date-fns/formatDistanceToNow'
 
 
-export default function DashCard({ dashPosts, title, page, type , mini}) {
+export default function DashCard({ dashPosts, title, page, mini, country}) {
 
 
     return (
@@ -13,7 +13,7 @@ export default function DashCard({ dashPosts, title, page, type , mini}) {
             <h1>{title}</h1>
             <div className={styles.content}>
                 {dashPosts.slice().map((post, index) =>
-                    <Link key={index} href={post.type === 'movie' ? `/movies/${post.postID}` :  `/series/${post.postID}`}>
+                    <Link key={index} href={(post.type === 'movie' || country) ? `/movies/${country? post._id :post.postID}` :  `/series/${country? post._id :post.postID}`}>
                         <div className={styles.item}>
                             <div className={styles.imageContainer}>
                                 <Image src={post.primaryMedia} alt={post.title} fill   sizes="(max-width: 400px) 50vmin,

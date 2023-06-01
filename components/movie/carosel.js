@@ -9,7 +9,7 @@ import Image from 'next/image'
 
 
 
-export default function Carosel({ movies, title, latestMovie, trending, type, latestSeries, autoPlay}) {
+export default function Carosel({ movies, title, latestMovie, trending, type, latestSeries, autoPlay, film}) {
   const [slideAmount, setSlideAmount] = useState(7)
   useEffect(() => {
     if (window.innerWidth < 700) {
@@ -61,7 +61,7 @@ export default function Carosel({ movies, title, latestMovie, trending, type, la
       <h2 className={styles.carouselTitle}> {title} </h2>
       {movies && <Slider {...settings}>
         {movies.map((movie, index) =>
-          <Link href={movie.type === 'movie'? `movies/${movie.postID}` : `series/${movie.postID}`} key={index}>
+          <Link href={(movie.type === 'movie' || film) ? `movies/${type == 'country' ? movie._id : movie.postID}` : `series/${type == 'country' ? movie._id : movie.postID}`} key={index}>
             <div key={movie.id} className={styles.carouselContainer} >
               <Image src={movie.primaryMedia} alt={movie.title}
                 width={100} height={70} className={styles.caroselImage} />
@@ -75,7 +75,7 @@ export default function Carosel({ movies, title, latestMovie, trending, type, la
           </Link>
         )}
       </Slider>}
-      {!trending && <Link href={latestMovie?  `/page/Latest movies/1/latestMovies`: latestSeries? `/page/Latest Series/1/latestSeries` : type === 'movies' ?  `/page/${title.toLowerCase()}/1/movie` : `/page/${title.toLowerCase()}/1/series`} className={styles.seeMore}>See more...</Link>}
+      {!trending && <Link href={latestMovie?  `/page/Latest movies/1/latestMovies`: latestSeries? `/page/Latest Series/1/latestSeries` : (movies[0].type === 'movie' || film) ?  `/page/${title.toLowerCase()}/1/movie/${type}` : `/page/${title.toLowerCase()}/1/series/${type}`} className={styles.seeMore}>See more...</Link>}
     </div>
   );
 }
