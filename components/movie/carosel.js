@@ -53,7 +53,7 @@ export default function Carosel({ movies, title, latestMovie, trending, type, la
     slidesToScroll: slideAmount,
     className: 'react__slick__slider__parent',
     autoplay: autoPlay,
-    autoplaySpeed: 3000,
+    autoplaySpeed: 5000,
    
   }
   return (
