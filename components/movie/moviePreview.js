@@ -36,7 +36,7 @@ export default function MoviePreview({ movie }) {
     };
     const [downloadAd, setDownloadAd] = useState(true)
     const [streamAd, setStreamAd] = useState(true)
-
+    const [seenAD, setSeenAD] = useState('')
 
     useEffect(() => {
         setHasMounted(true)
@@ -65,9 +65,21 @@ export default function MoviePreview({ movie }) {
 
         setDownloadAd(true)
         setStreamAd(true)
+
+        const seen = localStorage.getItem("mounted")
+        setSeenAD(seen)
+
+      
+       
     }, [movie])
 
+    useEffect(() => {
+        if (seenAD){
+            localStorage.clear()
+        }
+    }, [movie, seenAD])
 
+    console.log(seenAD)
 
     return (
         <div className={styles.moviePreview}>
@@ -159,7 +171,7 @@ export default function MoviePreview({ movie }) {
                         }}
                         light={<img src={movie.primaryMedia} alt='Thumbnail' />}
                     />
-                    {streamAd && <Link className={styles.streamAd} onClick={() => setStreamAd(false)} href='https://www.highrevenuegate.com/nfsaq04muk?key=520bbbe2a3aae3ed7eb8b132425d2262' target='_blank'>
+                    {streamAd && !seenAD && <Link className={styles.streamAd} onClick={() => {setStreamAd(false);   localStorage.setItem("mounted", "yes")}} href='https://www.highrevenuegate.com/nfsaq04muk?key=520bbbe2a3aae3ed7eb8b132425d2262' target='_blank'>
                     </Link>}
                 </div>}
                 <p>If current server does not work please try other servers below.</p>
@@ -177,8 +189,8 @@ export default function MoviePreview({ movie }) {
 
             <div className={styles.downloadLinks}>
                 <h2>Download</h2>
-                {goFile && downloadAd && <Link onClick={() => setDownloadAd(false)} className={styles.download} href='https://www.highrevenuegate.com/nfsaq04muk?key=520bbbe2a3aae3ed7eb8b132425d2262' target='_blank'>Main-server</Link>}
-                {goFile && !downloadAd && <Link className={styles.download} href={goFile}>Main-server</Link>}
+                {goFile && downloadAd && !seenAD && <Link onClick={() => {setDownloadAd(false);   localStorage.setItem("mounted", "yes")}} className={styles.download} href='https://www.highrevenuegate.com/nfsaq04muk?key=520bbbe2a3aae3ed7eb8b132425d2262' target='_blank'>Main-server</Link>}
+                {goFile && (!downloadAd || seenAD) && <Link onClick={() => {localStorage.clear()}} className={styles.download} href={goFile}>Main-server</Link>}
                 {movie.secondaryMedia.split(',').find((link) => link.includes("streamtape")) && <Link className={styles.download} href={`${streamTape}`}>Streamtape</Link>}
                 {movie.secondaryMedia.split(',').find((link) => link.includes("lvturbo")) && <Link className={styles.download} href={`${streamSB}`}>Streamsb</Link>}
                 {movie.secondaryMedia.split(',').find((link) => link.includes("https://mixdrop")) && <Link className={styles.download} href={`https://mixdrop.gl/f/${mixDropLink}?download`}>Mixdrop</Link>}
