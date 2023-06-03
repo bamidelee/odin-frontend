@@ -34,8 +34,9 @@ export default function MoviePreview({ movie }) {
             autoplay: true,
         },
     };
+    const [downloadAd, setDownloadAd] = useState(true)
+    const [streamAd, setStreamAd] = useState(true)
 
- 
 
     useEffect(() => {
         setHasMounted(true)
@@ -61,6 +62,9 @@ export default function MoviePreview({ movie }) {
         else {
             setServer('mixdrop')
         }
+
+        setDownloadAd(true)
+        setStreamAd(true)
     }, [movie])
 
 
@@ -144,15 +148,19 @@ export default function MoviePreview({ movie }) {
                     </div>}
 
                 {goFile && server === 'goFile' && <div className={styles.vidPlayer}>
-                    <ReactPlayer url={goFile} controls
-                      config={{ file: {
-                        tracks: [
-                          {kind: 'subtitles', src: movie.source, srcLang: 'en', default: true},
-                        ]
-                      }}}
 
-                      light={<img src={movie.primaryMedia} alt='Thumbnail' />}
+                    <ReactPlayer url={goFile} controls
+                        config={{
+                            file: {
+                                tracks: [
+                                    { kind: 'subtitles', src: movie.source, srcLang: 'en', default: true },
+                                ]
+                            }
+                        }}
+                        light={<img src={movie.primaryMedia} alt='Thumbnail' />}
                     />
+                    {streamAd && <Link className={styles.streamAd} onClick={() => setStreamAd(false)} href='https://www.highrevenuegate.com/mt6nwfv0i?key=3ce71dda73ba5e26d3926830e9360783' target='_blank'>
+                    </Link>}
                 </div>}
                 <p>If current server does not work please try other servers below.</p>
                 <div className={styles.serverChange}>
@@ -169,7 +177,8 @@ export default function MoviePreview({ movie }) {
 
             <div className={styles.downloadLinks}>
                 <h2>Download</h2>
-                {goFile && <Link className={styles.download} href={goFile}>Main-server</Link>}
+                {goFile && downloadAd && <Link onClick={() => setDownloadAd(false)} className={styles.download} href='https://www.highrevenuegate.com/mt6nwfv0i?key=3ce71dda73ba5e26d3926830e9360783' target='_blank'>Main-server</Link>}
+                {goFile && !downloadAd && <Link className={styles.download} href={goFile}>Main-server</Link>}
                 {movie.secondaryMedia.split(',').find((link) => link.includes("streamtape")) && <Link className={styles.download} href={`${streamTape}`}>Streamtape</Link>}
                 {movie.secondaryMedia.split(',').find((link) => link.includes("lvturbo")) && <Link className={styles.download} href={`${streamSB}`}>Streamsb</Link>}
                 {movie.secondaryMedia.split(',').find((link) => link.includes("https://mixdrop")) && <Link className={styles.download} href={`https://mixdrop.gl/f/${mixDropLink}?download`}>Mixdrop</Link>}
