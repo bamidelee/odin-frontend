@@ -47,14 +47,15 @@
   margin: 0 auto;
   font-size: 1vmax;
   text-overflow: ellipsis;
-  width: 80%;
-  height: 2.5rem;
+  width: 95%;
+  height: 2.8rem;
   color: var(--fontBlack);
   text-align: center !important;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0;
 }
 
 .carouselContainer .rating {
@@ -103,7 +104,7 @@
 }
 
 .carousel h2{
-  height: 1.5rem;
+  height: 1.9rem;
   overflow: hidden;
 }
 .carousel .rating{

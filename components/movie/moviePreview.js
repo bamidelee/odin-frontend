@@ -38,15 +38,7 @@ export default function MoviePreview({ movie }) {
     const [streamAd, setStreamAd] = useState(true)
     const [seenAD, setSeenAD] = useState('')
 
-    useEffect(() => {
-        setHasMounted(true)
-    }, [])
-    useEffect(() => {
-        !movie.season && hasMounted && createTrend({ variables: { id: movie._id } })
-        if (movie.season) {
-            movie.episode === '1' && createTrend({ variables: { id: movie._id } })
-        }
-    }, [hasMounted])
+
 
     useEffect(() => {
         if (goFile) {
@@ -159,7 +151,7 @@ export default function MoviePreview({ movie }) {
                         <iframe src={`https://lvturbo.com/e/${streamSBLink}`} frameborder='0' marginwidth='0' marginheight='0' scrolling='no' width='640' height='360' allowfullscreen="true" autoplay="true"></iframe>
                     </div>}
 
-                {goFile && server === 'goFile' && <div className={styles.vidPlayer}>
+                {goFile && server === 'goFile' && <div className={styles.vidPlayer} onClick={ () => {!movie.season  && createTrend({ variables: { id: movie._id } });  movie.episode === '1' && createTrend({ variables: { id: movie._id } })}}>
 
                     <ReactPlayer url={goFile} controls
                         config={{
@@ -190,7 +182,7 @@ export default function MoviePreview({ movie }) {
             <div className={styles.downloadLinks}>
                 <h2>Download</h2>
                 {goFile && downloadAd && !seenAD && <Link onClick={() => {setDownloadAd(false);   localStorage.setItem("mounted", "yes")}} className={styles.download} href='https://www.highrevenuegate.com/nfsaq04muk?key=520bbbe2a3aae3ed7eb8b132425d2262' target='_blank'>Main-server</Link>}
-                {goFile && (!downloadAd || seenAD) && <Link onClick={() => {localStorage.clear()}} className={styles.download} href={goFile}>Main-server</Link>}
+                {goFile && (!downloadAd || seenAD) && <Link onClick={() => {localStorage.clear(); !movie.season  && createTrend({ variables: { id: movie._id } });  movie.episode === '1' && createTrend({ variables: { id: movie._id } })}} className={styles.download} href={goFile}>Main-server</Link>}
                 {movie.secondaryMedia.split(',').find((link) => link.includes("streamtape")) && <Link className={styles.download} href={`${streamTape}`}>Streamtape</Link>}
                 {movie.secondaryMedia.split(',').find((link) => link.includes("lvturbo")) && <Link className={styles.download} href={`${streamSB}`}>Streamsb</Link>}
                 {movie.secondaryMedia.split(',').find((link) => link.includes("https://mixdrop")) && <Link className={styles.download} href={`https://mixdrop.gl/f/${mixDropLink}?download`}>Mixdrop</Link>}
