@@ -39,6 +39,16 @@ export default function MoviePreview({ movie }) {
     const [seenAD, setSeenAD] = useState('')
 
 
+    useEffect(() =>{
+        setHasMounted(true)
+    }, [])
+
+    useEffect(() => {
+        if(hasMounted && movie.episode === "1"){
+            createTrend({ variables: { id: movie._id } })
+        } 
+    },[hasMounted])
+
 
     useEffect(() => {
         if (goFile) {
