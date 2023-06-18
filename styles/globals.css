@@ -47,6 +47,42 @@ html {
     align-items: center;
 }
 
+.mobileTop{
+  width: 320px; 
+  height: 100px;
+   border: 0px;
+    padding: 0;
+     overflow:hidden;
+      background-color: transparent;
+}
+
+.pcTop{
+  width: 728px; 
+  height: 90px;
+   border: 0px;
+    padding: 0;
+     overflow:hidden;
+      background-color: transparent;
+}
+
+.mobileBottom{
+  width: 336px; 
+  height: 280px;
+   border: 0px;
+    padding: 0;
+     overflow:hidden;
+      background-color: transparent;
+}
+
+.pcBottom{
+  width: 728px; 
+  height: 90px;
+   border: 0px;
+    padding: 0;
+     overflow:hidden;
+      background-color: transparent;
+}
+
 .slick-arrow{
     height: 100% !important;
     width: 3rem !important;
