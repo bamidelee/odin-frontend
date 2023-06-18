@@ -23,10 +23,14 @@ export default function Search() {
 
   return (
     <div className={styles.search}>
-       <ClientOnly>
-               {  <div className="ads"><iframe  data-aa='2227065' src='//acceptable.a-ads.com/2227065' style={{width:'100%', height:'100%', border:'0px', padding:'0', overflow:'hidden', backgroundColor: 'transparent'}}></iframe></div>}
-            </ClientOnly>
-           
+      <ClientOnly>
+        {mobileBanner && <div className="ads"><iframe data-aa='2226984' src='//ad.a-ads.com/2226984?size=320x100' style={{ width: '320px', height: '100px', border: '0px', padding: '0', overflow: 'hidden', backgroundColor: 'transparent' }}></iframe></div>}
+      </ClientOnly>
+
+      <ClientOnly>
+        {!mobileBanner && <div className="ads"><iframe data-aa='2226990' src='//ad.a-ads.com/2226990?size=728x90' style={{ width: '728px', height: '90px', border: '0px', padding: '0', overflow: 'hidden', backgroundColor: 'transparent' }}></iframe></div>}
+      </ClientOnly>
+
       <h1>Search</h1>
       <div className={styles.inputContainer}>
         <input type="text" placeholder='Start searching...' value={search} onChange={({ target }) => { setSearch(target.value); search && searchDashpost({ variables: { title: search } }) }} />
@@ -34,10 +38,14 @@ export default function Search() {
       </div>
       {!search && <p>Start typing to search </p>}
       {data && search && <div className={styles.searchDashpost}>{data.searchDashpost.length > 0 && <DashCard title='Search Result' dashPosts={data.searchDashpost} />}</div>}
+
       <ClientOnly>
-               {  <div className="ads"><iframe  data-aa='2227065' src='//acceptable.a-ads.com/2227065' style={{width:'100%', height:'100%', border:'0px', padding:'0', overflow:'hidden', backgroundColor: 'transparent'}}></iframe></div>}
-            </ClientOnly>
-           
+        {mobileBanner && <div className="ads"><iframe ddata-aa='2226993' src='//ad.a-ads.com/2226993?size=336x280' style={{ width: '336px', height: '280px', border: '0px', padding: '0', overflow: 'hidden', backgroundColor: 'transparent' }}></iframe></div>}
+      </ClientOnly>
+
+      <ClientOnly>
+        {!mobileBanner && <div className="ads"><iframe data-aa='2226997' src='//ad.a-ads.com/2226997?size=728x90' style={{ width: '728px', height: '90px', border: '0px', padding: '0', overflow: 'hidden', backgroundColor: 'transparent' }}></iframe></div>}
+      </ClientOnly>
     </div>
   )
 }

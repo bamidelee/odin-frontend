@@ -31,7 +31,7 @@ html {
 
 .ads {
  
-    width: 80%;
+    width: fit-content;
     margin: 1rem auto;
 }
 
@@ -117,7 +117,5 @@ html {
         width: 2.5rem !important;
     }
     
-    .ads{
-      width: 90%;
-    }
+   
   }
