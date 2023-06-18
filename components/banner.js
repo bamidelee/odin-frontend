@@ -11,7 +11,7 @@ export default function Banner({ slot }) {
         async: true,
         container: getId(slot),
     }
-    useEffect(() => {
+    /*useEffect(() => {
         if (!banner.current.firstChild) {
             const conf = document.createElement('script')
             const script = document.createElement('script')
@@ -29,10 +29,14 @@ export default function Banner({ slot }) {
                 banner.current.append(script)
             }
         }
-    }, [slot])
+    }, [slot])*/
 
-    return <>
+    return(
+        <></>
+    )
+
+   /* return <>
         <div ref={banner} className='ads' />
         <div id={getId(slot)} className='ads' />
-    </>
+    </>*/
 }

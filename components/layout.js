@@ -5,13 +5,13 @@ import SideBar from "./sidebar";
 import { AppWrapper } from '../context/appContext';
 import Footer from "./footer";
 import Script from "next/script";
-import DesktopBanner from "./desktopBanner";
+
 import Icon from '@mdi/react';
 import { mdiSend } from '@mdi/js';
 import Link from "next/link";
 import Loading from "./loading";
 import ClientOnly from "./Clientonly";
-import Banner from "./banner";
+
 
 
 
@@ -40,6 +40,8 @@ export default function Layout({ children }) {
         <Header mouseX={mouse.x} sideBar={sideBar} setSideBar={setSideBar} />
         <Loading />
         <SideBar sideBar={sideBar} setSideBar={setSideBar} />
+
+       
 
         <main ref={ref} style={{ paddingTop: '4rem' }} onClick={(() => setSideBar(false))}>
         
