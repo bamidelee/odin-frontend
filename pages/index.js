@@ -57,7 +57,7 @@ export default function Home({ popularMovies, popularSeries }) {
         </ClientOnly>
 
         <ClientOnly>
-          {!mobileBanner && <div className="ads"><iframe data-aa='2226997' src='//ad.a-ads.com/2226997?size=728x90' style={{ width: '728px', height: '90px', border: '0px', padding: '0', overflow: 'hidden', backgroundColor: 'transparent' }}></iframe></div>}
+        {!mobileBanner && <div className="ads"><iframe src="https://ads.dochaseadx.com/adx-dir-d/AdDecision?aid=5310&reqin=iframe&w=728&h=90&adpos=atf&nid=13&cb=&ref=&adx_custom=" frameborder="0" scrolling="no" style={{width: '728px', height: '90px'}}></iframe></div>}
         </ClientOnly>
 
       </main>
