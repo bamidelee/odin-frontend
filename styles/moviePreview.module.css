@@ -55,6 +55,7 @@
 
 .description h3 {
     color: var(--fontGold);
+    margin: 0;
 }
 
 .description p {
