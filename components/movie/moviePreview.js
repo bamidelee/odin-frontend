@@ -152,7 +152,7 @@ export default function MoviePreview({ movie }) {
 
 
                 {movie.secondaryMedia.split(',').find((link) => link.includes("streamtape")) && server === 'streamtape' &&
-                    <div>
+                    <div className={styles.vidPlayer}>
                         <iframe src={`https://streamtape.com/e/${streamTapeLink}/`} width="100%" height="100%" allowfullscreen="true" allowtransparency allow="autoplay" scrolling="no" frameborder="0"></iframe>
                     </div>}
 
