@@ -49,7 +49,6 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 2rem;
     padding: 2rem;
 }
 
@@ -177,8 +176,8 @@
 
 .vidPlayer {
     position: relative;
-    width: 80vmax;
-    height: 40vmax;
+    width: 80vw;
+    height: 40vw;
 }
 
 .streamAd {
@@ -211,10 +210,9 @@
 }
 
 .stream video {
-    width: 100vmin !important;
-    height: 360px;
+  
     background-color: black;
-    width: 80vmax !important;
+
    
 }
 
@@ -318,5 +316,10 @@
         padding: 1rem;
 
 
+    }
+
+    .vidPlayer{
+        width: 100vw;
+        height: 80vw;
     }
 }
