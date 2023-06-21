@@ -156,10 +156,12 @@
 }
 
 .stream {
-    width: 60%;
+    width: 80%;
     display: flex;
     justify-content: center;
-    border: 1px solid var(--fontGold);
+    border-top-width: 4px;
+    border-top-style: solid;
+    border-image: linear-gradient(to right, var(--backgroundWhite), var(--fontGold), var(--backgroundWhite)) 1;
     position: relative;
     text-align: center;
     box-sizing: border-box;
@@ -171,11 +173,15 @@
     color: var(--fontBlack);
 }
 
-.vidPlayer{
+
+.vidPlayer {
     position: relative;
+    width: 80vmax;
+    height: 40vmax;
 }
-.streamAd{
-    
+
+.streamAd {
+
     z-index: 3;
     position: absolute;
     height: 100%;
@@ -183,11 +189,12 @@
     top: 0;
     left: 0;
 }
+
 .stream h2 {
     color: var(--fontGold);
     position: absolute;
     background-color: var(--backgroundWhite);
-    top: -2rem;
+    top: -2.3rem;
 }
 
 .stream iframe {
@@ -197,15 +204,17 @@
 
 }
 
-.stream img{
+.stream img {
     height: 100% !important;
     width: 100%;
 }
 
-.stream video{
+.stream video {
     width: 100vmin !important;
     height: 360px;
     background-color: black;
+    width: 80vmax !important;
+   
 }
 
 .stream p {
@@ -237,7 +246,10 @@
 .downloadLinks {
     display: flex;
     justify-content: center;
-    border: 1px solid var(--fontGold);
+    border-top-width: 4px;
+    border-top-style: solid;
+    border-image: linear-gradient(to right, var(--backgroundWhite), var(--fontGold), var(--backgroundWhite)) 1;
+    position: relative;
     position: relative;
     text-align: center;
     box-sizing: border-box;
@@ -253,7 +265,7 @@
     color: var(--fontGold);
     position: absolute;
     background-color: var(--backgroundWhite);
-    top: -2rem;
+    top: -2.3rem;
 }
 
 .trailerButton {
@@ -274,7 +286,7 @@
     font-size: 1.5rem;
 }
 
-  
+
 
 
 
