@@ -46,10 +46,8 @@ export default function Layout({ children }) {
         <main ref={ref} style={{ paddingTop: '4rem' }} onClick={(() => setSideBar(false))}>
         
         
-          <Link href='https://t.me/thenaijaodin' className="telegram">
-            <Icon path={mdiSend} size={1.5} />
-            Join our telegram channel
-          </Link>
+
+          <Link href='https://t.me/thenaijaodin' target="blank" ><div className="glowContainer"><button class='glowing-btn'><span class='glowing-txt'>JOIN<span class='faulty-letter'>OUR</span>TELEGRAM CHANNEL</span></button></div></Link>
 
           {children}
         
