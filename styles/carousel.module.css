@@ -30,15 +30,13 @@
 .carouselTitle {
  
   color: var(--fontGold);
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   letter-spacing: 1px;
-  border: 1px solid var(--fontGold);
   padding-left: 1rem;
-  background-color: var(--borderGrey);
   margin-right: 1rem;
-  font-weight: 700;
+  font-weight: 800;
   width: 90%;
-
+  margin-bottom: 1px;
 
 
 }
@@ -114,6 +112,10 @@
 
 .seeMore{
   margin-right: 4vw;
+}
+
+.carouselTitle{
+  font-size: 1.3rem;
 }
 
 }
