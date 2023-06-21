@@ -127,7 +127,7 @@ export default function MoviePreview({ movie }) {
 
             </div>
             <div className={styles.description}>
-                <h3>Description</h3>
+                <h3>Plot</h3>
                 <p>{movie.description}</p>
             </div>
 
