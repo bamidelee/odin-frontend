@@ -201,6 +201,7 @@
     margin-left: auto !important;
     margin-right: auto !important;
     width: 75vw !important;
+    height: 35vw !important;
 
 }
 
@@ -321,5 +322,10 @@
     .vidPlayer{
         width: 100vw;
         height: 80vw;
+    }
+
+    .stream iframe{
+        width: 100vw !important;
+        height: 80vw !important; 
     }
 }
