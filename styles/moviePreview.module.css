@@ -176,8 +176,8 @@
 
 .vidPlayer {
     position: relative;
-    width: 80vw;
-    height: 40vw;
+    width: 75vw;
+    height: 35vw;
 }
 
 .streamAd {
@@ -200,7 +200,7 @@
 .stream iframe {
     margin-left: auto !important;
     margin-right: auto !important;
-    width: 100vmin !important;
+    width: 75vw !important;
 
 }
 
