@@ -42,7 +42,7 @@ export default function News({ news, latestMovies, pageCount, latestMoviesCount,
       <PostCard news={param[2] === 'latestMovies' ? latestMovies : param[2] === 'latestSeries' ? latestSeries : param[3] === 'country' ? country : news} title={param[0]} page={param[1]} type={param[2]} pageCount={param[2] == 'latestMovies' ? latestMoviesCount : param[2] === 'latestSeries' ? latestSeriesCount : param[3] ? countryCount : pageCount} pageLink={(param[2] === 'latestMovies' || param[2] === 'movie') ? 'movies' : 'series'} country={param[3]} />
 
       <ClientOnly>
-        {mobileBanner && <div className="ads"><iframe src="https://cybertronads.com/platform/show.php?z=-1&pl=2256" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no"></iframe>
+        {mobileBanner && <div className="ads"><iframe src="https://cybertronads.com/platform/show.php?z=27&pl=2256" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no"></iframe>
         </div>}
       </ClientOnly>
 
