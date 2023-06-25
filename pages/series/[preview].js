@@ -23,7 +23,14 @@ export default function Preview({ movie }) {
             </ClientOnly>
 
             <ClientOnly>
+                {mobileBanner && <div className="ads"><iframe src="https://cybertronads.com/platform/show.php?z=-1&pl=2255" width="320" height="50" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no"></iframe></div>}
+            </ClientOnly>
+
+            <ClientOnly>
                 {!mobileBanner && <div className="ads"><iframe data-aa='2226990' src='//ad.a-ads.com/2226990?size=728x90' style={{ width: '728px', height: '90px', border: '0px', padding: '0', overflow: 'hidden', backgroundColor: 'transparent' }}></iframe></div>}
+            </ClientOnly>
+            <ClientOnly>
+                {!mobileBanner && <div className="ads"><iframe src="https://cybertronads.com/platform/show.php?z=-1&pl=2254" width="728" height="90" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no"></iframe></div>}
             </ClientOnly>
 
             <ClientOnly>
@@ -31,11 +38,12 @@ export default function Preview({ movie }) {
             </ClientOnly>
 
             <ClientOnly>
-               {mobileBanner &&  <div className="ads"><iframe ddata-aa='2226993' src='//ad.a-ads.com/2226993?size=336x280'   style={{width:'336px', height:'280px', border:'0px', padding:'0', overflow:'hidden', backgroundColor: 'transparent'}}></iframe></div>}
+                {mobileBanner && <div className="ads"><iframe src="https://cybertronads.com/platform/show.php?z=-1&pl=2256" width="300" height="250" marginwidth="0" marginheight="0" hspace="0" vspace="0" frameborder="0" scrolling="no"></iframe>
+                </div>}
             </ClientOnly>
 
             <ClientOnly>
-               {!mobileBanner &&  <div className="ads"><iframe data-aa='2226997' src='//ad.a-ads.com/2226997?size=728x90'  style={{width:'728px', height:'90px', border:'0px', padding:'0', overflow:'hidden', backgroundColor: 'transparent'}}></iframe></div>}
+                {!mobileBanner && <div className="ads"><iframe data-aa='2226997' src='//ad.a-ads.com/2226997?size=728x90' style={{ width: '728px', height: '90px', border: '0px', padding: '0', overflow: 'hidden', backgroundColor: 'transparent' }}></iframe></div>}
             </ClientOnly>
 
         </div>
