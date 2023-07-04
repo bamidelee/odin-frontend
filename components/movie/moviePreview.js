@@ -19,7 +19,7 @@ export default function MoviePreview({ movie }) {
     const [server, setServer] = useState(' ')
 
     const mixDrop = movie.secondaryMedia.split(',').find((link) => link.includes("https://mixdrop"))
-    const goFile = movie.secondaryMedia.split(',').find((link) => link.includes("gofile"))
+    const goFile = movie.secondaryMedia.split(',').find((link) => link.includes("gofile.io/download/direct"))
     const mixDropLink = mixDrop && mixDrop.split('/')[4]
     const mixDroop = movie.secondaryMedia.split(',').find((link) => link.includes("https://mixdroop"))
     const mixDroopLink = mixDroop && mixDroop.split('/')[4]

@@ -16,6 +16,9 @@ export default function Preview({ movie }) {
             setMobileBanner(true)
         }
     }, [])
+
+   
+
     return (
         <div>
             <ClientOnly>
