@@ -549,6 +549,33 @@ export const POPULAR_MOVIES = gql`
     }
 `
 
+export const ALSO_SEE_MOVIES = gql`
+    query alsoSeeMovie{
+      alsoSeeMovie{ 
+        title
+        primaryMedia
+        trending
+        postID
+        _id
+        type
+        }
+    }
+`
+
+export const ALSO_SEE_SERIES = gql`
+    query alsoSeeSeries{
+      alsoSeeSeries{ 
+        title
+        primaryMedia
+        trending
+        postID
+        _id
+        type
+        }
+    }
+`
+
+
 
 
 export const TRENDING_SERIES = gql`

@@ -1,5 +1,5 @@
 import MoviePreview from "../../components/movie/moviePreview";
-import { FIND_SERIES } from '../../components/quarries';
+import { FIND_SERIES, ALSO_SEE_SERIES } from '../../components/quarries';
 import ClientOnly from "../../components/Clientonly";
 import client from "../../apollo-client";
 
@@ -7,7 +7,7 @@ import { useEffect, useState } from 'react';
 
 import Script from "next/script";
 
-export default function Preview({ movie }) {
+export default function Preview({ movie, alsoSee }) {
     const [mobileBanner, setMobileBanner] = useState(false)
 
     useEffect(() => {
@@ -28,7 +28,7 @@ export default function Preview({ movie }) {
             </ClientOnly>
            
             <ClientOnly>
-                <MoviePreview movie={movie} />
+                <MoviePreview movie={movie} alsoSee={alsoSee} />
             </ClientOnly>
 
             <ClientOnly>
@@ -48,10 +48,12 @@ export default function Preview({ movie }) {
 export async function getStaticProps({ params }) {
     const { preview } = params
     const { data } = await client.query({ query: FIND_SERIES, variables: { id: preview } });
+    const { data:alsoSee } = await client.query({ query: ALSO_SEE_SERIES });
     return {
         props: {
 
-            movie: data.findSeries
+            movie: data.findSeries,
+            alsoSee: alsoSee.alsoSeeSeries
         },
 
     };

@@ -10,10 +10,12 @@ import Icon from '@mdi/react';
 import { mdiArrowCollapseRight } from '@mdi/js';
 import { mdiArrowCollapseLeft } from '@mdi/js';
 import ReactPlayer from 'react-player'
+import DashCard from '../dashCard';
+import ClientOnly from '../Clientonly';
 
 
 
-export default function MoviePreview({ movie }) {
+export default function MoviePreview({ movie, alsoSee }) {
     const [hasMounted, setHasMounted] = useState(false);
     const [createTrend, { data, loading, error }] = useMutation(CREATE_TREND);
     const [server, setServer] = useState(' ')
@@ -37,7 +39,9 @@ export default function MoviePreview({ movie }) {
     const [downloadAd, setDownloadAd] = useState(true)
     const [streamAd, setStreamAd] = useState(true)
     const [seenAD, setSeenAD] = useState('')
-
+   
+    const [random, setRandom] = useState( Math.floor(Math.random()*32))
+    const [mobileBanner, setMobileBanner] = useState(false)
 
     useEffect(() => {
         setHasMounted(true)
@@ -48,6 +52,13 @@ export default function MoviePreview({ movie }) {
             createTrend({ variables: { id: movie._id } })
         }
     }, [hasMounted])
+
+    useEffect(() => {
+
+        if (window.innerWidth < 650) {
+            setMobileBanner(true)
+        }
+    }, [])
 
 
     useEffect(() => {
@@ -71,7 +82,7 @@ export default function MoviePreview({ movie }) {
         const seen = localStorage.getItem("mounted")
         setSeenAD(seen)
 
-
+        setRandom(Math.floor(Math.random()*32))
 
     }, [movie])
 
@@ -230,6 +241,15 @@ export default function MoviePreview({ movie }) {
                     </Link>}
                 </div>
             </div>
+            <ClientOnly>
+                {mobileBanner && <div className="ads"><iframe src="https://ads.dochaseadx.com/adx-dir-d/AdDecision?aid=5320&reqin=iframe&w=300&h=250&adpos=atf&nid=13&cb=&ref=&adx_custom=" frameborder="0" scrolling="no" style={{ width: '300px', height: '250px' }}></iframe></div>}
+            </ClientOnly>
+
+            <ClientOnly>
+                {!mobileBanner && <div className="ads"><iframe src="https://ads.dochaseadx.com/adx-dir-d/AdDecision?aid=5310&reqin=iframe&w=728&h=90&adpos=atf&nid=13&cb=&ref=&adx_custom=" frameborder="0" scrolling="no" style={{ width: '728px', height: '90px' }}></iframe></div>}
+            </ClientOnly>
+
+            <DashCard dashPosts={alsoSee.filter(n => n.title !== movie.title).slice( random, random + 8 )} title={'You might also like'}/>
         </div>
     )
 }

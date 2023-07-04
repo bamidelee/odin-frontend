@@ -1,21 +1,24 @@
 import MoviePreview from "../../components/movie/moviePreview";
-import { FIND_MOVIE } from '../../components/quarries';
+import { FIND_MOVIE, ALSO_SEE_MOVIES } from '../../components/quarries';
 import ClientOnly from "../../components/Clientonly";
 import client from "../../apollo-client";
+import DashCard from "../../components/dashCard";
 
 import { useEffect, useState } from 'react';
 
 import Script from "next/script";
 
-export default function Preview({ movie }) {
+export default function Preview({ movie, alsoSee }) {
     const [mobileBanner, setMobileBanner] = useState(false)
-
+    console.log(alsoSee)
     useEffect(() => {
 
         if (window.innerWidth < 650) {
             setMobileBanner(true)
         }
     }, [])
+
+   
 
    
 
@@ -32,7 +35,7 @@ export default function Preview({ movie }) {
 
 
             <ClientOnly>
-                <MoviePreview movie={movie} />
+                <MoviePreview movie={movie} alsoSee={alsoSee}/>
             </ClientOnly>
 
             <ClientOnly>
@@ -43,6 +46,7 @@ export default function Preview({ movie }) {
                 {!mobileBanner && <div className="ads"><iframe src="https://ads.dochaseadx.com/adx-dir-d/AdDecision?aid=5310&reqin=iframe&w=728&h=90&adpos=atf&nid=13&cb=&ref=&adx_custom=" frameborder="0" scrolling="no" style={{ width: '728px', height: '90px' }}></iframe></div>}
             </ClientOnly>
 
+
         </div>
     )
 }
@@ -51,10 +55,12 @@ export default function Preview({ movie }) {
 export async function getStaticProps({ params }) {
     const { preview } = params
     const { data } = await client.query({ query: FIND_MOVIE, variables: { id: preview } });
+    const { data:alsoSee } = await client.query({ query: ALSO_SEE_MOVIES });
     return {
         props: {
 
-            movie: data.findMovie
+            movie: data.findMovie,
+            alsoSee: alsoSee.alsoSeeMovie
         },
 
     };
