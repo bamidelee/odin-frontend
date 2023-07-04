@@ -40,7 +40,7 @@ export default function MoviePreview({ movie, alsoSee }) {
     const [streamAd, setStreamAd] = useState(true)
     const [seenAD, setSeenAD] = useState('')
    
-    const [random, setRandom] = useState( Math.floor(Math.random()*32))
+    const [random, setRandom] = useState( Math.floor(Math.random()*alsoSee.length-9))
     const [mobileBanner, setMobileBanner] = useState(false)
 
     useEffect(() => {
@@ -82,7 +82,7 @@ export default function MoviePreview({ movie, alsoSee }) {
         const seen = localStorage.getItem("mounted")
         setSeenAD(seen)
 
-        setRandom(Math.floor(Math.random()*32))
+        setRandom(Math.floor(Math.random()*alsoSee.length-9))
 
     }, [movie])
 
