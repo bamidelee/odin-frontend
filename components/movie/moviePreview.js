@@ -43,7 +43,7 @@ export default function MoviePreview({ movie, alsoSee }) {
     const [random, setRandom] = useState( Math.floor(Math.random()* (alsoSee.length-9)))
     const [mobileBanner, setMobileBanner] = useState(false)
 
-    console.log(random)
+   
 
     useEffect(() => {
         setHasMounted(true)
@@ -112,7 +112,7 @@ export default function MoviePreview({ movie, alsoSee }) {
                 <div className={styles.previewRight}>
                     <h2>{movie.title}</h2>
                     <h3>Genre</h3>
-                    <p>
+                    <p className={styles.stars}>
                         {movie.genre.map(genre => <span key={genre}>{genre} / </span>)}
                     </p>
                     <h3>Industry</h3>

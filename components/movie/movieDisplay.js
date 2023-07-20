@@ -9,7 +9,7 @@ import { TRENDING, TRENDING_SERIES } from "../quarries";
 import isYesterday from 'date-fns/isYesterday'
 import isToday from "date-fns/isToday";
 
-export default function MovieDisplay({ latestMovies, comedyMovies, horrorMovies, actionMovies, type, trending, romance, sciFi, southKorea, bollywood, drama, crime }) {
+export default function MovieDisplay({ latestMovies, comedyMovies, horrorMovies, actionMovies, type, trending, romance, sciFi, southKorea, bollywood, drama, crime, adventure, animation }) {
   const [randomLatestMovie,] = useState(latestMovies[Math.floor(Math.random() * latestMovies.length)])
 
 
@@ -43,42 +43,50 @@ export default function MovieDisplay({ latestMovies, comedyMovies, horrorMovies,
       </ClientOnly>
 
       {trending && <ClientOnly>
-        <Carosel movies={trending} title='Trending' trending={true} autoPlay={true}  />
+        <Carosel movies={trending} title='Trending' trending={true} autoPlay={true} />
       </ClientOnly>}
 
       {comedyMovies && <ClientOnly>
-        <Carosel movies={comedyMovies} title='Comedy' type = "" />
+        <Carosel movies={comedyMovies} title='Comedy' type="" />
       </ClientOnly>}
       {horrorMovies && <ClientOnly>
-        <Carosel movies={horrorMovies} title='Horror' type = "" />
+        <Carosel movies={horrorMovies} title='Horror' type="" />
       </ClientOnly>}
 
       {actionMovies && <ClientOnly>
-        <Carosel movies={actionMovies} title='Action'type = ""/>
+        <Carosel movies={actionMovies} title='Action' type="" />
       </ClientOnly>}
 
       {romance && <ClientOnly>
-        <Carosel movies={romance} title='Romance' type = ""  />
+        <Carosel movies={romance} title='Romance' type="" />
       </ClientOnly>}
 
       {sciFi && <ClientOnly>
-        <Carosel movies={sciFi} title='Science fiction'  type = ""/>
+        <Carosel movies={sciFi} title='Science fiction' type="" />
       </ClientOnly>}
 
       {/*southKorea && <ClientOnly>
         <Carosel movies={southKorea} title='South korea' type={type} />
       </ClientOnly>*/}
 
+      {adventure && <ClientOnly>
+        <Carosel movies={adventure} title='Adventure' type="" />
+      </ClientOnly>}
+
+      {animation && <ClientOnly>
+        <Carosel movies={animation} title='Animation' type="" />
+      </ClientOnly>}
+
       {bollywood && <ClientOnly>
-        <Carosel movies={bollywood} title='Bollywood' type='country' film = {true} />
+        <Carosel movies={bollywood} title='Bollywood' type='country' film={true} />
       </ClientOnly>}
 
       {drama && <ClientOnly>
-        <Carosel movies={drama} title='Drama'  type = ""/>
+        <Carosel movies={drama} title='Drama' type="" />
       </ClientOnly>}
 
       {crime && <ClientOnly>
-        <Carosel movies={crime} title='Crime'  type = ""/>
+        <Carosel movies={crime} title='Crime' type="" />
       </ClientOnly>}
 
 
