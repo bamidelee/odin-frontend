@@ -10,7 +10,7 @@
 .carouselContainer img {
   height: 12vw;
   width: 12vw;
-  border-radius: 10px;
+  border-radius: 10px 10px 0px 0px;
 
 }
 
@@ -18,7 +18,7 @@
   position: relative;
   transition: all .5s;
   text-align: center;
-  border: 1px solid var(--fontGold);
+ 
   border-radius: 10px;
   background-color: var(--fontGold);
   width: 12vw;

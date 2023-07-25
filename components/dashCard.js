@@ -28,9 +28,9 @@ export default function DashCard({ dashPosts, title, page, mini, country}) {
                     </Link>
                 )}
             </div>
-            {page && <Link href={`/${page}`}>
+            {/*page && <Link href={`/${page}`}>
                { !mini && <p className={styles.seeMore}>See more...</p>}
-            </Link>}
+                </Link>*/}
         </div>
     )
 }

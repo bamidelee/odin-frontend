@@ -20,7 +20,7 @@
     width: 90%;
     margin: 1rem auto;
     padding-left: .5rem;
-    border: 1px solid var(--fontGold);
+  
     background-color: var(--borderGrey);
     font-size: 1.5rem;
 }
@@ -38,8 +38,8 @@
 
 .item {
 
-    width: 35vmin;
-    height: 55vmin;
+    width: 10rem;
+    height: 12rem;
     display: grid;
     grid-template-rows: 75% 25%;
     border-radius: 10px;
@@ -69,7 +69,7 @@
 }
 
 .itemTitle {
-    font-size: 1rem;
+    font-size: .8rem;
 }
 
 .seeMore {
@@ -89,6 +89,15 @@
 
     .itemTitle {
         font-size: .7rem;
+
+    }
+
+    .item {
+
+        width: 8rem;
+        height: 12rem;
+       
+    
     }
 
 }
