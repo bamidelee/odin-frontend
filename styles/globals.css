@@ -307,12 +307,19 @@ html {
     opacity: .5 !important;
   }
 
+  .main{
+    margin-left: 2rem;
+  }
   @media screen and (max-width: 900px) {
     .slick-arrow{
       display: none !important;
     }
     .slick-next{
         right: 10vw !important;
+    }
+
+    .main{
+      margin-left: 0;
     }
 
 
