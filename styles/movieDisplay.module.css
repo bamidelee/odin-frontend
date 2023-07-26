@@ -27,7 +27,7 @@
 
 .headerDetails {
     color: var(--fontBlack);
-    background-image: linear-gradient(to right, var(--backgroundWhite), rgba(255, 255, 255, 0));
+   
     text-align: center;
     margin-left: auto;
     margin-right: auto;
@@ -37,12 +37,17 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    position: relative;
-    z-index: 3;
+    position: absolute;
+    width: 100%;
+    z-index: 2;
 
+    background-image:linear-gradient(to right, rgb(0, 0, 0), rgb(0, 0, 0),  rgba(0, 0, 0, 0.192));
+    height: 100%;
 
+}
 
-
+.headerDetails div{
+    width: 60%;
 }
 
 
@@ -52,26 +57,37 @@
 }
 
 .fade{
-    position: absolute;
-    background-image: linear-gradient(to right, var(--backgroundWhite), rgba(255, 255, 255, 0.26));
+ 
     height: 100%;
-    width: 60%;
-    z-index: 2;
+    width: 70%;
+    z-index: 1;
+    position: relative;
+    
 }
 
 
 @media screen and (max-width: 750px) {
     .headerDetails {
-        display: none;
+        background-image:linear-gradient(to bottom, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.842),  rgb(0, 0, 0));
+        
     }
 
     .moviesHeader {
        grid-template-columns: 100%;
+       grid-template-rows: 60% 40%;
+       height: 70vh;
     }
 
-    .fade{
-        display: none;
+    .headerImage{
+        grid-row: 1;
     }
+
+    .headerDetails div{
+        width: 100%;
+        margin-top: 25vh;
+    }
+
+   
 
  
 }

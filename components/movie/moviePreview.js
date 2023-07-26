@@ -113,7 +113,7 @@ export default function MoviePreview({ movie, alsoSee }) {
                     <h2>{movie.title}</h2>
                     <h3>Genre</h3>
                     <p className={styles.stars}>
-                        {movie.genre.map(genre => <span key={genre}>{genre} / </span>)}
+                        {movie.genre.map(genre => <span key={genre}>{genre} . </span>)}
                     </p>
                     <h3>Industry</h3>
                     <p>
@@ -129,7 +129,7 @@ export default function MoviePreview({ movie, alsoSee }) {
                     <p>{movie.director}</p>
                     <h3>Stars</h3>
                     <p className={styles.stars}>
-                        {movie.stars.map(genre => <span key={genre}>{genre} / </span>)}
+                        {movie.stars.map(genre => <span key={genre}>{genre} . </span>)}
                     </p>
                     <h3>Realese date</h3>
                     <p>{format(new Date(movie.releaseDate), 'MM/dd/yyyy')}</p>

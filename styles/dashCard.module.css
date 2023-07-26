@@ -8,7 +8,7 @@
 
     border-radius: 10px;
     color: var(--fontBlack);
-    background-color: var(--backgroundWhite);
+   
     width: 90%;
     margin: 2rem auto;
     padding-top: 1rem;
@@ -17,9 +17,8 @@
 
 .dashCard h1 {
     color: var(--fontGold);
-    width: 90%;
-    margin: 1rem auto;
-    padding-left: .5rem;
+    
+    text-align: center;
   
     background-color: var(--borderGrey);
     font-size: 1.5rem;
@@ -33,7 +32,7 @@
     padding: 1rem;
     justify-content: center;
     margin: auto;
-    background-color: var(--backgroundWhite);
+   
 }
 
 .item {
@@ -52,7 +51,7 @@
 
 .itemInfo {
 
-    background-color: var(--fontGold);
+    background-color: var(--backgroundWhite);
     color: var(--fontBlack);
     text-align: center;
     padding: .5rem;
@@ -70,6 +69,7 @@
 
 .itemTitle {
     font-size: .8rem;
+  
 }
 
 .seeMore {
@@ -82,7 +82,7 @@
 
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 950px) {
     .dashCard {
         width: 90%;
     }
@@ -100,4 +100,15 @@
     
     }
 
+
+
+}
+
+@media screen and (max-width: 700px) {
+    .item {
+
+        width: 7rem;
+        height: 12rem;
+    
+    }
 }

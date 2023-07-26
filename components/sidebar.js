@@ -20,29 +20,29 @@ export default function SideBar(props) {
   return (
     <div className={props.sideBar ? `${styles.sidebar} ${styles.open}` : `${styles.sidebar} ${styles.closed}`}>
 
-      <Link href="/" replace onClick={() => props.setSideBar(false)}><Icon path={mdiHome} size={1} />
-        <div className={`${styles.link} ${router.pathname == '/' && styles.activeLink}`}>
+      <Link className={`${styles.link} ${router.pathname == '/' && styles.activeLink}`} href="/" replace onClick={() => props.setSideBar(false)}><Icon path={mdiHome} size={1} />
+        {props.sideBar  &&<div className={`${styles.link} ${router.pathname == '/' && styles.activeLink}`}>
           <span className={styles.linkTop}>Home</span>
           <span class={styles.linkBottom}>Home</span>
-        </div>
+        </div>}
       </Link>
-      <Link href="/movies" onClick={() => props.setSideBar(false)}><Icon path={mdiFilmstrip} size={1} />
-        <div className={`${styles.link} ${router.pathname == '/movies' && styles.activeLink}`}>
+      <Link className={`${styles.link} ${router.pathname == '/movies' && styles.activeLink}`} href="/movies" onClick={() => props.setSideBar(false)}><Icon path={mdiFilmstrip} size={1} />
+        {props.sideBar &&<div className={`${styles.link} ${router.pathname == '/movies' && styles.activeLink}`}>
           <span className={styles.linkTop}>Movies</span>
           <span class={styles.linkBottom}>Movies</span>
-        </div>
+        </div>}
       </Link>
-      <Link href="/series" onClick={() => props.setSideBar(false)}><Icon path={mdiMovieRoll} size={1} />
-        <div className={`${styles.link} ${router.pathname == '/series' && styles.activeLink}`}>
+      <Link className={`${styles.link} ${router.pathname == '/series' && styles.activeLink}`} href="/series" onClick={() => props.setSideBar(false)}><Icon path={mdiMovieRoll} size={1} />
+        { props.sideBar &&<div className={`${styles.link} ${router.pathname == '/series' && styles.activeLink}`}>
           <span className={styles.linkTop}>Series</span>
           <span class={styles.linkBottom}>Series</span>
-        </div>
+        </div>}
       </Link>
-      <Link href="/search" onClick={() => props.setSideBar(false)}><Icon path={mdiMagnify} size={1} />
-        <div className={`${styles.link} ${router.pathname == '/search' && styles.activeLink}`}>
+      <Link className={`${styles.link} ${router.pathname == '/search' && styles.activeLink}`} href="/search" onClick={() => props.setSideBar(false)}><Icon path={mdiMagnify} size={1} />
+        {props.sideBar && <div className={`${styles.link} ${router.pathname == '/search' && styles.activeLink}`}>
           <span className={styles.linkTop}>Search</span>
           <span class={styles.linkBottom}>Search</span>
-        </div>
+        </div>}
       </Link>
      { /*<button onClick={() => setNewsOpen(!newsOpen)}><Icon path={mdiNewspaper} size={1} />News <Icon path={mdiChevronDown} size={1} /></button>*/}
       {/* <div className={styles.newsLinks} style={{ display: newsOpen ? 'flex' : 'none' }}>

@@ -36,8 +36,10 @@
 }
 
 .closed {
-  width: 0px;
-  padding: 0;
+  width: 2rem;
+  padding-left: 2px;
+  padding-right: 2px;
+
 }
 
 .sidebar button {
@@ -173,4 +175,8 @@
   top: 65%;
   transform-origin: left top;
   transform: rotateZ(-2.1deg) scaleX(100%);
+}
+
+.activeLink{
+  color: var(--fontGold) !important;
 }

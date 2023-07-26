@@ -1,10 +1,10 @@
 :root {
     --backgroundBlack: rgb(0, 0, 0);
     --backgroundWhite: rgb(34, 32, 32);
-    --fontGold: rgb(161, 129, 24);
+    --fontGold: rgb(230, 35, 35);
     --borderGrey: #000000;
     --fontBlack: rgb(207, 206, 204);
-    --glow-color: rgb(255, 247, 220);
+    --glow-color: rgb(230, 253, 255);
 
 }
 
@@ -288,14 +288,14 @@ html {
     width: 3rem !important;
     z-index: 5 !important;
     opacity: 0 !important;
-    background-color:rgba(114, 99, 13, 0.678) !important;
+    background-color:var(--fontGold) !important;
     display: block !important;
     transition: all .5s;
   
   }
 
   .slick-next{
-    right: 6vw !important;
+    right: 8vw !important;
     
   }
 
@@ -304,12 +304,15 @@ html {
   }
 
   .slick-arrow:hover{
-    opacity: 1 !important;
+    opacity: .5 !important;
   }
 
-  @media screen and (max-width: 750px) {
+  @media screen and (max-width: 900px) {
+    .slick-arrow{
+      display: none !important;
+    }
     .slick-next{
-        right: 2vw !important;
+        right: 10vw !important;
     }
 
 

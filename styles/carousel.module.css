@@ -3,7 +3,7 @@
   margin: 1rem auto;
   padding: 0;
   border-radius: 10px;
-  background-color: var(--backgroundWhite);
+ 
 
 }
 
@@ -21,7 +21,7 @@
   text-align: center;
  
   border-radius: 10px;
-  background-color: var(--fontGold);
+  background-color: var(--backgroundWhite);
   width: 12vw;
   
 
@@ -75,11 +75,13 @@
 
 .seeMore {
   text-align: right;
+  
   color: var(--fontGold);
   display: block;
-  margin-right: 6vw;
+  padding: 3px;
   font-size: 1.2rem;
   margin-top: 5px;
+  width: 90vw;
 }
 
 @media screen and (max-width: 700px) {
@@ -88,6 +90,8 @@
     width: 15vw;
     border-radius: 10px 10px 0px 0px;
   }
+
+  
 }
 
 
@@ -112,9 +116,7 @@
   left: -1.2rem;
 }
 
-.seeMore{
-  margin-right: 4vw;
-}
+
 
 .carouselTitle{
   font-size: 1.3rem;

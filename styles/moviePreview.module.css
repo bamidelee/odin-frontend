@@ -2,7 +2,6 @@
     position: relative;
     width: 30vmax;
     height: 40vmax;
-    border: 2px solid var(--fontGold);
     justify-self: center;
 
 }
@@ -44,7 +43,6 @@
 }
 
 .moviePreview {
-    background-color: var(--backgroundWhite);
     overflow-x: hidden;
 }
 
@@ -196,7 +194,7 @@
 .stream h2 {
     color: var(--fontGold);
     position: absolute;
-    background-color: var(--backgroundWhite);
+    background-color: var(--borderGrey);
     top: -2.3rem;
 }
 
@@ -267,7 +265,7 @@
 .downloadLinks h2 {
     color: var(--fontGold);
     position: absolute;
-    background-color: var(--backgroundWhite);
+    background-color: var(--borderGrey);
     top: -2.3rem;
 }
 

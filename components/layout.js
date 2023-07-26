@@ -43,7 +43,7 @@ export default function Layout({ children }) {
 
        
 
-        <main ref={ref} style={{ paddingTop: '4rem' }} onClick={(() => setSideBar(false))}>
+        <main ref={ref} style={{ paddingTop: '4rem', marginLeft: "2rem" }} onClick={(() => setSideBar(false))}>
         
         
 
