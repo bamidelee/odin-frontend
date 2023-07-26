@@ -91,6 +91,10 @@
     border-radius: 10px 10px 0px 0px;
   }
 
+  .seeMore{
+    font-size: 1rem;
+  }
+
   
 }
 
@@ -124,6 +128,7 @@
 
 .seeMore{
   font-size: 1rem;
+  width: 99vw;
 }
 
 }
