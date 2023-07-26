@@ -162,7 +162,7 @@
     justify-content: center;
     border-top-width: 4px;
     border-top-style: solid;
-    border-image: linear-gradient(to right, var(--borderGrey), var(--fontGold), var(--backgroundWhite)) 1;
+    border-image: linear-gradient(to right, var(--borderGrey), var(--fontGold), var(--borderGrey)) 1;
     position: relative;
     text-align: center;
     box-sizing: border-box;
@@ -249,7 +249,7 @@
     justify-content: center;
     border-top-width: 4px;
     border-top-style: solid;
-    border-image: linear-gradient(to right, var(--borderGrey), var(--fontGold), var(--backgroundWhite)) 1;
+    border-image: linear-gradient(to right, var(--borderGrey), var(--fontGold), var(--borderGrey)) 1;
     position: relative;
     position: relative;
     text-align: center;
