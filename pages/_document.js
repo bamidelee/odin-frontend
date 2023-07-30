@@ -5,9 +5,8 @@ export default function Document() {
   return (
     <Html lang="en">
       <Head>
-        <meta name="exoclick-site-verification" content="36f890cd1c58742a61865fd15cf4487a"></meta>
-        <meta name="description" content="News and movie download website"></meta>
-        <link rel="icon" href="/titleIcon.jpg/" />
+        <meta name="description" content="Naija's latest and trending movies hub"></meta>
+        <link rel="icon" href="/static/favicon.png/" type="image/png" sizes="48x48" />
       </Head>
       <body>
         <Main />
