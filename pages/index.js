@@ -30,6 +30,7 @@ export default function Home({ popularMovies, popularSeries }) {
     <>
       <Head>
         <title>Naijaodin</title>
+        <meta name="google-site-verification" content="ZEpzKURh3jPMIsVKeE7q72OJPBATtmGlYSiazIGhV0s" />
         <meta name="description" content="Naija's latest and trending movies hub"></meta>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
