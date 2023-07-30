@@ -1,7 +1,7 @@
 import PostList from "../components/postList";
 import { useLazyQuery } from "@apollo/client"
 import { SEARCH_DASHPOST } from "../components/quarries";
-import { useState, useEffect } from 'react';
+import { useState, useEffect, use } from 'react';
 import styles from '../styles/search.module.css'
 
 import Script from "next/script";
@@ -12,6 +12,7 @@ export default function Search() {
   const [search, setSearch] = useState('')
   const [searchDashpost, { data, loading, error }] = useLazyQuery(SEARCH_DASHPOST);
   const [mobileBanner, setMobileBanner] = useState(false)
+  const [dataResult, setDataResult] = useState('')
 
   useEffect(() => {
 
@@ -20,7 +21,13 @@ export default function Search() {
     }
   }, [])
 
+  useEffect(() => {
+    if(data){
+      setDataResult(data.searchDashpost)
+    }
+  }, [data])
 
+console.log(dataResult)
   return (
     <div className={styles.search}>
       <ClientOnly>
@@ -38,6 +45,7 @@ export default function Search() {
         {loading && <div className={styles.loading}></div>}
       </div>
       {!search && <p>Start typing to search </p>}
+      {search && !loading && !dataResult[0] && <h1 className={styles.noResult}>No Result</h1>}
       {data && search && <div className={styles.searchDashpost}>{data.searchDashpost.length > 0 && <DashCard title='Search Result' dashPosts={data.searchDashpost} />}</div>}
 
       <ClientOnly>
