@@ -47,9 +47,9 @@ export default function MovieDisplay({ latestMovies, comedyMovies, horrorMovies,
         <Carosel movies={latestMovies} title='Latest' latestMovie={latestMovies[0].type === 'movie' && true} latestSeries={latestMovies[0].type === 'series' && true} type={type} />
       </ClientOnly>
 
-      <ClientOnly>
+      {requestMovies && <ClientOnly>
         <Carosel movies={requestMovies} title='Requests' requestMovie={requestMovies[0].type === 'movie' && true} requestSeries={requestMovies[0].type === 'series' && true} type={type} />
-      </ClientOnly>
+      </ClientOnly>}
 
       {trending && <ClientOnly>
         <Carosel movies={trending} title='Trending' trending={true} autoPlay={true} />
