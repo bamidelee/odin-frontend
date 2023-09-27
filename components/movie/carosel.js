@@ -9,7 +9,7 @@ import Image from 'next/image'
 
 
 
-export default function Carosel({ movies, title, latestMovie, trending, type, latestSeries, autoPlay, film}) {
+export default function Carosel({ movies, title, latestMovie, trending, type, latestSeries, autoPlay, film, requestMovie, requestSeries}) {
   const [slideAmount, setSlideAmount] = useState(7)
   useEffect(() => {
     if (window.innerWidth < 700) {
@@ -75,7 +75,7 @@ export default function Carosel({ movies, title, latestMovie, trending, type, la
           </Link>
         )}
       </Slider>}
-      {!trending && <Link href={latestMovie?  `/page/Latest movies/1/latestMovies`: latestSeries? `/page/Latest Series/1/latestSeries` : (movies[0].type === 'movie' || film) ?  `/page/${title.toLowerCase()}/1/movie/${type}` : `/page/${title.toLowerCase()}/1/series/${type}`} className={styles.seeMore}>See more...</Link>}
+      {!trending && <Link href={latestMovie?  `/page/Latest movies/1/latestMovies`: requestMovie?  `/page/Request movies/1/requestMovies`: latestSeries? `/page/Latest Series/1/latestSeries` : requestSeries? `/page/Request Series/1/requestSeries` : (movies[0].type === 'movie' || film) ?  `/page/${title.toLowerCase()}/1/movie/${type}` : `/page/${title.toLowerCase()}/1/series/${type}`} className={styles.seeMore}>See more...</Link>}
     </div>
   );
 }

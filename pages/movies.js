@@ -1,4 +1,4 @@
-import { LATEST_MOVIES, TRENDING, NEWS_PAGE, FIND_CONTENT_BY_COUNTRY } from "../components/quarries";
+import { LATEST_MOVIES, TRENDING, NEWS_PAGE, FIND_CONTENT_BY_COUNTRY, REQUEST_MOVIES } from "../components/quarries";
 import { useState, useEffect } from "react";
 import client from "../apollo-client";
 import MovieDisplay from "../components/movie/movieDisplay";
@@ -9,7 +9,7 @@ import ClientOnly from "../components/Clientonly";
 
 
 
-export default function Movies({ latestMovies, comedyMovies, horrorMovies, actionMovies, trending, romanceMovies, sciFiMovies, southKorea, bollywood, adventure, animation }) {
+export default function Movies({ latestMovies, comedyMovies, horrorMovies, actionMovies, trending, romanceMovies, sciFiMovies, southKorea, bollywood, adventure, animation,nollywood, requestMovies }) {
   const [mobileBanner, setMobileBanner] = useState(false)
 
 
@@ -33,7 +33,7 @@ export default function Movies({ latestMovies, comedyMovies, horrorMovies, actio
 
 
 
-      <MovieDisplay latestMovies={latestMovies} comedyMovies={comedyMovies} horrorMovies={horrorMovies} actionMovies={actionMovies} trending={trending} type='movies' romance={romanceMovies} sciFi={sciFiMovies} southKorea={southKorea} bollywood={bollywood} adventure = {adventure} animation = {animation} />
+      <MovieDisplay latestMovies={latestMovies} comedyMovies={comedyMovies} horrorMovies={horrorMovies} actionMovies={actionMovies} trending={trending} type='movies' romance={romanceMovies} sciFi={sciFiMovies} southKorea={southKorea} bollywood={bollywood} adventure = {adventure} animation = {animation} nollywood = {nollywood} requestMovies = {requestMovies} />
 
       <ClientOnly>
         {mobileBanner && <div className="ads"><iframe src="https://ads.dochaseadx.com/adx-dir-d/AdDecision?aid=5320&reqin=iframe&w=300&h=250&adpos=atf&nid=13&cb=&ref=&adx_custom=" frameborder="0" scrolling="no" style={{ width: '300px', height: '250px' }}></iframe></div>}
@@ -52,6 +52,7 @@ export default function Movies({ latestMovies, comedyMovies, horrorMovies, actio
 
 export async function getStaticProps() {
   const { data: latestMovieData } = await client.query({ query: LATEST_MOVIES, variables: { pageNumber: '1' } });
+  const { data: requestMovieData } = await client.query({ query: REQUEST_MOVIES, variables: { pageNumber: '1' } });
   const { data: comedyData } = await client.query({ query: NEWS_PAGE, variables: { genre: "comedy", pageNumber: "1", type: "movie" } });
   const { data: horrorData } = await client.query({ query: NEWS_PAGE, variables: { genre: "horror", pageNumber: "1", type: "movie" } });
   const { data: actionData } = await client.query({ query: NEWS_PAGE, variables: { genre: "action", pageNumber: "1", type: "movie" } });
@@ -62,12 +63,14 @@ export async function getStaticProps() {
   const { data: bollywoodData } = await client.query({ query: FIND_CONTENT_BY_COUNTRY, variables: { country: "bollywood", pageNumber: "1" } });
   const { data: adventureData } = await client.query({ query: NEWS_PAGE, variables: { genre: "adventure", pageNumber: "1", type: "movie" } });
   const { data: animationData } = await client.query({ query: NEWS_PAGE, variables: { genre: "animation", pageNumber: "1", type: "movie" } });
+  const { data: nollywoodData } = await client.query({ query: FIND_CONTENT_BY_COUNTRY, variables: { country: "nollywood", pageNumber: "1" } });
 
 
   return {
     props: {
 
       latestMovies: latestMovieData.latestMovies,
+      requestMovies: requestMovieData.requestMovies,
       comedyMovies: comedyData.newsPage,
       horrorMovies: horrorData.newsPage,
       actionMovies: actionData.newsPage,
@@ -77,7 +80,8 @@ export async function getStaticProps() {
       southKorea: southKoreaData.findContentByCountry,
       bollywood: bollywoodData.findContentByCountry,
       adventure: adventureData.newsPage,
-      animation: animationData.newsPage
+      animation: animationData.newsPage,
+      nollywood: nollywoodData.findContentByCountry,
 
     },
 

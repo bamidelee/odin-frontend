@@ -114,9 +114,25 @@ export const MOVIE_COUNT = gql`
     }
 `
 
+export const REQUEST_MOVIE_COUNT = gql`
+    query requestMovieCount{
+        requestMoviesCount{
+           count
+        }
+    }
+`
+
 export const LATEST_SERIES_COUNT = gql`
     query LatestSeriesCount{
         latestSeriesCount{
+           count
+        }
+    }
+`
+
+export const REQUEST_SERIES_COUNT = gql`
+    query requestSeriesCount{
+        requestSeriesCount{
            count
         }
     }
@@ -181,9 +197,37 @@ export const LATEST_MOVIES = gql`
     }
 `
 
+export const REQUEST_MOVIES = gql`
+    query requestMovies($pageNumber: String){
+        requestMovies(pageNumber: $pageNumber){
+            title
+            description
+            primaryMedia
+            date
+            _id
+            postID
+            type
+        }
+    }
+`
+
 export const LATEST_SERIES = gql`
     query latestSeries($pageNumber: String){
         latestSeries(pageNumber: $pageNumber){
+            title
+            description
+            primaryMedia
+            date
+            _id
+            postID
+            type
+        }
+    }
+`
+
+export const REQUEST_SERIES = gql`
+    query requestSeries($pageNumber: String){
+        requestSeries(pageNumber: $pageNumber){
             title
             description
             primaryMedia

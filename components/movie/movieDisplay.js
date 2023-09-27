@@ -9,7 +9,7 @@ import { TRENDING, TRENDING_SERIES } from "../quarries";
 import isYesterday from 'date-fns/isYesterday'
 import isToday from "date-fns/isToday";
 
-export default function MovieDisplay({ latestMovies, comedyMovies, horrorMovies, actionMovies, type, trending, romance, sciFi, southKorea, bollywood, drama, crime, adventure, animation }) {
+export default function MovieDisplay({ latestMovies, comedyMovies, horrorMovies, actionMovies, type, trending, romance, sciFi, southKorea, bollywood, drama, crime, adventure, animation, nollywood, requestMovies }) {
   const [randomLatestMovie,] = useState(latestMovies[Math.floor(Math.random() * latestMovies.length)])
 
 
@@ -45,6 +45,10 @@ export default function MovieDisplay({ latestMovies, comedyMovies, horrorMovies,
       </ClientOnly>
       <ClientOnly>
         <Carosel movies={latestMovies} title='Latest' latestMovie={latestMovies[0].type === 'movie' && true} latestSeries={latestMovies[0].type === 'series' && true} type={type} />
+      </ClientOnly>
+
+      <ClientOnly>
+        <Carosel movies={requestMovies} title='Requests' requestMovie={requestMovies[0].type === 'movie' && true} requestSeries={requestMovies[0].type === 'series' && true} type={type} />
       </ClientOnly>
 
       {trending && <ClientOnly>
@@ -84,6 +88,10 @@ export default function MovieDisplay({ latestMovies, comedyMovies, horrorMovies,
 
       {bollywood && <ClientOnly>
         <Carosel movies={bollywood} title='Bollywood' type='country' film={true} />
+      </ClientOnly>}
+
+      {nollywood && <ClientOnly>
+        <Carosel movies={nollywood} title='Nollywood' type='country' film={true} />
       </ClientOnly>}
 
       {drama && <ClientOnly>

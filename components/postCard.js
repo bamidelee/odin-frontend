@@ -7,7 +7,7 @@ import DashCard from './dashCard'
 import { useState, useEffect } from 'react'
 
 export default function PostCard({ news, title, page, type, pageCount, pageLink, countryName }) {
-    const [count, setCount] = useState(Math.floor(pageCount / 10))
+    const [count, setCount] = useState(Math.floor(pageCount / 15))
     const [country, setCountry] = useState(countryName? countryName: "")
    
     
@@ -25,7 +25,7 @@ export default function PostCard({ news, title, page, type, pageCount, pageLink,
             </div>}
 
             {count > 8 && <div className={styles.pagnation}>
-                <Link href={title === 'Latest movies' ? `/page/${title}/1/latestMovies` : `/page/${title.toLowerCase()}/1/${type}/${country}`} className={parseInt(page) === 1 ? styles.activePage : styles.inactivePage}>1</Link>
+                <Link href={title === 'Latest movies' ? `/page/${title}/1/${type}` : `/page/${title.toLowerCase()}/1/${type}/${country}`} className={parseInt(page) === 1 ? styles.activePage : styles.inactivePage}>1</Link>
                 <Link href={title === 'Latest movies' ? `/page/${title}/2/latestMovies` : `/page/${title.toLowerCase()}/2/${type}/${country}`} className={parseInt(page) === 2 ? styles.activePage : styles.inactivePage}>2</Link>
                 {parseInt(page) > 4 && <div>...</div>}
                 <Link href={title === 'Latest movies' ? `/page/${title}/${(parseInt(page) >= 5 && parseInt(page) < count - 3) ? parseInt(page) - 2 : parseInt(page) >= count - 3 ? count - 6 : 3}/latestMovies` : `/page/${title.toLowerCase()}/${(parseInt(page) >= 5 && parseInt(page) < count - 3) ? parseInt(page) - 2 : parseInt(page) >= count - 3 ? count - 6 : 3}/${type}/${country}`} className={parseInt(page) === 3 ? styles.activePage : styles.inactivePage}>{(parseInt(page) >= 5 && parseInt(page) < count - 3) ? parseInt(page) - 2 : parseInt(page) >= count - 3 ? count - 6 : 3}</Link>
